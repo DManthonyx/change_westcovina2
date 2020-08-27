@@ -1,11 +1,13 @@
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
+import { colors } from '../Const'
 
 export const NavContainer = styled.div`
   background-color: ${props => props.color ? props.color : "black"};
   position: absolute;
   z-index: 100;
   width: 100%;
+  visibility: hidden;
 `
 
 // export const NavRowContainer = styled.div`
@@ -13,9 +15,8 @@ export const NavContainer = styled.div`
 // `
 
 export const NavRow = styled.div`
-  padding: 10px 0;
-  text-align: right;
-  margin-right: 21px;
+  padding: 10px;
+  display: flex;
   @media (max-width: 950px) {
     a {
       display:none;
@@ -23,7 +24,32 @@ export const NavRow = styled.div`
   }
 `
 
+export const NavRowLeft = styled.div`
+  display: flex;
+  width: 50%;
+`
+
+export const NavRowRight = styled.div`
+    width: 50%;
+    text-align: right;
+    padding-right: 86px;
+`
+
+export const Logo = styled.img`
+    width: 100px;
+    height: 80px;
+`
+
+export const Title = styled.h1`
+  font-size: 2.5em;
+  color: ${colors.main};
+  display: flex;
+  align-items: center;
+  padding-left: 42px;
+`
+
 export const Link = styled(NavLink)`
+  font-size: .9em;
   display:inline-block;
   text-decoration: none;
   padding: 15px;
@@ -33,9 +59,9 @@ export const Link = styled(NavLink)`
    
   }
   &.active{
-    border-bottom: 1px solid black;
+    border-bottom: 3px solid ${colors.secondary};
     transform: scale(1.5);
-    color: #f5c303;
+    color: ${colors.main};
   }
 `
 

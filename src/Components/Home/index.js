@@ -1,10 +1,15 @@
 import React from 'react'
 
+import {
+    Main,
+    BackgroundImage
+} from './style'
+
 const Home = () => {
     return (
-        <>
-        Home
-        </>
+        <Main>
+            <BackgroundImage src="https://i.imgur.com/RR0TkID.png" />
+        </Main>
     )
 }
 

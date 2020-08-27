@@ -8,7 +8,11 @@ import {
     Li,
     Link,
     HamLink,
-    Overlay
+    Overlay,
+    Logo,
+    NavRowLeft,
+    NavRowRight,
+    Title
    } from './style'
 
 
@@ -21,11 +25,17 @@ const NavBar = ({routes = []}) => {
     return (
         <NavContainer color={"white"} display={""}>
         <NavRow>
-          {
-            routes.map((route, i) =>
-              <Link exact to={`/${route}`} key={i}>{route}</Link>
-            ) 
-          }
+            <NavRowLeft>
+                <Logo src="https://i.imgur.com/RMl2laN.jpg" />
+                {/* <Title>Change West Covina</Title> */}
+            </NavRowLeft>
+            <NavRowRight>
+                {
+                    routes.map((route, i) =>
+                    <Link exact to={`/${route}`} key={i}>{route}</Link>
+                    ) 
+                }
+            </NavRowRight>
           <Hamburger setIsOpen={setIsOpen} isOpen={isOpen}/>
         </NavRow>
         <Overlay className={isOpen ? "show" : "hide"}>
