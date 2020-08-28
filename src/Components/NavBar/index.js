@@ -19,14 +19,21 @@ import {
 const NavBar = ({routes = []}) => {
 
     const [ isOpen, setIsOpen ] = useState(false)
+    const [ isHidden, setIsHidden ] = useState(false)
 
-    window.onresize = () => (window.innerWidth > 900 && isOpen) && setIsOpen(false)
+    const load = () => {
+        setTimeout(() => setIsHidden(true), 3000)
+    }
+
+    window.onload = () => (setTimeout(() => setIsHidden(true), 3000))
+
+    window.onresize = () =>  (window.innerWidth > 900 && isOpen) && setIsOpen(false)
 
     return (
-        <NavContainer color={"white"} display={""}>
+        <NavContainer color={"white"} visible={isHidden}>
         <NavRow>
             <NavRowLeft>
-                <Logo src="https://i.imgur.com/RMl2laN.jpg" />
+                {/* <Logo src="https://i.imgur.com/RMl2laN.jpg" /> */}
                 {/* <Title>Change West Covina</Title> */}
             </NavRowLeft>
             <NavRowRight>

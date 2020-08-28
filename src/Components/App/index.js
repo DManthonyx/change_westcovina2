@@ -10,7 +10,7 @@ import News from '../News';
 import Resources from '../Resources';
 
 
-import { routes } from '../Const'
+import { routes } from '../../Const'
 import {
     PageWrapper,
     ContentWrapper

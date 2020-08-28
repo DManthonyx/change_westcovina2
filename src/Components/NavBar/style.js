@@ -1,13 +1,20 @@
-import styled from 'styled-components'
+import styled,{ keyframes } from 'styled-components'
 import { NavLink } from 'react-router-dom'
-import { colors } from '../Const'
+import { colors } from '../../Const'
+
+const transitionHomePage =  keyframes`
+    0% { opacity: 0 }
+    25% { opacity: .25 }
+    50% { opacity: .5 }
+    75% { opacity: .75 }
+    100% { opacity: 1 }
+`
 
 export const NavContainer = styled.div`
   background-color: ${props => props.color ? props.color : "black"};
   position: absolute;
   z-index: 100;
   width: 100%;
-  visibility: hidden;
 `
 
 // export const NavRowContainer = styled.div`
