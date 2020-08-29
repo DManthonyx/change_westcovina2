@@ -12,7 +12,7 @@ export const Img = styled.img`
 `
 
 export const Pin = styled(MapPin)`
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
     color: red;
 `

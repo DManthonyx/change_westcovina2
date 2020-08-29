@@ -3,6 +3,7 @@ import { FacebookSquare } from '@styled-icons/boxicons-logos/FacebookSquare'
 import { Instagram } from '@styled-icons/boxicons-logos/Instagram'
 import { LinkedinSquare } from '@styled-icons/boxicons-logos/LinkedinSquare'
 import { EmailOutline } from '@styled-icons/evaicons-outline/EmailOutline'
+import { colors } from '../../Const'
 
 export const Main = styled.main`
 
@@ -47,21 +48,37 @@ export const Img = styled.img`
 export const Facebook = styled(FacebookSquare)`
     width: 40px;
     height: 40px;
+    &:hover {
+        color: ${colors.main};
+        transform: scale(1.3)
+    }
 `
 
 export const Insta = styled(Instagram)`
     width: 40px;
     height: 40px;
+    &:hover {
+        color: ${colors.main};
+        transform: scale(1.3)
+    }
 `
 
 export const LinkedIn = styled(LinkedinSquare)`
     width: 40px;
     height: 40px;
+    &:hover {
+        color: ${colors.main};
+        transform: scale(1.3)
+    }
 `
 
 export const Email = styled(EmailOutline)`
     width: 40px;
     height: 40px;
+    &:hover {
+        color: ${colors.main};
+        transform: scale(1.3)
+    }
 `
 
 
