@@ -4,6 +4,11 @@ const initState = {
 
 const authReducer = (state = initState, action) => {
     switch(action.type) {
+        case 'AUTHSTATE_SUCCESS':
+            return {
+                ...state,
+                auth: action.auth
+            }
         case 'SIGNUP_SUCCESS':
             console.log('sign up sucess', action.auth)
             return {

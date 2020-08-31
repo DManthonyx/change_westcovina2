@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 import Hamburger from '../Hamburger'
 import { signedInRoutes } from '../../Const'
@@ -8,6 +8,7 @@ import { signedOutRoutes } from '../../Const'
 
 import { connect } from 'react-redux'
 import { SignOut } from '../../Store/Actions/authActions'
+import { AuthState } from '../../Store/Actions/authActions'
 
 import { 
     NavContainer,
@@ -36,6 +37,10 @@ const NavBar = (props) => {
     const load = () => {
         setTimeout(() => setIsHidden(true), 3000)
     }
+
+    useEffect(() => {
+      console.log(props.authState())
+    })
 
     window.onload = () => (setTimeout(() => setIsHidden(true), 3000))
 
@@ -115,7 +120,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    signOut: () => dispatch(SignOut())
+    signOut: () => dispatch(SignOut()),
+    authState: () => dispatch(AuthState())
   }
 }
 

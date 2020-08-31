@@ -1,3 +1,20 @@
+export const AuthState = () => {
+    return (dispatch, getState, {getFirebase, getFirestore}) => {
+        try{
+            const firebase = getFirebase()
+            console.log(firebase, 'this is firebase')
+    
+            const auth = firebase.auth().currentUser
+            if(auth) {
+                dispatch({type: 'AUTHSTATE_SUCCESS', auth})
+            } 
+        } catch(err) {
+            dispatch({type: 'LOGIN_ERROR', err});
+            console.log(err)
+        }
+    }
+}
+
 export const SignIn = (credentials) => {
     return (dispatch, getState, { getFirebase }) => {
         const firebase = getFirebase()

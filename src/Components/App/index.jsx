@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import { withFirebase } from '../Firebase'
+import { connect } from 'react-redux'
 
+// import { withFirebase } from '../Firebase'
 
 import NavBar from '../NavBar';
 import Home from '../Home';
@@ -14,7 +15,8 @@ import LogIn from '../Auth/LogIn';
 
 import {
     PageWrapper,
-    ContentWrapper
+    ContentWrapper,
+    Section
 } from './style'
 
 
@@ -27,13 +29,17 @@ const My404 = () => {
    
 
 const App = ({ location }) => {
+
+    useEffect(() => {
+        console.log(true)
+    })
     return (
         <PageWrapper>
             <NavBar />
             <ContentWrapper>
             <TransitionGroup className="transition-group">
             <CSSTransition key={location.key} timeout={{ enter: 300, exit: 300 }} classNames="fade">
-            <section className="route-section">
+            <Section className="route-section">
             <Switch>
                 <Route exact path='/' render={() => <Home /> }  />
                 <Route exact path='/home' render={() => <Home /> }  />
@@ -44,7 +50,7 @@ const App = ({ location }) => {
                 <Route exact path='/login' render={() => <LogIn />}  />
                 <Route component={ My404 } />
             </Switch>
-            </section>
+            </Section>
             </CSSTransition>
             </TransitionGroup>
             </ContentWrapper>
@@ -52,6 +58,19 @@ const App = ({ location }) => {
     )   
 }
 
-export default withRouter(withFirebase(App))
+const mapStateToProps = (state) => {
+    return {
+        authError: state.auth.authError
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        authState: () => dispatch()
+    }
+}
+
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App))
 
 
