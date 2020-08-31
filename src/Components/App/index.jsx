@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { withFirebase } from '../Firebase'
 
 
 import NavBar from '../NavBar';
@@ -8,9 +9,9 @@ import Home from '../Home';
 import About from '../About';
 import News from '../News';
 import Resources from '../Resources';
+import SignUp from '../Auth/SignUp';
+import LogIn from '../Auth/LogIn';
 
-
-import { routes } from '../../Const'
 import {
     PageWrapper,
     ContentWrapper
@@ -28,7 +29,7 @@ const My404 = () => {
 const App = ({ location }) => {
     return (
         <PageWrapper>
-            <NavBar routes={ routes }/>
+            <NavBar />
             <ContentWrapper>
             <TransitionGroup className="transition-group">
             <CSSTransition key={location.key} timeout={{ enter: 300, exit: 300 }} classNames="fade">
@@ -39,6 +40,8 @@ const App = ({ location }) => {
                 <Route exact path='/about' render={() => <About />}  />
                 <Route exact path='/news' render={() => <News />}  />
                 <Route exact path='/resources' render={() => <Resources />}  />
+                <Route exact path='/signup' render={() => <SignUp />}  />
+                <Route exact path='/login' render={() => <LogIn />}  />
                 <Route component={ My404 } />
             </Switch>
             </section>
@@ -49,6 +52,6 @@ const App = ({ location }) => {
     )   
 }
 
-export default withRouter(App)
+export default withRouter(withFirebase(App))
 
 

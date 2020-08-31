@@ -1,4 +1,6 @@
-export const routes = ['home', 'about', 'news', 'resources', 'signup'];
+export const signedInRoutes = ['home', 'about', 'news', 'resources'];
+
+export const signedOutRoutes = ['home', 'about', 'news', 'resources', 'login'];
 
 export const colors = {
     main: '#cb7217',

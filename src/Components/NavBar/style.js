@@ -72,6 +72,14 @@ export const Link = styled(NavLink)`
   }
 `
 
+export const LogOutLink = styled.p`
+    display:inline-block;
+    text-decoration: none;
+    padding: 15px;
+    text-transform: uppercase;
+    color: black;
+`
+
 export const HamLink = styled(NavLink)`
   display:inline-block;
   text-decoration: none;
@@ -88,6 +96,14 @@ export const HamLink = styled(NavLink)`
     border-bottom: none;
     color: gold;
   }
+`
+
+export const LogOutHamLink = styled.p`
+    display:inline-block;
+    text-decoration: none;
+    padding: 15px;
+    text-transform: uppercase;
+    color: white;
 `
 
 export const Overlay = styled.div`
@@ -114,5 +130,7 @@ export const Ul = styled.ul`
 
 export const Li = styled.li`
   list-style: none;
+`
+export const Div = styled.div`
 `
 

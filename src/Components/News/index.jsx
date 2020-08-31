@@ -1,4 +1,6 @@
 import React from 'react'
+import MessageForm from './messageForm'
+import MessageList from './messageList'
 
 import {
 
@@ -8,6 +10,8 @@ const News = () => {
     return (
         <>
         News
+        <MessageForm />
+        <MessageList />
         </>
     )
 }
