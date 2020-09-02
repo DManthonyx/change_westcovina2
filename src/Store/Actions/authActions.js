@@ -1,12 +1,11 @@
 export const AuthState = () => {
     return (dispatch, getState, {getFirebase, getFirestore}) => {
-        try{
+        try {
             const firebase = getFirebase()
             console.log(firebase, 'this is firebase')
-    
             const auth = firebase.auth().currentUser
             if(auth) {
-                dispatch({type: 'AUTHSTATE_SUCCESS', auth})
+              dispatch({type: 'AUTHSTATE_SUCCESS', auth})
             } 
         } catch(err) {
             dispatch({type: 'LOGIN_ERROR', err});
@@ -18,7 +17,6 @@ export const AuthState = () => {
 export const SignIn = (credentials) => {
     return (dispatch, getState, { getFirebase }) => {
         const firebase = getFirebase()
-
         firebase.auth().signInWithEmailAndPassword(credentials.email, credentials.password)
         .then((auth) => {
             dispatch({type: 'LOGIN_SUCCESS', auth})
@@ -31,7 +29,6 @@ export const SignIn = (credentials) => {
 export const SignOut = () => {
     return (dispatch, getState, {getFirebase}) => {
         const firebase = getFirebase();
-
         firebase.auth().signOut()
         .then(() => {
             dispatch({type: 'SIGNOUT_SUCCESS'});
@@ -45,7 +42,6 @@ export const SignUp = (credentials) => {
     return (dispatch, getState, {getFirebase, getFirestore}) => {
         const firebase = getFirebase();
         const firestore = getFirestore()
-
         firebase.auth().createUserWithEmailAndPassword(credentials.email, credentials.password)
         .then((auth) => {
             firestore.collection('user').doc(auth.user.uid).set({
