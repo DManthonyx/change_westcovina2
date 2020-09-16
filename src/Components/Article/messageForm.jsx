@@ -1,20 +1,20 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { createMessage } from '../../Store/Actions/messageAction'
+import { CreateArticle } from '../../Store/Actions/messageAction'
 
 const MessageForm = (props) => {
 
-    const [message, setMessage] = useState({
+    const [article, setMessage] = useState({
         text: ''
     })
 
     const onInputChange = (e) => { 
-        setMessage({...message, [e.target.name]: e.target.value }) 
+        setMessage({...article, [e.target.name]: e.target.value }) 
     };
 
     const sendMessage = (e) => {
         e.preventDefault()
-        props.createMessage(message)
+        props.createArticle(article)
     }
 
     return (
@@ -29,7 +29,7 @@ const MessageForm = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        createMessage: (message) => dispatch(createMessage(message))
+        createArticle: (article) => dispatch(CreateArticle(article))
     }
 }
 

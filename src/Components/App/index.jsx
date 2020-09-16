@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 import NavBar from '../NavBar';
 import Home from '../Home';
 import About from '../About';
-import News from '../News';
+import Article from '../Article';
 import Resources from '../Resources';
 import SignUp from '../Auth/SignUp';
 import LogIn from '../Auth/LogIn';
@@ -44,7 +44,7 @@ const App = ({ location }) => {
                 <Route exact path='/' render={() => <Home /> }  />
                 <Route exact path='/home' render={() => <Home /> }  />
                 <Route exact path='/about' render={() => <About />}  />
-                <Route exact path='/news' render={() => <News />}  />
+                <Route exact path='/article' render={() => <Article />}  />
                 <Route exact path='/resources' render={() => <Resources />}  />
                 <Route exact path='/signup' render={() => <SignUp />}  />
                 <Route exact path='/login' render={() => <LogIn />}  />

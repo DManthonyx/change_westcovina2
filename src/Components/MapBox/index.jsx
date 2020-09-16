@@ -19,10 +19,6 @@ const Mapbox = (props) => {
 
     const [selectedResource, setSelectedResource] = useState(null);
 
-    useEffect(()=> {
-
-    }, [])
-    console.log(props.resources)
     return (
         <ReactMapGL
             {...viewport}

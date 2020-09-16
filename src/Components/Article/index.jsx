@@ -6,14 +6,14 @@ import {
 
 } from './style'
 
-const News = () => {
+const Article = () => {
     return (
         <>
-        News
+        article
         <MessageForm />
         <MessageList />
         </>
     )
 }
 
-export default News
+export default Article
