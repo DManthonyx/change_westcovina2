@@ -3,7 +3,7 @@ import { firestoreConnect } from 'react-redux-firebase'
 import { connect }  from 'react-redux'
 import { compose }  from 'redux'
 
-const MessageList = (props) => {
+const List = (props) => {
     return (
         <>
         </>
@@ -23,4 +23,4 @@ export default compose(
     firestoreConnect([
         { collection: 'messages'}
     ])
-)(MessageList)
+)(List)

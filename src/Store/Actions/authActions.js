@@ -1,11 +1,11 @@
-export const AuthState = () => {
+export const CheckAuthState = () => {
     return (dispatch, getState, {getFirebase, getFirestore}) => {
         try {
             const firebase = getFirebase()
-            console.log(firebase, 'this is firebase')
             const auth = firebase.auth().currentUser
+            console.log(auth, 'backend')
             if(auth) {
-              dispatch({type: 'AUTHSTATE_SUCCESS', auth})
+              dispatch({type: 'CHECK_AUTH_STATE_SUCCESS', auth})
             } 
         } catch(err) {
             dispatch({type: 'LOGIN_ERROR', err});
@@ -14,10 +14,10 @@ export const AuthState = () => {
     }
 }
 
-export const SignIn = (credentials) => {
+export const SignIn = (cred) => {
     return (dispatch, getState, { getFirebase }) => {
         const firebase = getFirebase()
-        firebase.auth().signInWithEmailAndPassword(credentials.email, credentials.password)
+        firebase.auth().signInWithEmailAndPassword(cred.email, cred.password)
         .then((auth) => {
             dispatch({type: 'LOGIN_SUCCESS', auth})
         }).catch(err => {
@@ -38,21 +38,14 @@ export const SignOut = () => {
     }
 }
 
-export const SignUp = (credentials) => {
-    return (dispatch, getState, {getFirebase, getFirestore}) => {
+export const SignUpEmailPassword = (cred) => {
+    return (dispatch, getState, { getFirebase, getFirestore }) => {
         const firebase = getFirebase();
         const firestore = getFirestore()
-        firebase.auth().createUserWithEmailAndPassword(credentials.email, credentials.password)
+        firebase.auth().createUserWithEmailAndPassword(cred.email, cred.password)
         .then((auth) => {
-            firestore.collection('user').doc(auth.user.uid).set({
-                email: '',
-                firstName: '',
-                lastName: '',
-                age: 0,
-                gender: '',
-                isActive: true,
-
-            }).then((user) => {
+            firestore.collection('user').doc(auth.user.uid).set(cred)
+            .then((user) => {
                 console.log(user, 'this is from signup')
                 dispatch({type: 'SIGNUP_SUCCESS', auth})
             }).catch(err => {

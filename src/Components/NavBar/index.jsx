@@ -8,7 +8,7 @@ import { signedOutRoutes } from '../../Const'
 
 import { connect } from 'react-redux'
 import { SignOut } from '../../Store/Actions/authActions'
-import { AuthState } from '../../Store/Actions/authActions'
+import { CheckAuthState } from '../../Store/Actions/authActions'
 
 import { 
     NavContainer,
@@ -30,85 +30,84 @@ import {
 
 const NavBar = (props) => {
 
-    console.log(props, 'this is navbar')
-    const [ isOpen, setIsOpen ] = useState(false)
-    const [ isHidden, setIsHidden ] = useState(false)
+  const [ isOpen, setIsOpen ] = useState(false)
+  const [ isHidden, setIsHidden ] = useState(false)
 
-    const load = () => {
-        setTimeout(() => setIsHidden(true), 3000)
-    }
+  const load = () => {
+      setTimeout(() => setIsHidden(true), 3000)
+  }
 
-    useEffect(() => {
-      console.log(props.authState())
-    })
+  useEffect(() => {
+    props.checkAuthState()
+  })
 
-    window.onload = () => (setTimeout(() => setIsHidden(true), 3000))
+  window.onload = () => (setTimeout(() => setIsHidden(true), 3000))
 
-    window.onresize = () =>  (window.innerWidth > 900 && isOpen) && setIsOpen(false)
+  window.onresize = () =>  (window.innerWidth > 900 && isOpen) && setIsOpen(false)
 
-    return (
-        <NavContainer color={"white"} visible={isHidden}>
-        <NavRow>
-            <NavRowLeft>
-                {/* <Logo src="https://i.imgur.com/RMl2laN.jpg" /> */}
-                {/* <Title>Change West Covina</Title> */}
-            </NavRowLeft>
-            <NavRowRight>
-            {
-              props.isLogged 
-              ?
-              <Div>
-                {
-                  signedInRoutes.map((route, i) =>
-                  <Link exact to={`/${route}`} key={i}>{route}</Link>
-                  ) 
-                }
-                <LogOutLink exact to={'/home'} onClick={props.signOut}>Logout</LogOutLink>
-              </Div>
-                :
-              <Div>
-                {
-                  signedOutRoutes.map((route, i) =>
-                  <Link exact to={`/${route}`} key={i}>{route}</Link>
-                  ) 
-                }
-              </Div>
-            }    
-            </NavRowRight>
-          <Hamburger setIsOpen={setIsOpen} isOpen={isOpen}/>
-        </NavRow>
-        <Overlay className={isOpen ? "show" : "hide"}>
-          <Ul>
-            { 
-              props.isLogged 
-              ?
-              <Div>
-                {
-                  signedInRoutes.map((route, i) =>
-                    <Li onClick={() => setIsOpen(!isOpen)} key={i}>
-                      <HamLink exact to={`/${route}`}>{route}</HamLink>
-                    </Li>
-                  )
-                }
-                    <Li>
-                      <LogOutHamLink exact to={'/home'} onClick={props.signOut}>Logout</LogOutHamLink>
-                    </Li>
-              </Div>
-                :
-              <Div>
-                {
-                  signedOutRoutes.map((route, i) =>
+  return (
+      <NavContainer color={"white"} visible={isHidden}>
+      <NavRow>
+          <NavRowLeft>
+              {/* <Logo src="https://i.imgur.com/RMl2laN.jpg" /> */}
+              {/* <Title>Change West Covina</Title> */}
+          </NavRowLeft>
+          <NavRowRight>
+          {
+            props.isLogged 
+            ?
+            <Div>
+              {
+                signedInRoutes.map((route, i) =>
+                <Link exact to={`/${route}`} key={i}>{route}</Link>
+                ) 
+              }
+              <LogOutLink exact to={'/home'} onClick={props.signOut}>Logout</LogOutLink>
+            </Div>
+              :
+            <Div>
+              {
+                signedOutRoutes.map((route, i) =>
+                <Link exact to={`/${route}`} key={i}>{route}</Link>
+                ) 
+              }
+            </Div>
+          }    
+          </NavRowRight>
+        <Hamburger setIsOpen={setIsOpen} isOpen={isOpen}/>
+      </NavRow>
+      <Overlay className={isOpen ? "show" : "hide"}>
+        <Ul>
+          { 
+            props.isLogged 
+            ?
+            <Div>
+              {
+                signedInRoutes.map((route, i) =>
                   <Li onClick={() => setIsOpen(!isOpen)} key={i}>
                     <HamLink exact to={`/${route}`}>{route}</HamLink>
                   </Li>
-                  ) 
-                }
-              </Div>
-            }    
-          </Ul>
-        </Overlay>
-      </NavContainer>
-    )
+                )
+              }
+                  <Li>
+                    <LogOutHamLink exact to={'/home'} onClick={props.signOut}>Logout</LogOutHamLink>
+                  </Li>
+            </Div>
+              :
+            <Div>
+              {
+                signedOutRoutes.map((route, i) =>
+                <Li onClick={() => setIsOpen(!isOpen)} key={i}>
+                  <HamLink exact to={`/${route}`}>{route}</HamLink>
+                </Li>
+                ) 
+              }
+            </Div>
+          }    
+        </Ul>
+      </Overlay>
+    </NavContainer>
+  )
 }
 
 const mapStateToProps = (state) => {
@@ -121,7 +120,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     signOut: () => dispatch(SignOut()),
-    authState: () => dispatch(AuthState())
+    checkAuthState: () => dispatch(CheckAuthState())
   }
 }
 

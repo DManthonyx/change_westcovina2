@@ -2,7 +2,7 @@ const initState = {
 
 }
 
-const messageReducer = (state = initState, action) => {
+const articleReducer = (state = initState, action) => {
     switch(action.type) {
         case 'CREATE MESSAGE': 
             console.log('created news', action.message )
@@ -12,4 +12,4 @@ const messageReducer = (state = initState, action) => {
     }
 }
 
-export default messageReducer
+export default articleReducer

@@ -1,12 +1,12 @@
 import authReducer from './authReducer'
-import messageReducer from './messageReducer'
+import articleReducer from './articleReducer'
 import { combineReducers } from 'redux'
 import { firestoreReducer } from 'redux-firestore'
 import { firebaseReducer } from 'react-redux-firebase'
 
 const rootReducer = combineReducers({
     auth: authReducer,
-    message: messageReducer,
+    article: articleReducer,
     firestore: firestoreReducer,
     firebase: firebaseReducer
 });

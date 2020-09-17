@@ -2,37 +2,63 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { SignIn } from '../../../Store/Actions/authActions'
 import { withRouter } from 'react-router-dom'
-
+import { Controller, useForm } from 'react-hook-form'
 
 import {
-    Main
+    TextField,
+} from '@material-ui/core';
+
+import {
+    Main,
+    SignupLink
 } from './style'
 
 const LogIn = (props) => {
 
-    const [user, setUser] = useState({
-        email: '',
-        password: ''
-    })
+    const { register, handleSubmit, errors } = useForm();
 
-    const signIn = (e) => {
-        e.preventDefault()
-        props.signIn(user)
+    const submit = (data) => {
+        props.signIn(data)
     }
-
-    const onInputChange = (e) => { 
-        setUser({...user, [e.target.name]: e.target.value }) 
-   };
-
-
+    console.log(errors, 'error')
     return (
         <Main>
-            <form onSubmit={(e) => signIn(e)}>
-                <input type='text' name="email" placeholder="email" onChange={(e) => onInputChange(e)}/>
-                <input type='text' name="password" placeholder="password" onChange={(e) =>onInputChange(e)}/>
-                <button>sign in</button>
-                {props.authError}
+            <form onSubmit={handleSubmit(submit)}>
+            <TextField
+                autoComplete='email'
+                type='text'
+                name='email'
+                error={!!errors.email}
+                inputRef={register({
+                    required: true, 
+                    pattern: {
+                        value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+                        message: 'email incorrect'
+                    },
+                })}
+                label='email'
+                variant="outlined"
+                helperText={!!errors.email ? errors.email.message : ''}
+            />
+            <TextField
+                autoComplete='password'
+                type='text'
+                name='password'
+                error={!!errors.password}
+                inputRef={register({
+                    required: true, 
+                    minLength: {
+                        value: 6,
+                        message: 'password must be at least 6 characters'
+                    },
+                })}
+                label='password'
+                variant="outlined"
+                helperText={!!errors.password ? errors.password.message : ''}
+            />
+            <button>Login</button>
             </form>
+            <SignupLink exact to='/signup'>Create Accout?</SignupLink>
         </Main>
     )
 }

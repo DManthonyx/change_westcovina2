@@ -1,6 +1,6 @@
 import React from 'react'
-import MessageForm from './messageForm'
-import MessageList from './messageList'
+import Form from './form'
+// import List from './list'
 
 import {
 
@@ -9,9 +9,9 @@ import {
 const Article = () => {
     return (
         <>
-        article
-        <MessageForm />
-        <MessageList />
+        Article
+        <Form />
+        {/* <List /> */}
         </>
     )
 }
