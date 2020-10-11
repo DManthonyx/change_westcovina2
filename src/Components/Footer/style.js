@@ -49,9 +49,13 @@ export const Img = styled.img`
 
 export const SocialWrapper = styled.div`
     display: flex;
+    padding-bottom: 22px;
     &:nth-child(2) {
         flex-direction: column;
+        padding-bottom: 0px;
+
     }
+
 `
 export const SocialDiv = styled.div`
     display: flex;

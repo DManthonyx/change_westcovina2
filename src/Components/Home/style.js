@@ -28,15 +28,17 @@ export const Section = styled.section`
     &:nth-child(3) {
         flex-direction: column;
         align-items: center;
+        margin-top: 80px
     }
     &:nth-child(4) {
         background: #FFF8F3;
-        height: 649px;
+        height: 569px;
+        margin-top: 80px;
     }
     &:nth-child(5) {
-        height: 649px;
         flex-direction: column;
         align-items: center;
+        margin: 80px 0px;
     }
 `
 export const Span = styled.span`
@@ -51,7 +53,7 @@ export const H1 = styled.h1`
 `
 
 export const H2 = styled.h2`
-    margin: 80px 0px;
+    margin-bottom: 80px;
     &.sec4-h2 {
         margin: 0px 0px 30px 0px;
     }
@@ -166,7 +168,7 @@ export const Btn = styled.button`
     border-radius: 16px;
     color: white;
     &.post-btn {
-        margin: 50px 0px;
+        margin-top: 50px;
     }
 `
 
