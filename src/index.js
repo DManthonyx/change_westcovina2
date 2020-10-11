@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './Components/App';
-import Firebase, { FirebaseContext } from './Components/Firebase'
+// import Firebase, { FirebaseContext } from './Components/Firebase'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { createStore, applyMiddleware, compose } from 'redux'
 import rootReducer from './Store/Reducers/rootReducer'

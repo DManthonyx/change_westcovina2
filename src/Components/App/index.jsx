@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux'
@@ -18,6 +18,7 @@ import {
     ContentWrapper,
     Section
 } from './style'
+import { UserDetail } from 'styled-icons/boxicons-solid';
 
 
 
@@ -30,9 +31,12 @@ const My404 = () => {
 
 const App = ({ location }) => {
 
+    const [userId, setUserId] = useState(null);
+
     useEffect(() => {
         console.log(true)
-    })
+    },[])
+
     return (
         <PageWrapper>
             <NavBar />

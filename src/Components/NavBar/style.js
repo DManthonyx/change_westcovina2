@@ -11,9 +11,10 @@ const transitionHomePage =  keyframes`
 `
 
 export const NavContainer = styled.div`
-  background-color: ${props => props.color ? props.color : "black"};
+  background-color: rgba(0,0,0,0);
   position: absolute;
-  z-index: 100;
+  padding-top: 34px;
+  z-index: 1;
   width: 100%;
 `
 
@@ -22,7 +23,6 @@ export const NavContainer = styled.div`
 // `
 
 export const NavRow = styled.div`
-  padding: 10px;
   display: flex;
   @media (max-width: 950px) {
     a {
@@ -33,18 +33,20 @@ export const NavRow = styled.div`
 
 export const NavRowLeft = styled.div`
   display: flex;
-  width: 50%;
+  justify-content: center;
+  width: 30%;
 `
 
 export const NavRowRight = styled.div`
-    width: 50%;
-    text-align: right;
-    padding-right: 86px;
+  display: flex;
+  width: 70%;
 `
 
 export const Logo = styled.img`
-    width: 100px;
-    height: 80px;
+  width: 88px;
+  height: 84px;
+  position: relative;
+  right: 60px;
 `
 
 export const Title = styled.h1`
@@ -57,6 +59,7 @@ export const Title = styled.h1`
 
 export const Link = styled(NavLink)`
   font-size: .9em;
+  font-family: Manrope;
   display:inline-block;
   text-decoration: none;
   padding: 15px;
@@ -70,14 +73,6 @@ export const Link = styled(NavLink)`
     transform: scale(1.5);
     color: ${colors.main};
   }
-`
-
-export const LogOutLink = styled.p`
-    display:inline-block;
-    text-decoration: none;
-    padding: 15px;
-    text-transform: uppercase;
-    color: black;
 `
 
 export const HamLink = styled(NavLink)`
@@ -96,14 +91,6 @@ export const HamLink = styled(NavLink)`
     border-bottom: none;
     color: gold;
   }
-`
-
-export const LogOutHamLink = styled.p`
-    display:inline-block;
-    text-decoration: none;
-    padding: 15px;
-    text-transform: uppercase;
-    color: white;
 `
 
 export const Overlay = styled.div`
@@ -132,5 +119,7 @@ export const Li = styled.li`
   list-style: none;
 `
 export const Div = styled.div`
+  position: relative;
+  left: 55px;
 `
 

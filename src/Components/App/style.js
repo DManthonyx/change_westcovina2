@@ -32,10 +32,8 @@ export const ContentWrapper = styled.div`
   section.route-section {
     position: absolute;
     width: 100%;
-    top: 78px;
     left: 0;
     @media (max-width: 950px) {
-    top: 40px;
   }
   }
 `;
