@@ -1,18 +1,18 @@
 import React from 'react';
+import Footer from '../Footer'
 import { founders } from '../../Const/founders'
 import {
     Main,
     Section,
-    Founder,
+    Title,
+    H1,
+    H2,
+    P,
     Img,
-    Name,
-    Intro,
-    InfoDiv,
-    ContactDiv,
-    Facebook,
-    Insta,
-    LinkedIn,
-    Email
+    Ul,
+    Li,
+    Div,
+    Wrapper,
 } from './style'
 
 
@@ -21,30 +21,42 @@ const About = () => {
     return (
         <Main>
             <Section>
-        
+                <Title>Who We Are</Title>
+                <Wrapper>
+                    <Div className='div-logo'>
+                        <Img src='https://i.imgur.com/zSYDTxD.png'  title='Change West Covina'/>
+                        <H1>Change West Covina</H1>
+                    </Div>
+                    <Div className='div-goals'>
+                        <H2>OUR GOALS</H2>
+                        <Ul>
+                            <Li>Improve quality of life for all residents of West Covina</Li>
+                            <Li>Transform the way our city views Public Safety</Li>
+                            <Li>Push for a transparent local government and city management</Li>
+                            <Li>Increase participation in local events, city meetings, and voter turnout</Li>
+                            <Li>Engage with the youth and empower them to organize and become leaders</Li>
+                        </Ul>
+                    </Div>
+                </Wrapper>
             </Section>
-            <Section>
-
-            </Section>
-            <Section>
-                {founders.map((founder) => {
-                    return(
-                        <Founder>
-                            <Img src={founder.picture}/>
-                            <InfoDiv>
-                                <Name>{founder.name}</Name>
-                                <Intro>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</Intro>
-                            </InfoDiv>
-                            <ContactDiv>
-                                <Facebook></Facebook>
-                                <Insta></Insta>
-                                <LinkedIn></LinkedIn>
-                                <Email></Email>
-                            </ContactDiv>
-                        </Founder>
-                    )
-                })}
-            </Section>
+            {/* <Section>
+                <Title className='h1-news'>IN THE NEWS</Title>
+                <Wrapper className='wrapper-news'>
+                    <Div className='div-news'>
+                        <Img src='' className='img-news' />
+                        <P className='p-news'></P>
+                    </Div>
+                    <Div className='div-news'>
+                        <Img src='' className='img-news' />
+                        <P className='p-news'></P>
+                    </Div>
+                    <Div className='div-news'>
+                        <Img src='' className='img-news' />
+                        <P className='p-news'></P>
+                    </Div>
+                </Wrapper>
+            </Section> */}
+            <Footer />
         </Main>
     )
 }

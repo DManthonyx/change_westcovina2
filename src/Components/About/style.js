@@ -1,9 +1,4 @@
 import styled, { keyframes } from 'styled-components'
-import { FacebookSquare } from '@styled-icons/boxicons-logos/FacebookSquare'
-import { Instagram } from '@styled-icons/boxicons-logos/Instagram'
-import { LinkedinSquare } from '@styled-icons/boxicons-logos/LinkedinSquare'
-import { EmailOutline } from '@styled-icons/evaicons-outline/EmailOutline'
-import { colors } from '../../Const'
 
 export const Main = styled.main`
 
@@ -11,75 +6,77 @@ export const Main = styled.main`
 
 export const Section = styled.section`
     display: flex;
-    justify-content: center;
+    width: 100%;
+    &:nth-child(1) {
+        padding-top: 171px;
+        flex-direction: column;
+        align-items: center;
+    }
 `
 
-export const Founder = styled.div`
-    width: 24%;
+export const Wrapper = styled.div`
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+    width: 100%;
+    margin-top: 60px;
 `
 
-export const InfoDiv = styled.div`
-    text-align: center;
+export const Div = styled.div`
+    width: 50%;
+    &.div-logo {
+        text-align: center;
+    }
+    &.div-goals {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        position: relative;
+        bottom: 26px;
+    }
+
 `
 
-export const ContactDiv = styled.div`
-    padding: 10px 0px;
+export const Title = styled.h1`
+    font-family: Manrope;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 66px;
 `
 
-export const Name = styled.p`
-    padding: 10px 0px;
+export const H1 = styled.h1`
+    position: relative;
+    top: -230px;
+    font-family: Beirut;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 56px;
+    line-height: 58px;
+`
+export const H2 = styled.h2`
+    font-family: Manrope;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 44px;
+`
+
+export const Ul = styled.ul`
+
 
 `
 
-export const Intro = styled.p`
-    line-height: 1.4em;
-    letter-spacing: 1px;
+export const Li = styled.li`
+    font-family: Manrope;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 154.9%;
+    margin-bottom: 5px;
 `
 
+export const P = styled.p`
+
+`
 export const Img = styled.img`
-    width: 300px;
-    height: 300px;
+
 `
-
-export const Facebook = styled(FacebookSquare)`
-    width: 40px;
-    height: 40px;
-    &:hover {
-        color: ${colors.main};
-        transform: scale(1.3)
-    }
-`
-
-export const Insta = styled(Instagram)`
-    width: 40px;
-    height: 40px;
-    &:hover {
-        color: ${colors.main};
-        transform: scale(1.3)
-    }
-`
-
-export const LinkedIn = styled(LinkedinSquare)`
-    width: 40px;
-    height: 40px;
-    &:hover {
-        color: ${colors.main};
-        transform: scale(1.3)
-    }
-`
-
-export const Email = styled(EmailOutline)`
-    width: 40px;
-    height: 40px;
-    &:hover {
-        color: ${colors.main};
-        transform: scale(1.3)
-    }
-`
-
-
-

@@ -47,7 +47,7 @@ const App = ({ location }) => {
             <Switch>
                 <Route exact path='/' render={() => <Home /> }  />
                 <Route exact path='/home' render={() => <Home /> }  />
-                <Route exact path='/about' render={() => <About />}  />
+                <Route exact path='/who we are' render={() => <About />}  />
                 <Route exact path='/article' render={() => <Article />}  />
                 <Route exact path='/resources' render={() => <Resources />}  />
                 <Route exact path='/signup' render={() => <SignUp />}  />

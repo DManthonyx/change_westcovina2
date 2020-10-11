@@ -69,9 +69,7 @@ export const Link = styled(NavLink)`
    
   }
   &.active{
-    border-bottom: 3px solid ${colors.secondary};
-    transform: scale(1.5);
-    color: ${colors.main};
+    border-bottom: 3px solid #000000;
   }
 `
 
