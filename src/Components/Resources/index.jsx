@@ -1,40 +1,28 @@
 import React from 'react'
 import MapBox from '../MapBox'
+import List from '../List'
+import { resources } from '../../Const/resources'
 
 import {
     Main,
     Section,
-    ListDiv,
-    H1,
-    Ul,
-    Li
+    Title,
+    Div
 } from './style'
 import Mapbox from '../MapBox'
 
 const Resources = () => {
     return (
         <Main>
-            {/* <Section>
-                <Mapbox resources={resources}/>
-            </Section>
+            <Title>Resources</Title>
             <Section>
-                <ListDiv>
-                    <H1>Resources</H1>
-                    <Ul>
-                        {resources.map((resource, index) => {
-                            return (
-                                <Li key={index}>
-                                    <h2>{resource.name}</h2>
-                                    <p>{resource.address}</p>
-                                    <p>{resource.city}</p>
-                                    <p>{resource.zipCode}</p>
-                                    <p>{resource.phoneNumber}</p>
-                                </Li>
-                            )
-                        })}
-                    </Ul>
-                </ListDiv>
-            </Section> */}
+                <Div class='div-mapbox'>
+                    <Mapbox resources={resources}/>
+                </Div>
+                <Div>
+                    <List resources={resources}/>
+                </Div>
+            </Section>
         </Main>
     )
 }

@@ -1,6 +1,5 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import Footer from '../Footer'
 
 import {
     Main,
@@ -50,7 +49,6 @@ const Media = () => {
                     </Div>
                 </Wrapper>
             </Section>
-            <Footer />
         </Main>
     )
 }

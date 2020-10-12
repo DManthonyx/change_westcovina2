@@ -8,7 +8,7 @@ export const Section = styled.section`
     display: flex;
     width: 100%;
     &:nth-child(1) {
-        padding-top: 171px;
+        padding-top: 133px;
         flex-direction: column;
         align-items: center;
     }

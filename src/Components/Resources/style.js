@@ -2,28 +2,36 @@ import styled from 'styled-components'
 
 export const Main = styled.main`
     width: 100%;
-    margin-top: 30px;
+    margin: 30px 0px 80px 0px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 133px;
 `
 
 export const Section = styled.section`
-    width: 48%;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    // &:nth-child(1) {
+    //     padding-top: 200px;
+    // }
 `
 
-export const ListDiv = styled.section`
-    
+export const Title = styled.h1`
+    font-family: Manrope;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 66px;
+    margin-bottom: 60px;
 `
 
-export const H1 = styled.h1`
+export const Div = styled.div`
     font-size: 2em;
     margin-bottom: 17px;
-`
-
-export const Ul = styled.ul`
-    list-style: none;
-`
-
-export const Li = styled.li`
-
+    width: 48%;
+    & .div-mapbox {
+        border-radius: 16px;
+    }
 `

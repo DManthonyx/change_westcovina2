@@ -56,7 +56,6 @@ const About = () => {
                     </Div>
                 </Wrapper>
             </Section> */}
-            <Footer />
         </Main>
     )
 }

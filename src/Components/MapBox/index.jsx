@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 
 import {
+    Div,
     Button,
     Img,
     Pin
@@ -20,7 +21,8 @@ const Mapbox = (props) => {
     const [selectedResource, setSelectedResource] = useState(null);
 
     return (
-        <ReactMapGL
+        <Div>
+            <ReactMapGL
             {...viewport}
             mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
             mapStyle='mapbox://styles/mapbox/streets-v11'
@@ -59,6 +61,7 @@ const Mapbox = (props) => {
                 </Popup>
             ) : null}
         </ReactMapGL>
+        </Div>
     )
 };
 

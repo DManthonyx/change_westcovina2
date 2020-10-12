@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 // import { withFirebase } from '../Firebase'
 
 import NavBar from '../NavBar';
+import Footer from '../Footer';
 import Home from '../Home';
 import About from '../About';
 import Article from '../Article';
@@ -57,6 +58,7 @@ const App = ({ location }) => {
                 <Route exact path='/login' render={() => <LogIn />}  />
                 <Route component={ My404 } />
             </Switch>
+            <Footer />
             </Section>
             </CSSTransition>
             </TransitionGroup>

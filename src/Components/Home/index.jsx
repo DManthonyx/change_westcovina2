@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Footer from '../Footer'
 
 import {
     Main,
@@ -101,7 +100,6 @@ const Home = () => {
                 </SecWrapper>
                 <Btn className='post-btn'>READ MORE</Btn>
             </Section>
-            <Footer />
         </Main>
     )
 }
