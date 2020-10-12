@@ -10,6 +10,7 @@ import Home from '../Home';
 import About from '../About';
 import Article from '../Article';
 import Resources from '../Resources';
+import Media from '../Media';
 import SignUp from '../Auth/SignUp';
 import LogIn from '../Auth/LogIn';
 
@@ -18,7 +19,8 @@ import {
     ContentWrapper,
     Section
 } from './style'
-import { UserDetail } from 'styled-icons/boxicons-solid';
+
+// import { UserDetail } from 'styled-icons/boxicons-solid';
 
 
 
@@ -50,6 +52,7 @@ const App = ({ location }) => {
                 <Route exact path='/who we are' render={() => <About />}  />
                 <Route exact path='/article' render={() => <Article />}  />
                 <Route exact path='/resources' render={() => <Resources />}  />
+                <Route exact path='/get connected' render={() => <Media />}  />
                 <Route exact path='/signup' render={() => <SignUp />}  />
                 <Route exact path='/login' render={() => <LogIn />}  />
                 <Route component={ My404 } />

@@ -1,6 +1,5 @@
 import React from 'react'
 import MapBox from '../MapBox'
-import { resources } from '../../Const/resources'
 
 import {
     Main,
@@ -15,7 +14,7 @@ import Mapbox from '../MapBox'
 const Resources = () => {
     return (
         <Main>
-            <Section>
+            {/* <Section>
                 <Mapbox resources={resources}/>
             </Section>
             <Section>
@@ -35,7 +34,7 @@ const Resources = () => {
                         })}
                     </Ul>
                 </ListDiv>
-            </Section>
+            </Section> */}
         </Main>
     )
 }
