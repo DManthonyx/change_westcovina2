@@ -10,12 +10,12 @@ export const Main = styled.main`
 `
 
 export const Section = styled.section`
-    width: 90%;
     display: flex;
+    padding-top: 80px;
+    width: 90%;
     justify-content: space-between;
-    // &:nth-child(1) {
-    //     padding-top: 200px;
-    // }
+    &:nth-child(1) {
+    }
 `
 
 export const Title = styled.h1`
@@ -24,13 +24,23 @@ export const Title = styled.h1`
     font-weight: normal;
     font-size: 48px;
     line-height: 66px;
-    margin-bottom: 60px;
 `
 
 export const Div = styled.div`
-    margin-bottom: 17px;
     width: 48%;
-    & .div-mapbox {
-        border-radius: 16px;
+    &.div-calendar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
+`
+
+export const H2 = styled.h2`
+    font-family: Risque;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 64px;
+    line-height: 154.9%;
+    transform: rotate(-9.06deg);
+    margin-top: 63px;
 `

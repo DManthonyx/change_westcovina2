@@ -21,6 +21,7 @@ import {
     EmailP,
     P,
     Img,
+    Form,
     Input,
     Span,
     BlurDiv,
@@ -29,6 +30,10 @@ import {
 } from './style'
 
 const Home = () => {
+    const submit = (e) => {
+        e.preventDefault()
+        console.log('this')
+    }
     return (
         <Main>
             <Section>
@@ -43,8 +48,10 @@ const Home = () => {
                     <EmailP>Stay up to date with issues affecting our community of <br /> West Covina, and learn about how we can make a <br /> positive difference together.</EmailP>
                 </Div>
                 <Div>
-                    <Input type="text" for="email" placeholder="Enter email address" />
-                    <SignUpBtn>SIGN UP</SignUpBtn>
+                    <Form onSubmit={submit}>
+                        <Input type="text" for="email" placeholder="Enter email address" />
+                        <SignUpBtn>SIGN UP</SignUpBtn>
+                    </Form>
                 </Div>
             </Section>
             <Section>

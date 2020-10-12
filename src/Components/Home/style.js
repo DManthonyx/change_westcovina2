@@ -113,6 +113,10 @@ export const Input = styled.input`
     letter-spacing: 1px;
 `
 
+export const Form = styled.form`
+
+`
+
 export const SignUpBtn = styled.button`
     width: 144px;
     height: 56px;
