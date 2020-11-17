@@ -1,4 +1,8 @@
 import React, { useState } from 'react'
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+
+import { CreateUser  } from '../../Store/Actions/authActions'
 
 import {
     Main,
@@ -26,13 +30,20 @@ import {
     Span,
     BlurDiv,
     ResourceDiv,
-    ResourceDivInner
+    ResourceDivInner,
+    A
 } from './style'
 
-const Home = () => {
+const Home = (props) => {
+    const [email, setEmail] = useState('')
     const submit = (e) => {
         e.preventDefault()
-        console.log('this')
+        const emailCorrect = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/
+        console.log(email)
+        if(email.search(emailCorrect) === -1) {
+        } else {
+            props.createUser({email})
+        }
     }
     return (
         <Main>
@@ -49,7 +60,7 @@ const Home = () => {
                 </Div>
                 <Div>
                     <Form onSubmit={submit}>
-                        <Input type="text" for="email" placeholder="Enter email address" />
+                        <Input type="text" name="email" placeholder="Enter email address" value={email} onChange={e => setEmail(e.target.value)}/>
                         <SignUpBtn>SIGN UP</SignUpBtn>
                     </Form>
                 </Div>
@@ -61,19 +72,19 @@ const Home = () => {
                         <InvolvedImg src="https://i.imgur.com/BwfJCky.png" />
                         <InvolvedH2>Events</InvolvedH2>
                         <InvolvedP>Join us in making an impact in West Covina through various volunteer and direct action events</InvolvedP>
-                        <InvolvedBtn>SEE EVENTS</InvolvedBtn>
+                        <InvolvedBtn><A exact to='/updates'>SEE EVENTS</A></InvolvedBtn>
                     </SecDiv>
                     <SecDiv>
                         <InvolvedImg src="https://i.imgur.com/d0NMi5n.png" />
                         <InvolvedH2>CITY COUNCIL MEETINGS</InvolvedH2>
                         <InvolvedP>Read our Peoples’ Agenda and participate in local government by making your voice heard</InvolvedP>
-                        <InvolvedBtn>LEARN MORE</InvolvedBtn>
+                        <InvolvedBtn><A exact to='/updates'>LEARN MORE</A></InvolvedBtn>
                     </SecDiv>
                     <SecDiv>
                         <InvolvedImg className='third' src="https://i.imgur.com/LbrkAFU.png" />
                         <InvolvedH2>SLACK CONVERSATION</InvolvedH2>
                         <InvolvedP>Get and stay connected with Change West Covina by joining the conversation on Slack</InvolvedP>
-                        <InvolvedBtn>SLACK INFO</InvolvedBtn>
+                        <InvolvedBtn><A exact to='/'>SLACK INFO</A></InvolvedBtn>
                     </SecDiv>
                 </SecWrapper>
             </Section>
@@ -82,7 +93,7 @@ const Home = () => {
                     <ResourceDivInner>
                         <H2 className='sec4-h2'>FIND WHAT YOU NEED</H2>
                         <P>Check out our extensive list of resources to  locate local businesses, organizations, and services to help you live your life to the fullest. </P>
-                        <Btn>RESOURCES</Btn>
+                        <Btn><A exact to='/resources'>RESOURCES</A></Btn>
                     </ResourceDivInner>
                 </ResourceDiv>
                 <ResourceDiv>
@@ -105,10 +116,18 @@ const Home = () => {
                         <PostP>How Can We Invest in Our<br />  Community?</PostP>
                     </SecDiv>
                 </SecWrapper>
-                <Btn className='post-btn'>READ MORE</Btn>
+                <Btn className='post-btn'><A exact to='/updates'>READ MORE</A></Btn>
             </Section>
         </Main>
     )
 }
 
-export default Home
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createUser: (creds) => dispatch(CreateUser(creds)),
+
+    }
+}
+
+
+export default withRouter(connect(null, mapDispatchToProps)(Home))

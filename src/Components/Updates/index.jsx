@@ -17,7 +17,7 @@ const Updates = () => {
             <Title>Updates</Title>
             <Section>
                 <Div className='div-calendar'>
-                    <Calendar />
+                    <Calendar resources={resources}/>
                     <H2>Join Us!</H2>
                 </Div>
                 <Div>

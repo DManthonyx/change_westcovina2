@@ -1,5 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux'
+import { CreateUser  } from '../../Store/Actions/authActions'
+
 
 import {
     Footerr,
@@ -14,11 +17,22 @@ import {
     SocialLink,
     P,
     Input,
-    InputDiv,
+    Form,
     Btn
 } from './style'
 
-const Footer = () => {
+const Footer = (props) => {
+    const [email, setEmail] = useState('')
+    const submit = (e) => {
+        e.preventDefault()
+        console.log('hittttt')
+        const emailCorrect = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/
+        console.log(email)
+        if(email.search(emailCorrect) === -1) {
+        } else {
+            props.createUser({email})
+        }
+    }
     return (
         <Footerr>
             <Sec>
@@ -47,7 +61,7 @@ const Footer = () => {
                 </Div>
             </Sec>
             <Sec>
-                <Img src='https://i.imgur.com/xiRCnx3.png' title='West Covina' />
+                <Img src='https://i.imgur.com/7cpYYcK.png' title='West Covina' />
             </Sec>
             <Sec>
                 <SocialWrapper>
@@ -68,14 +82,22 @@ const Footer = () => {
                 </SocialWrapper>
                 <SocialWrapper>
                     <P>Join our Email List! </P>
-                    <InputDiv>
-                        <Input type='text' placeholder='Enter email address' />
+                    <Form onSubmit={submit}>
+                        <Input type="text" name="email" placeholder="Enter email address" value={email} onChange={e => setEmail(e.target.value)}/> 
                         <Btn>SIGN UP</Btn>
-                    </InputDiv>
+                    </Form>
                 </SocialWrapper>
             </Sec>
         </Footerr>
     )
 }
 
-export default withRouter(Footer)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createUser: (creds) => dispatch(CreateUser(creds)),
+
+    }
+}
+
+
+export default withRouter(connect(null, mapDispatchToProps)(Footer))

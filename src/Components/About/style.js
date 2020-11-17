@@ -12,6 +12,12 @@ export const Section = styled.section`
         flex-direction: column;
         align-items: center;
     }
+    &:nth-child(2) {
+        background: #FFF8F3;
+        justify-content: space-evenly;
+        height: 500px;
+        align-items: center;
+    }
 `
 
 export const Wrapper = styled.div`
@@ -31,6 +37,12 @@ export const Div = styled.div`
         align-self: center;
         position: relative;
         bottom: 26px;
+    }
+    &.div-news1 {
+        width: 521px;
+    }
+    &.div-news2 {
+        width: 412px;
     }
 
 `
@@ -75,7 +87,9 @@ export const Li = styled.li`
 `
 
 export const P = styled.p`
-
+    line-height: 1.5;
+    font-size: 16px;
+    padding-top: 17px;
 `
 export const Img = styled.img`
 

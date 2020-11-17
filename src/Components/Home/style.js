@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 export const Main = styled.main`
     width: 100%;
@@ -12,7 +13,7 @@ export const Section = styled.section`
     display: flex;
     width: 100%;
     &:nth-child(1) {
-        background: url('https://i.imgur.com/3Fxwy7v.png');
+        background: url('https://i.imgur.com/pplFJUP.png');
         background-repeat: no-repeat;
         background-size: 100% 100%;
         height: 506px; 
@@ -97,7 +98,7 @@ export const BlurDiv = styled.div`
 `
 
 export const EmailP = styled.p`
-    width: 50%;
+    width: 355px;
     line-height: 24px;
 `
 
@@ -208,5 +209,11 @@ export const Img = styled.img`
 export const PostImg = styled.img`
 
 `
+
+export const A = styled(Link)`
+    color: black;
+    text-decoration: none;
+`
+
 
 

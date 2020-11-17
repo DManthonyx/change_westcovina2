@@ -34,12 +34,19 @@ export const NavRow = styled.div`
 export const NavRowLeft = styled.div`
   display: flex;
   justify-content: center;
-  width: 30%;
+  width: 25%;
+`
+
+export const NavRowMid = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 50%;
 `
 
 export const NavRowRight = styled.div`
   display: flex;
-  width: 70%;
+  width: 25%;
+  justify-content: flex-end;
 `
 
 export const Logo = styled.img`
@@ -64,12 +71,12 @@ export const Link = styled(NavLink)`
   text-decoration: none;
   padding: 15px;
   text-transform: uppercase;
-  color: black;
+  color: ${props => props.ishome === 'true' ? 'white' : 'black'};
   &:hover {
    
   }
   &.active{
-    border-bottom: 3px solid #000000;
+    border-bottom: ${props => props.ishome === 'true' ? '3px solid white' : '3px solid #EE8C3A'};
   }
 `
 
@@ -116,8 +123,15 @@ export const Ul = styled.ul`
 export const Li = styled.li`
   list-style: none;
 `
+
 export const Div = styled.div`
-  position: relative;
-  left: 55px;
+
 `
 
+export const SocialLink = styled(NavLink)`
+  margin-right: 15px;
+`
+
+export const SocialIcon = styled.img`
+
+`

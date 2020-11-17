@@ -12,26 +12,32 @@ const authReducer = (state = initState, action) => {
                 authError: null
             }
         case 'SIGNUP_SUCCESS':
-            console.log('sign up sucess', action.auth)
             return {
                 email: action.auth.user.email,
                 isLogged: true,
                 authError: null
             }
+        case 'CREATE_USER_SUCCESS':
+            console.log(action.user, 'created user')
+            return {
+                ...state
+            }
+        case 'GET_ALL_USERS':
+            return {
+                ...state, 
+                users: action.users
+            }
         case 'LOGIN_SUCCESS':
-            console.log(action.auth, 'login sucess')
             return {
                 email: action.auth.user.email,
                 isLogged: true,
                 authError: null
             }
         case 'SIGNOUT_SUCCESS':
-            console.log('sign out sucess')
             return {
                initState
             }
         case 'LOGIN_ERROR':
-            console.log('login error', action.err)
             return {
                 ...state,
                 authError: 'email incorrect'

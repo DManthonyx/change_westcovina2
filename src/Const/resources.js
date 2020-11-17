@@ -55,3 +55,24 @@ export const resources = [
         time: '10am',
     },
 ]
+
+export const calendar = [
+    {
+        month: 10,
+        day: 7,
+        year: 2020,
+        info: 'made it'
+    },
+    {
+        month: 11,
+        day: 1,
+        year: 2020,
+        info: 'made it'
+    },
+    {
+        month: 0,
+        day: 7,
+        year: 2021,
+        info: 'made it'
+    }
+]

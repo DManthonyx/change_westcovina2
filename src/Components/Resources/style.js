@@ -12,10 +12,13 @@ export const Main = styled.main`
 export const Section = styled.section`
     width: 90%;
     display: flex;
-    justify-content: space-between;
-    // &:nth-child(1) {
-    //     padding-top: 200px;
-    // }
+    flex-direction: column;
+    &:nth-child(3) {
+        width: 100%;
+        background: #93e8be82;
+        flex-direction: column;
+        align-items: center;
+    }
 `
 
 export const Title = styled.h1`
@@ -27,10 +30,45 @@ export const Title = styled.h1`
     margin-bottom: 60px;
 `
 
+export const SubTitle = styled.h2`
+    font-weight: bold;
+    font-size: 28px;
+    margin-bottom: 60px;
+    width: 90%;
+`
+
 export const Div = styled.div`
     margin-bottom: 17px;
     width: 48%;
-    & .div-mapbox {
+    &.div-mapbox {
         border-radius: 16px;
     }
+    &.div-resource {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    &.div-list {
+        height: 432px;
+        overflow: hidden;
+    }
+    &.div-telephone {
+        width: 90%;
+    }
+`
+
+export const P = styled.p`
+
+`
+
+export const Ul = styled.ul`
+
+`
+
+export const Li = styled.li`
+    list-style: none;
+`
+
+export const Span = styled.span`
+
 `

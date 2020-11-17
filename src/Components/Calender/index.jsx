@@ -1,5 +1,8 @@
 import React, {useState} from 'react';
-import moment from 'moment'
+import { withRouter } from 'react-router-dom';
+import moment from 'moment';
+import { calendar } from '../../Const/resources';
+import { connect } from 'react-redux';
 
 import {
   Table,
@@ -13,18 +16,9 @@ import {
 
 const Calender = () => {
 
-  // state = {
-  //   dateObject: moment(),
-  //   today: new Date(),
-  //   currentDay: new Date().getDay(),
-  //   month: new Date().getMonth(),
-  //   year: new Date().getFullYear(),
-  // }
   const day = new Date();
-  // const moment = moment()
   const [month, setMonth] = useState(day.getMonth())
   const [year, setYear] = useState(day.getFullYear())
-  // const [moment, setMoment] = useState(moment())
   let monthAndYear = ''
   let currentDay = day.getDay();
   const months = ["Janruary", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -48,13 +42,30 @@ const Calender = () => {
   const calender = (month, year) => {
     let firstDay = (new Date(year, month)).getDay()
     let blanks = []
+    let numOffSet = 32
     for (let i = 0; i < firstDay; i++) {
-      blanks.push(<Td>{''}</Td>)
+      blanks.push(<Td key={numOffSet * 10}>{''}</Td>)
+      numOffSet++
     };
     let days = [];
+    let num = 0
     for (let d = 1; d <= daysInMonth(year, month); d++) {
-      days.push(<Td key={d}>{d}</Td>);
+      for(let i = 0; i < calendar.length; i++) {
+        if(calendar[i].day === d && calendar[i].month === month && calendar[i].year === year) {
+          days.push(<Td key={d}>{d}{calendar[i].info}</Td>);
+        }
+      }
+      if(days && days[num]) {
+        if(days[num].props.children[0] === d) {
+          console.log('hit2', days[num].props.children[0])
+        }
+      
+      } else {
+        days.push(<Td key={d}>{d}</Td>);
+      }
+      num++
     }
+    
     let totalSlots = [...blanks, ...days]
     let rows = []
     let cells = []
@@ -71,8 +82,10 @@ const Calender = () => {
       }
     });
     for(let i = 0; i < rows.length; i++) {
+      let numOffSet2 = 100
       while(rows[i].length >= 1 && rows[i].length < 7) {
-        rows[i].push(<Td>{''}</Td>)
+        rows[i].push(<Td key={numOffSet2}>{''}</Td>)
+        numOffSet2++
       }
       if(rows[i].length === 0) {
         rows.splice(i,1)
@@ -90,13 +103,13 @@ const Calender = () => {
           </Thead>
           <Tbody>
           <Tr>
-              {
-                weekDaysShort.map((day, i) => {
-                  return (
-                    <Td key={i}>{day}</Td>
-                  )
-                })
-              }
+            {
+              weekDaysShort.map((day, i) => {
+                return (
+                  <Td key={i}>{day}</Td>
+                )
+              })
+            }
             </Tr>
             {
               calender(month, year).map((row, i) => {
@@ -108,5 +121,17 @@ const Calender = () => {
     );
   }
 
-export default Calender;
+const mapStateToProps = (state) => {
+  return {
+    authError: state.auth.authError
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    authState: () => dispatch()
+  }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Calender))
 

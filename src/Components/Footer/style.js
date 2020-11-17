@@ -44,7 +44,7 @@ export const Li = styled.li`
 `
 
 export const Img = styled.img`
-  
+    width: 132px;
 `
 
 export const SocialWrapper = styled.div`
@@ -85,7 +85,7 @@ export const P = styled.p`
     }
 `
 
-export const InputDiv = styled.div`
+export const Form = styled.form`
   
 `
 

@@ -1,3 +1,5 @@
+import { ErrorAlt } from "styled-icons/boxicons-regular"
+
 export const CheckAuthState = () => {
     return (dispatch, getState, {getFirebase, getFirestore}) => {
         try {
@@ -46,7 +48,7 @@ export const SignUpEmailPassword = (cred) => {
         .then((auth) => {
             firestore.collection('user').doc(auth.user.uid).set(cred)
             .then((user) => {
-                console.log(user, 'this is from signup')
+                //console.log(user, 'this is from signup')
                 dispatch({type: 'SIGNUP_SUCCESS', auth})
             }).catch(err => {
                 dispatch({type: 'SIGNUP_ERROR', err});
@@ -55,4 +57,35 @@ export const SignUpEmailPassword = (cred) => {
             dispatch({type: 'SIGNUP_ERROR', err});
         })
     }
+}
+
+export const CreateUser = (cred) => {
+    return (dispatch, getState, { getFirebase, getFirestore  }) => {
+        const firestore = getFirestore()
+        firestore.collection('users').add(cred)
+        .then((docRef) => {
+            dispatch({type: 'CREATE_USER_SUCCESS', docRef})
+        }).catch((err) => {
+            console.log(err)
+        })
+    }
+}
+
+export const GetAllUsers = () => {
+    return (dispatch, getState, { getFirebase, getFirestore }) => {
+        try {
+            const users = [];
+            const firestore = getFirestore();
+            firestore.collection("users").get()
+            .then(function(querySnapshot) {
+                querySnapshot.forEach(function(doc) {
+                    users.push(doc.data())
+                })
+            }).then(() => {
+                dispatch({type: 'GET_ALL_USERS', users})
+            });
+        } catch(err) {
+            console.log(err);
+        };
+    };
 }

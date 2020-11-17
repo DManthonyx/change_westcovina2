@@ -19,26 +19,24 @@ import {
     Overlay,
     Logo,
     NavRowLeft,
+    NavRowMid,
     NavRowRight,
+    SocialLink,
+    SocialIcon,
     Title,
     Div
    } from './style'
 
 
 const NavBar = (props) => {
-
   const [ isOpen, setIsOpen ] = useState(false)
   const [ isHidden, setIsHidden ] = useState(false)
-
-  const load = () => {
-      setTimeout(() => setIsHidden(true), 3000)
-  }
-
+  const [ isHome, setIsHome ] = useState('false')
   useEffect(() => {
-    //props.checkAuthState()
-  })
+    let location = props.location.pathname
+    location === '/home' ? setIsHome('true') : setIsHome('false')
 
-  window.onload = () => (setTimeout(() => setIsHidden(true), 3000))
+  })
 
   window.onresize = () =>  (window.innerWidth > 900 && isOpen) && setIsOpen(false)
 
@@ -46,22 +44,33 @@ const NavBar = (props) => {
       <NavContainer color={"white"} visible={isHidden}>
       <NavRow>
           <NavRowLeft>
-            <Logo src="https://i.imgur.com/xiRCnx3.png"  title="Change West Covina logo"/>
+            <Logo src="https://i.imgur.com/7cpYYcK.png"  title="Change West Covina logo"/>
           </NavRowLeft>
+          <NavRowMid>
+            <Div>
+                {
+                  ROUTES.map((route, i) =>
+                    <Link ishome={isHome} exact to={`/${route}`} key={i}>{route}</Link>
+                  ) 
+                }
+            </Div>
+          </NavRowMid>
           <NavRowRight>
-          <Div>
-              {
-                ROUTES.map((route, i) =>
-                <Link exact to={`/${route}`} key={i}>{route}</Link>
-                ) 
-              }
-          </Div>
+            <SocialLink exact to='/'>
+              <SocialIcon src='https://i.imgur.com/32wQeQq.png' />
+            </SocialLink>
+            <SocialLink exact to='/'>
+              <SocialIcon src='https://i.imgur.com/xFImnke.png'/>
+            </SocialLink>
+            <SocialLink exact to='/'>
+              <SocialIcon src='https://i.imgur.com/486JE5L.png'/>
+            </SocialLink>
           </NavRowRight>
         <Hamburger setIsOpen={setIsOpen} isOpen={isOpen}/>
       </NavRow>
       <Overlay className={isOpen ? "show" : "hide"}>
         <Ul>
-        <Div>
+          <Div>
             {
               ROUTES.map((route, i) =>
                 <Li onClick={() => setIsOpen(!isOpen)} key={i}>
@@ -83,11 +92,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    // signOut: () => dispatch(SignOut()),
-    // checkAuthState: () => dispatch(CheckAuthState())
-  }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NavBar))
+export default withRouter(connect(mapStateToProps, null)(NavBar))

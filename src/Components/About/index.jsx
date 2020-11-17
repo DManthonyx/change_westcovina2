@@ -39,23 +39,16 @@ const About = () => {
                     </Div>
                 </Wrapper>
             </Section>
-            {/* <Section>
-                <Title className='h1-news'>IN THE NEWS</Title>
-                <Wrapper className='wrapper-news'>
-                    <Div className='div-news'>
-                        <Img src='' className='img-news' />
-                        <P className='p-news'></P>
-                    </Div>
-                    <Div className='div-news'>
-                        <Img src='' className='img-news' />
-                        <P className='p-news'></P>
-                    </Div>
-                    <Div className='div-news'>
-                        <Img src='' className='img-news' />
-                        <P className='p-news'></P>
-                    </Div>
-                </Wrapper>
-            </Section> */}
+            <Section>
+                <Div className='div-news1'>
+                    <Img className='img-news' src='https://i.imgur.com/LVE0Q2g.png'/>
+                    <P className='p-news'>Pictured above,left to right: Full Name 1, Full Name 2, Full Name 3, Full Name 4, Full Name 5, Full Name 6, Full Name 7, Full Name 8, Full Name 9, Full Name 10</P>
+                </Div>
+                <Div className='div-news2'>
+                    <Img className='img-news' src='https://i.imgur.com/xXmU8hY.png' />
+                    <P className='p-news'>Meet the West Covina youth who seek to ‘defund’ police, bringing social change</P>
+                </Div>
+            </Section>
         </Main>
     )
 }

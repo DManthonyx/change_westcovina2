@@ -2,8 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux'
+import ScrollToTop from '../ScrollToTop'
 
-// import { withFirebase } from '../Firebase'
+import { CommunityData } from '../../Store/Actions/resourceActions'
+import { AbuseData } from '../../Store/Actions/resourceActions'
+import { CrisisInterventionData } from '../../Store/Actions/resourceActions'
+import { CrisisTalkLinesData } from '../../Store/Actions/resourceActions'
+import { GetAllUsers  } from '../../Store/Actions/authActions'
 
 import NavBar from '../NavBar';
 import Footer from '../Footer';
@@ -33,12 +38,16 @@ const My404 = () => {
 };
    
 
-const App = ({ location }) => {
+const App = ({location, communityData, abuseData, crisisInterventionData, crisisTalkLinesData, getAllUsers}) => {
 
     const [userId, setUserId] = useState(null);
 
     useEffect(() => {
-        console.log(true)
+        communityData()
+        abuseData()
+        crisisInterventionData()
+        crisisTalkLinesData()
+        getAllUsers()
     },[])
 
     return (
@@ -48,6 +57,7 @@ const App = ({ location }) => {
             <TransitionGroup className="transition-group">
             <CSSTransition key={location.key} timeout={{ enter: 300, exit: 300 }} classNames="fade">
             <Section className="route-section">
+            <ScrollToTop>
             <Switch>
                 <Route exact path='/' render={() => <Home /> }  />
                 <Route exact path='/home' render={() => <Home /> }  />
@@ -60,6 +70,7 @@ const App = ({ location }) => {
                 <Route exact path='/login' render={() => <LogIn />}  />
                 <Route component={ My404 } />
             </Switch>
+            </ScrollToTop>
             <Footer />
             </Section>
             </CSSTransition>
@@ -77,10 +88,14 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        authState: () => dispatch()
+        authState: () => dispatch(),
+        communityData: () => dispatch(CommunityData()),
+        abuseData: () => dispatch(AbuseData()),
+        crisisInterventionData: () => dispatch(CrisisInterventionData()),
+        crisisTalkLinesData: () => dispatch(CrisisTalkLinesData()),
+        getAllUsers: () => dispatch(GetAllUsers())
     }
 }
-
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App))
 

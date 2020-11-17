@@ -10,6 +10,7 @@ import { reduxFirestore, getFirestore } from 'redux-firestore'
 import { reactReduxFirebase, getFirebase } from 'react-redux-firebase'
 import thunk from 'redux-thunk'
 import fbConfig from './Components/Firebase/fbConfig'
+//import ScrollToTop from '../src/Components/ScrollToTop'
 
 const store = createStore(rootReducer,
   compose(

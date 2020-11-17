@@ -9,7 +9,6 @@ import {
 } from './style'
 
 const List = (props) => {
-    console.log(props, 'this is props')
     return (
         <Ul>
         {
