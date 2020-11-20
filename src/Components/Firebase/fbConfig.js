@@ -1,7 +1,7 @@
-import firebase from 'firebase/app';
-import 'firebase/auth'
-import 'firebase/firestore'
-import 'firebase/storage'
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+import 'firebase/compat/storage';
 
 
 const config = {
@@ -15,12 +15,11 @@ const config = {
 };
 
 
-firebase.initializeApp(config)
-//firebase.auth()
-//firebase.auth.EmailAuthProvider
-firebase.firestore()
-//firebase.storage()
-   
+firebase.initializeApp(config);
+firebase.firestore();
+firebase.auth();
+firebase.storage();
+
 
 
 export default firebase;

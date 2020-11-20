@@ -1,11 +1,11 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 import { withRouter } from 'react-router-dom';
-import { connect } from 'react-redux'
-import { CreateUser  } from '../../Store/Actions/authActions'
+import { connect } from 'react-redux';
+import { CreateUser  } from '../../store/actions/authActions';
 
 
 import {
-    Footerr,
+    Wrapper,
     Sec,
     Div,
     Ul,
@@ -19,22 +19,21 @@ import {
     Input,
     Form,
     Btn
-} from './style'
+} from './style';
 
 const Footer = (props) => {
-    const [email, setEmail] = useState('')
+    const [email, setEmail] = useState('');
     const submit = (e) => {
-        e.preventDefault()
-        console.log('hittttt')
-        const emailCorrect = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/
-        console.log(email)
+        e.preventDefault();
+        const emailCorrect = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/;
         if(email.search(emailCorrect) === -1) {
         } else {
-            props.createUser({email})
+            props.createUser({email});
         }
     }
     return (
-        <Footerr>
+        <div style={{display: "block"}}>
+        <Wrapper>
             <Sec>
                 <Div>
                     <Ul>
@@ -69,13 +68,13 @@ const Footer = (props) => {
                         <P className='soc-p'>Change West Covina</P>
                     </SocialDiv>
                     <SocialDiv>
-                        <SocialLink exact to='/'>
+                        <SocialLink to='/'>
                             <SocialImg src='https://i.imgur.com/32wQeQq.png' />
                         </SocialLink>
-                        <SocialLink exact to='/'>
+                        <SocialLink to='/'>
                             <SocialImg src='https://i.imgur.com/xFImnke.png'/>
                         </SocialLink>
-                        <SocialLink exact to='/'>
+                        <SocialLink to='/'>
                             <SocialImg src='https://i.imgur.com/486JE5L.png'/>
                         </SocialLink>
                     </SocialDiv>
@@ -83,21 +82,22 @@ const Footer = (props) => {
                 <SocialWrapper>
                     <P>Join our Email List! </P>
                     <Form onSubmit={submit}>
-                        <Input type="text" name="email" placeholder="Enter email address" value={email} onChange={e => setEmail(e.target.value)}/> 
+                        <Input type="text" name="email" placeholder="Enter email address" value={email} onChange={e => setEmail(e.target.value)}/>
                         <Btn>SIGN UP</Btn>
                     </Form>
                 </SocialWrapper>
-            </Sec>
-        </Footerr>
-    )
-}
+            </Sec> 
+        </Wrapper>
+        </div>
+    );
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {
         createUser: (creds) => dispatch(CreateUser(creds)),
 
-    }
-}
+    };
+};
 
 
-export default withRouter(connect(null, mapDispatchToProps)(Footer))
+export default withRouter(connect(null, mapDispatchToProps)(Footer));

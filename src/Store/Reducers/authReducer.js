@@ -1,56 +1,64 @@
 const initState = {
     isLogged: false,
     authError: null
-}
+};
 
 const authReducer = (state = initState, action) => {
+    let result = state;
     switch(action.type) {
         case 'CHECK_AUTH_STATE_SUCCESS':
-            return {
+            result = {
                 email: action.auth.email,
                 isLogged: true,
                 authError: null
-            }
+            };
+            break;
         case 'SIGNUP_SUCCESS':
-            return {
+            result = {
                 email: action.auth.user.email,
                 isLogged: true,
                 authError: null
-            }
+            };
+            break;
         case 'CREATE_USER_SUCCESS':
-            console.log(action.user, 'created user')
-            return {
+            result = {
                 ...state
-            }
+            };
+            break;
         case 'GET_ALL_USERS':
-            return {
-                ...state, 
+            result = {
+                ...state,
                 users: action.users
-            }
+            };
+            break;
         case 'LOGIN_SUCCESS':
-            return {
+            result = {
                 email: action.auth.user.email,
                 isLogged: true,
                 authError: null
-            }
+            };
+            break;
         case 'SIGNOUT_SUCCESS':
-            return {
+            result = {
                initState
-            }
+            };
+            break;
         case 'LOGIN_ERROR':
-            return {
+            result = {
                 ...state,
                 authError: 'email incorrect'
-            }
+            };
+            break;
         case 'SIGNUP_ERROR':
-            console.log('signup error', action.err)
-            return {
+            result = {
                 ...state,
                 authError: 'signup failed'
-            }
+            };
+            break;
         default:
             return state;
-    }
-}
+    };
+    return result;
+};
 
-export default authReducer
+export default authReducer;

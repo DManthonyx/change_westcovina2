@@ -1,13 +1,11 @@
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 
 import {
     Div,
-    Button,
-    Img,
     Pin
-} from './style'
+} from './style';
 
 const Mapbox = (props) => {
     const [viewport, setViewport] = useState({
@@ -16,10 +14,9 @@ const Mapbox = (props) => {
         width: '45vw',
         height: 'calc(80vh - 80px)',
         zoom: 12
-    })
+    });
 
     const [selectedResource, setSelectedResource] = useState(null);
-
     return (
         <Div>
             <ReactMapGL
@@ -30,7 +27,7 @@ const Mapbox = (props) => {
                 setViewport(viewport)
             }}
         >
-            {props.resources.map((resource, index) => {
+            {props.resources && props.resources.map((resource, index) => {
                 return (
                     <Marker
                     key={index}
@@ -62,7 +59,7 @@ const Mapbox = (props) => {
             ) : null}
         </ReactMapGL>
         </Div>
-    )
+    );
 };
 
-export default Mapbox
+export default Mapbox;
