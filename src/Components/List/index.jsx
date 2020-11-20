@@ -12,17 +12,17 @@ const List = (props) => {
     return (
         <Ul>
         {
-            props.resources.map((resource, index) => {
+            props.events && props.events.map((event, index) => {
                 return (
                     <Li key={index}>
                         <Div className='div-date'>
-                            <P className='p-date'>{resource.date}</P>
-                            <P className='p-date'>{resource.time}</P>
+                            <P className='p-date'>{event.month + 1}.{event.day}.{event.year.toString().slice(2)}</P>
+                            <P className='p-date'>{event.time}</P>
                         </Div>
                         <Div className='div-info'>
-                            <P>{resource.name}</P>
-                            <P>{resource.city}</P>
-                            <P>{resource.address}</P>
+                            <P>{event.name}</P>
+                            <P>{event.city}</P>
+                            <P>{event.address}</P>
                         </Div>
                     </Li>
                 )

@@ -3,7 +3,7 @@ export const CommunityData = () => {
         try {
             const data = [];
             const firestore = getFirestore();
-            firestore.collection("communityResource").get()
+            firestore.collection('communityResource').get()
             .then(function(querySnapshot) {
                 querySnapshot.forEach(function(doc) {
                     data.push(doc.data())
@@ -21,7 +21,7 @@ export const AbuseData = () => {
         try {
             const data = [];
             const firestore = getFirestore();
-            firestore.collection("abuse").get()
+            firestore.collection('abuse').get()
             .then(function(querySnapshot) {
                 querySnapshot.forEach(function(doc) {
                     data.push(doc.data())
@@ -39,7 +39,7 @@ export const CrisisInterventionData = () => {
         try {
             const data = [];
             const firestore = getFirestore();
-            firestore.collection("crisisIntervention").get()
+            firestore.collection('crisisIntervention').get()
             .then(function(querySnapshot) {
                 querySnapshot.forEach(function(doc) {
                     data.push(doc.data())
@@ -52,18 +52,38 @@ export const CrisisInterventionData = () => {
         };
     };
 };
+
 export const CrisisTalkLinesData = () => {
     return (dispatch, getState, { getFirebase, getFirestore }) => {
         try {
             const data = [];
             const firestore = getFirestore();
-            firestore.collection("crisisTalkLines").get()
+            firestore.collection('crisisTalkLines').get()
             .then(function(querySnapshot) {
                 querySnapshot.forEach(function(doc) {
                     data.push(doc.data())
                 })
             }).then(() => {
                 dispatch({type: 'GET_CRISIS_TALK_LINES_RESOURCE', data})
+            });
+        } catch(err) {
+            console.log(err);
+        };
+    };
+};
+
+export const EventsData = () => {
+    return (dispatch, getState, { getFirebase, getFirestore }) => {
+        try {
+            const data = [];
+            const firestore = getFirestore();
+            const event = firestore.collection('events').orderBy('timestamp','asc').get()
+            .then(function(querySnapshot) {
+                querySnapshot.forEach(function(doc) {
+                    data.push(doc.data())
+                })
+            }).then(() => {
+                dispatch({type: 'GET_EVENTS_DATA', data})
             });
         } catch(err) {
             console.log(err);

@@ -1,7 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { withRouter } from 'react-router-dom';
 import moment from 'moment';
-import { calendar } from '../../Const/resources';
 import { connect } from 'react-redux';
 
 import {
@@ -11,14 +10,19 @@ import {
   Tr,
   Td,
   H1,
-  Button
+  Button,
+  Main,
+  Div,
+  P
 } from './style'
 
-const Calender = () => {
+const Calender = (props) => {
 
+  const events = props.events
   const day = new Date();
   const [month, setMonth] = useState(day.getMonth())
   const [year, setYear] = useState(day.getFullYear())
+  const [eventPicked, setEventPicked] = useState({})
   let monthAndYear = ''
   let currentDay = day.getDay();
   const months = ["Janruary", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -49,23 +53,21 @@ const Calender = () => {
     };
     let days = [];
     let num = 0
-    for (let d = 1; d <= daysInMonth(year, month); d++) {
-      for(let i = 0; i < calendar.length; i++) {
-        if(calendar[i].day === d && calendar[i].month === month && calendar[i].year === year) {
-          days.push(<Td key={d}>{d}{calendar[i].info}</Td>);
+    if(events && events.length) {
+      for (let d = 1; d <= daysInMonth(year, month); d++) {
+        for(let i = 0; i < events.length; i++) {
+          if(events[i].day === d && events[i].month === month && events[i].year === year) {
+            days.push(<Td key={d} data={`${events[i].day}-${events[i].month}-${events[i].year}`} className='update'>{d}</Td>);
+          }
         }
-      }
-      if(days && days[num]) {
-        if(days[num].props.children[0] === d) {
-          console.log('hit2', days[num].props.children[0])
+        if(days && days[num]) {
+          
+        } else {
+          days.push(<Td key={d}>{d}</Td>);
         }
-      
-      } else {
-        days.push(<Td key={d}>{d}</Td>);
+        num++
       }
-      num++
     }
-    
     let totalSlots = [...blanks, ...days]
     let rows = []
     let cells = []
@@ -94,44 +96,91 @@ const Calender = () => {
     return rows
   }
 
-    return (
-        <Table>
-          <Thead>
-            <Button onClick={previous} className='prev'></Button>
-            <H1>{`${months[month]}`}<br />{`${year}`}</H1>
-            <Button onClick={next} className='next'></Button>
-          </Thead>
-          <Tbody>
-          <Tr>
-            {
-              weekDaysShort.map((day, i) => {
-                return (
-                  <Td key={i}>{day}</Td>
-                )
-              })
-            }
-            </Tr>
-            {
-              calender(month, year).map((row, i) => {
-                return <Tr key={i}>{row}</Tr>;
-              })
-            }
-          </Tbody>
-        </Table>
-    );
+  const showPickedEvent = (e) => {
+    const data = e.target.getAttribute('data')
+    if(events && data) {
+      const day = Number(data.slice(0,1))
+      const month = Number(data.slice(2,4))
+      const year = Number(data.slice(5))
+      const result = events.filter(ele =>  ele.day === day && ele.month === month && ele.year === year)
+      setEventPicked({
+        address: `${result[0].address}, ${result[0].city} ${result[0].zipcode}`,
+        contact: result[0].contact,
+        info: result[0].info,
+        name: result[0].name,
+        day: `${months[result[0].month]} ${result[0].day}, ${result[0].year}`,
+        time: result[0].time,
+        type: result[0].type
+      })
+    }
   }
+
+  const firstEvent = () => {
+    if(events) {
+      setEventPicked({
+        address: `${events[0].address}, ${events[0].city} ${events[0].zipcode}`,
+        contact: events[0].contact,
+        info: events[0].info,
+        name: events[0].name,
+        day: `${months[events[0].month]} ${events[0].day}, ${events[0].year}`,
+        time: events[0].time,
+        type: events[0].type
+      })
+    }
+  }
+
+  console.log(eventPicked, 'picked')
+
+  useEffect(() => {
+    firstEvent()
+  },[events])
+
+  return (
+    <Main>
+      <Table>
+        <Thead>
+          <Button onClick={previous} className='prev'></Button>
+          <H1>{`${months[month]}`}<br />{`${year}`}</H1>
+          <Button onClick={next} className='next'></Button>
+        </Thead>
+        <Tbody>
+        <Tr>
+          {
+            weekDaysShort.map((day, i) => {
+              return (
+                <Td key={i}>{day}</Td>
+              )
+            })
+          }
+          </Tr>
+          {
+            calender(month, year).map((row, i) => {
+              return <Tr key={i} onClick={(e) => showPickedEvent(e)}>{row}</Tr>;
+            })
+          }
+        </Tbody>
+      </Table>
+      <Div>
+        <Div className='event-picked'>
+          <P>{eventPicked.day}</P>
+          <P>{eventPicked.time}</P>
+        </Div>
+        <Div className='event-picked2'>
+          <P>{eventPicked.type}</P>
+          <P>{eventPicked.name}</P>
+          <P>{eventPicked.address}</P>
+          <P>Contact: {eventPicked.contact}</P>
+        </Div>
+      </Div>
+    </Main>
+  );
+}
 
 const mapStateToProps = (state) => {
   return {
-    authError: state.auth.authError
+    events: state.resource.events
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    authState: () => dispatch()
-  }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Calender))
+export default withRouter(connect(mapStateToProps, null)(Calender))
 

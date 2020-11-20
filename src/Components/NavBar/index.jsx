@@ -35,7 +35,6 @@ const NavBar = (props) => {
   useEffect(() => {
     let location = props.location.pathname
     location === '/home' ? setIsHome('true') : setIsHome('false')
-
   })
 
   window.onresize = () =>  (window.innerWidth > 900 && isOpen) && setIsOpen(false)

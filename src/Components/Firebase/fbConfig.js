@@ -16,10 +16,9 @@ const config = {
 
 
 firebase.initializeApp(config)
-//firebase.auth()
-//firebase.auth.EmailAuthProvider
 firebase.firestore()
-//firebase.storage()
+firebase.auth()
+firebase.storage()
    
 
 

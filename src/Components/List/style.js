@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const Ul = styled.ul`
     height: 500px;
     overflow: scroll;
+
 `
 export const Li = styled.li`
     list-style: none;
@@ -11,7 +12,7 @@ export const Li = styled.li`
     background: #FFFFFF;
     box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
-    border-left: 8px solid #C4C4C4;
+    border-left: 8px solid #93E8BE;
     margin-bottom: 40px;
 `
 export const Div = styled.div`

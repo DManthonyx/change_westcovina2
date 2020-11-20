@@ -1,29 +1,21 @@
-export const CreateArticle = (article) => {
-    console.log(article, 'from action')
+export const CreateArticle = (payload) => {
+    console.log(payload)
     return (dispatch, getState, { getFirebase, getFirestore }) => {
-        // make async call to database
-        const firestore = getFirestore();
-        const firebase = getFirebase();
-        console.log(firestore, 'this is firebase')
+        console.log('1')
+        const firebase = getFirebase()
+        const firestore = getFirestore()
         firestore.collection('articles').add({
-            // user: article.user,
-            title: article.title,
-            body: article.body,
-            // img: article.img,
-            createdAt: new Date(),
-            timeStamp: firebase.firestore.FieldValue.serverTimestamp()
-        }).then((res) => {
-            console.log(res.if.path.segments[1], 'UID from created article')
-            dispatch({type: 'CREATE MESSAGE'})
+            name: payload.name,
+            date: payload.date,
+            title: payload.title,
+            article: payload.article
+        }).then((messageRef) => {
+            console.log('2')
+            let filePath = `articles/${messageRef.id}/${payload.image.name}`
+            firebase.storage().ref(filePath).put(payload.image)
+            console.log('the end')
         }).catch(err => {
-            console.log(err, 'from message action')
+            console.log(err, 'from article action')
         })
-    }
-}
-
-// export const getSnapShotArticles = () => {
-//     return (dispatch, getState, {getFirestore}) => {
-//         const firestore = getFirestore()
-
-//     }
-// }
+    };
+};

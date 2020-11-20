@@ -9,6 +9,7 @@ import {
     Section,
     SecWrapper,
     SecDiv,
+    SecDiv2,
     InvolvedImg,
     InvolvedH2,
     InvolvedP,
@@ -45,13 +46,21 @@ const Home = (props) => {
             props.createUser({email})
         }
     }
+
+    const scrollToEmail = () => {
+        const width = window.innerWidth;
+        if(width > 1148) {
+            console.log(true)
+            window.scroll({ top: 750, left: 0, behavior: 'smooth'})
+        }
+    }
     return (
         <Main>
             <Section>
                 <BlurDiv>
                     <H1>We Must Be the <Span>Change</Span> We Want to<br />See in <Span>West Covina</Span></H1>
                 </BlurDiv>
-                <Button>JOIN US</Button>
+                <Button onClick={() => scrollToEmail()}>JOIN US</Button>
             </Section>
             <Section>
                 <Div>
@@ -69,22 +78,34 @@ const Home = (props) => {
                 <H2>GET INVOLVED</H2>
                 <SecWrapper>
                     <SecDiv>
-                        <InvolvedImg src="https://i.imgur.com/BwfJCky.png" />
-                        <InvolvedH2>Events</InvolvedH2>
-                        <InvolvedP>Join us in making an impact in West Covina through various volunteer and direct action events</InvolvedP>
-                        <InvolvedBtn><A exact to='/updates'>SEE EVENTS</A></InvolvedBtn>
+                        <SecDiv2>
+                            <InvolvedImg src="https://i.imgur.com/BwfJCky.png" />
+                            <InvolvedH2>Events</InvolvedH2>
+                        </SecDiv2>
+                        <SecDiv2>
+                            <InvolvedP>Join us in making an impact in West Covina through various volunteer and direct action events</InvolvedP>
+                            <InvolvedBtn><A exact to='/updates'>SEE EVENTS</A></InvolvedBtn>
+                        </SecDiv2>
                     </SecDiv>
                     <SecDiv>
-                        <InvolvedImg src="https://i.imgur.com/d0NMi5n.png" />
-                        <InvolvedH2>CITY COUNCIL MEETINGS</InvolvedH2>
-                        <InvolvedP>Read our Peoples’ Agenda and participate in local government by making your voice heard</InvolvedP>
-                        <InvolvedBtn><A exact to='/updates'>LEARN MORE</A></InvolvedBtn>
+                        <SecDiv2>
+                            <InvolvedImg src="https://i.imgur.com/d0NMi5n.png" />
+                            <InvolvedH2>CITY COUNCIL MEETINGS</InvolvedH2>
+                        </SecDiv2>
+                        <SecDiv2>
+                            <InvolvedP>Read our Peoples’ Agenda and participate in local government by making your voice heard</InvolvedP>
+                            <InvolvedBtn><A exact to='/updates'>LEARN MORE</A></InvolvedBtn>
+                        </SecDiv2>
                     </SecDiv>
                     <SecDiv>
-                        <InvolvedImg className='third' src="https://i.imgur.com/LbrkAFU.png" />
-                        <InvolvedH2>SLACK CONVERSATION</InvolvedH2>
-                        <InvolvedP>Get and stay connected with Change West Covina by joining the conversation on Slack</InvolvedP>
-                        <InvolvedBtn><A exact to='/'>SLACK INFO</A></InvolvedBtn>
+                        <SecDiv2>
+                            <InvolvedImg className='third' src="https://i.imgur.com/LbrkAFU.png" />
+                            <InvolvedH2>SLACK CONVERSATION</InvolvedH2>
+                        </SecDiv2>
+                        <SecDiv2>
+                            <InvolvedP>Get and stay connected with Change West Covina by joining the conversation on Slack</InvolvedP>
+                            <InvolvedBtn><A exact to='/'>SLACK INFO</A></InvolvedBtn>
+                        </SecDiv2>
                     </SecDiv>
                 </SecWrapper>
             </Section>

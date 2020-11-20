@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { NavLink } from 'react-router-dom'
 
 export const Main = styled.main`
     width: 100%;
@@ -14,8 +15,19 @@ export const Section = styled.section`
     padding-top: 80px;
     width: 90%;
     justify-content: space-between;
-    &:nth-child(1) {
+    margin-bottom: 100px;
+    &:nth-child(3) {
+        width: 100%;
+        flex-direction: column;
+        background: #FFF8F3;
+        align-items: center;
+        margin-bottom: 0px;
     }
+`
+
+export const SubSection = styled.aside`
+    width: 90%;
+    margin-bottom: 67px;
 `
 
 export const Title = styled.h1`
@@ -44,3 +56,54 @@ export const H2 = styled.h2`
     transform: rotate(-9.06deg);
     margin-top: 63px;
 `
+
+export const SubTitle = styled.h2`
+    margin-bottom: 50px;
+`
+
+export const ArticleWrap = styled.div`
+    display: flex;
+    justify-content: space-between;;
+`
+
+export const ArticleDiv = styled.div`
+    width: 22%;
+`
+
+export const P = styled.p`
+    &:nth-child(2) {
+        font-weight: bold;
+        margin: 10px 0px;
+    }
+    &:nth-child(4) {
+        line-height: 24px;
+    }
+`
+
+export const Img = styled.img`
+
+
+`  
+
+export const Selfie = styled.img`
+    width: 28px;
+    border-radius: 50%;
+    margin-right: 10px;
+`
+
+export const Span = styled.span`
+    display: flex;
+    margin-bottom: 10px;
+`
+
+export const SubSpan = styled.span`
+
+`
+
+export const Btn = styled.button`
+    border: 0px;
+    background: none;
+    color: #115AAD;
+    margin: 22px 0px;
+`
+

@@ -5,7 +5,6 @@ import {
     Main,
     Section,
     Title,
-    H1,
     H2,
     P,
     Img,
@@ -25,7 +24,6 @@ const About = () => {
                 <Wrapper>
                     <Div className='div-logo'>
                         <Img src='https://i.imgur.com/zSYDTxD.png'  title='Change West Covina'/>
-                        <H1>Change West Covina</H1>
                     </Div>
                     <Div className='div-goals'>
                         <H2>OUR GOALS</H2>

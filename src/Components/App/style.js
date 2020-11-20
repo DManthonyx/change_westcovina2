@@ -33,7 +33,8 @@ export const ContentWrapper = styled.div`
     position: absolute;
     width: 100%;
     left: 0;
-    @media (max-width: 950px) {
-  }
+    // @media (max-width: 499px) {
+    //    width: auto;
+    // }
   }
 `;

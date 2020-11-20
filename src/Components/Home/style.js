@@ -25,6 +25,11 @@ export const Section = styled.section`
         justify-content: center;
         height: 192px;
         background: linear-gradient(90deg, #115AAD 21.18%, #93E8BE 80.75%);
+        @media (max-width: 850px) {
+            flex-direction: column;
+            align-items: center;
+            height: 302px;
+        }
     }
     &:nth-child(3) {
         flex-direction: column;
@@ -62,7 +67,7 @@ export const H2 = styled.h2`
 
 export const H3 = styled.h3`
     padding-bottom: 10px;
-    width: 50%;
+    width: 355px;
 `
 
 
@@ -84,9 +89,15 @@ export const Div = styled.div`
         flex-direction: column;
         align-items: center;
         color: #FFFFFF;
+        @media (max-width: 850px) {
+            padding-top: 0px;
+        }
     }
     &:nth-child(2) {
         justify-content: center;
+    }
+    @media (max-width: 850px) {
+        width: 100%;
     }
 `
 
@@ -112,6 +123,16 @@ export const Input = styled.input`
     line-height: 22px;
     text-align: center;
     letter-spacing: 1px;
+    @media (max-width: 1367px) {
+        width: 432px;
+    }
+    @media (max-width: 1132px) {
+        width: 318px;
+    }
+    @media (max-width: 750px) {
+        width: 343px;
+        font-size: 14px;
+    }
 `
 
 export const Form = styled.form`
@@ -125,6 +146,16 @@ export const SignUpBtn = styled.button`
     border-radius: 0px 28px 28px 0px;
     border: 0px;
     color: #FFFFFF;
+    @media (max-width: 1367px) {
+        width: 115px;
+    }
+    @media (max-width: 1132px) {
+        width: 86px;
+    }
+    @media (max-width: 750px) {
+        width: 76px;
+        font-size: 11px;
+    }
 `
 
 export const SecWrapper = styled.div`
@@ -134,6 +165,11 @@ export const SecWrapper = styled.div`
 `
 
 export const SecDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
+export const SecDiv2 = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -214,6 +250,4 @@ export const A = styled(Link)`
     color: black;
     text-decoration: none;
 `
-
-
 

@@ -34,6 +34,7 @@ const Footer = (props) => {
         }
     }
     return (
+        <div style={{display: "block"}}>
         <Footerr>
             <Sec>
                 <Div>
@@ -89,6 +90,7 @@ const Footer = (props) => {
                 </SocialWrapper>
             </Sec>
         </Footerr>
+        </div>
     )
 }
 

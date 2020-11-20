@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import ScrollToTop from '../ScrollToTop'
 
 import { CommunityData } from '../../Store/Actions/resourceActions'
+import { EventsData } from '../../Store/Actions/resourceActions'
 import { AbuseData } from '../../Store/Actions/resourceActions'
 import { CrisisInterventionData } from '../../Store/Actions/resourceActions'
 import { CrisisTalkLinesData } from '../../Store/Actions/resourceActions'
@@ -20,16 +21,13 @@ import Updates from '../Updates';
 import Media from '../Media';
 import SignUp from '../Auth/SignUp';
 import LogIn from '../Auth/LogIn';
+import Admin from '../Admin'
 
 import {
     PageWrapper,
     ContentWrapper,
     Section
 } from './style'
-
-// import { UserDetail } from 'styled-icons/boxicons-solid';
-
-
 
 const My404 = () => {
     if(true) {
@@ -38,9 +36,7 @@ const My404 = () => {
 };
    
 
-const App = ({location, communityData, abuseData, crisisInterventionData, crisisTalkLinesData, getAllUsers}) => {
-
-    const [userId, setUserId] = useState(null);
+const App = ({location, communityData, abuseData, crisisInterventionData, crisisTalkLinesData, getAllUsers, getEvents}) => {
 
     useEffect(() => {
         communityData()
@@ -48,34 +44,36 @@ const App = ({location, communityData, abuseData, crisisInterventionData, crisis
         crisisInterventionData()
         crisisTalkLinesData()
         getAllUsers()
+        getEvents()
     },[])
 
     return (
         <PageWrapper>
-            <NavBar />
-            <ContentWrapper>
-            <TransitionGroup className="transition-group">
-            <CSSTransition key={location.key} timeout={{ enter: 300, exit: 300 }} classNames="fade">
-            <Section className="route-section">
-            <ScrollToTop>
-            <Switch>
-                <Route exact path='/' render={() => <Home /> }  />
-                <Route exact path='/home' render={() => <Home /> }  />
-                <Route exact path='/who we are' render={() => <About />}  />
-                <Route exact path='/article' render={() => <Article />}  />
-                <Route exact path='/resources' render={() => <Resources />}  />
-                <Route exact path='/updates' render={() => <Updates />}  />
-                <Route exact path='/get connected' render={() => <Media />}  />
-                <Route exact path='/signup' render={() => <SignUp />}  />
-                <Route exact path='/login' render={() => <LogIn />}  />
-                <Route component={ My404 } />
-            </Switch>
-            </ScrollToTop>
-            <Footer />
-            </Section>
-            </CSSTransition>
-            </TransitionGroup>
-            </ContentWrapper>
+        <NavBar />
+        <ContentWrapper>
+        <TransitionGroup className="transition-group">
+        <CSSTransition key={location.key} timeout={{ enter: 300, exit: 300 }} classNames="fade">
+        <Section className="route-section">
+        <ScrollToTop>
+        <Switch>
+            <Route exact path='/' render={() => <Home /> }  /> 
+            <Route exact path='/home' render={() => <Home /> }  />
+            <Route exact path='/who we are' render={() => <About />}  />
+            <Route exact path='/article' render={() => <Article />}  />
+            <Route exact path='/resources' render={() => <Resources />}  />
+            <Route exact path='/updates' render={() => <Updates />}  />
+            <Route exact path='/get connected' render={() => <Media />}  />
+            <Route exact path='/signup' render={() => <SignUp />}  />
+            <Route exact path='/login' render={() => <LogIn />}  />
+            <Route exact path='/admin' render={() => <Admin />}  />
+            <Route component={ My404 } />
+        </Switch>
+        </ScrollToTop>
+        <Footer />
+        </Section>
+        </CSSTransition>
+        </TransitionGroup>
+        </ContentWrapper>
         </PageWrapper>
     )   
 }
@@ -93,10 +91,38 @@ const mapDispatchToProps = (dispatch) => {
         abuseData: () => dispatch(AbuseData()),
         crisisInterventionData: () => dispatch(CrisisInterventionData()),
         crisisTalkLinesData: () => dispatch(CrisisTalkLinesData()),
-        getAllUsers: () => dispatch(GetAllUsers())
+        getAllUsers: () => dispatch(GetAllUsers()),
+        getEvents: () => dispatch(EventsData())
     }
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App))
 
 
+{/* <PageWrapper>
+<NavBar />
+<ContentWrapper>
+<TransitionGroup className="transition-group">
+<CSSTransition key={location.key} timeout={{ enter: 300, exit: 300 }} classNames="fade">
+<Section className="route-section">
+<ScrollToTop>
+<Switch>
+    <Route exact path='/' render={() => <Home /> }  /> 
+    <Route exact path='/home' render={() => <Home /> }  />
+    <Route exact path='/who we are' render={() => <About />}  />
+    <Route exact path='/article' render={() => <Article />}  />
+    <Route exact path='/resources' render={() => <Resources />}  />
+    <Route exact path='/updates' render={() => <Updates />}  />
+    <Route exact path='/get connected' render={() => <Media />}  />
+    <Route exact path='/signup' render={() => <SignUp />}  />
+    <Route exact path='/login' render={() => <LogIn />}  />
+    <Route exact path='/admin' render={() => <Admin />}  />
+    <Route component={ My404 } />
+</Switch>
+</ScrollToTop>
+<Footer />
+</Section>
+</CSSTransition>
+</TransitionGroup>
+</ContentWrapper>
+</PageWrapper> */}

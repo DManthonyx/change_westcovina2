@@ -8,7 +8,7 @@ export const Section = styled.section`
     display: flex;
     width: 100%;
     &:nth-child(1) {
-        padding-top: 133px;
+        padding: 133px 0px;
         flex-direction: column;
         align-items: center;
     }
@@ -55,15 +55,6 @@ export const Title = styled.h1`
     line-height: 66px;
 `
 
-export const H1 = styled.h1`
-    position: relative;
-    top: -230px;
-    font-family: Beirut;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 56px;
-    line-height: 58px;
-`
 export const H2 = styled.h2`
     font-family: Manrope;
     font-style: normal;
@@ -73,8 +64,6 @@ export const H2 = styled.h2`
 `
 
 export const Ul = styled.ul`
-
-
 `
 
 export const Li = styled.li`

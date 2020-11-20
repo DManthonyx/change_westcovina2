@@ -20,6 +20,11 @@ const resourceReducer = (state = {}, action) => {
                 crisisTalkLines: action.data,
                 ...state
             };
+        case 'GET_EVENTS_DATA': 
+            return {
+                events: action.data,
+                ...state
+            };
         default:
             return state;
     }
