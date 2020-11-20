@@ -3,7 +3,6 @@ import { withRouter } from 'react-router-dom'
 import MapBox from '../MapBox'
 import List from '../List'
 
-import { resources } from '../../Const/resources'
 import { connect } from 'react-redux'
 
 import {
@@ -11,6 +10,7 @@ import {
     Section,
     Title,
     SubTitle,
+    ResTitle,
     Div,
     P,
     Ul,
@@ -20,7 +20,6 @@ import {
 import Mapbox from '../MapBox'
 
 const Resources = (props) => {
-    console.log(props, 'props')
     return (
         <Main>
             <Title>Resources</Title>
@@ -28,18 +27,19 @@ const Resources = (props) => {
                 <SubTitle>CITY RESOURCES</SubTitle>
                 <Div className='div-resource'>
                     <Div className='div-mapbox'>
-                        <Mapbox resources={resources}/>
+                        <Mapbox resources={props && props.mapData}/>
                     </Div>
                     <Div className='div-list'>
-                        <List resources={resources}/>
+                        <List data={props && props.mapData} type={'resource'}/>
                     </Div>
                 </Div>
             </Section>
             <Section>
                 <SubTitle>TELEPHONE RESOURCES</SubTitle>
                 <Div className='div-telephone'>
-                    <SubTitle>COMMUNITY MEDIATION/DISPUTE RESOLUTION</SubTitle>
-                    <P>Any individual, business, or organization residing, working, or operating in Los Angeles County is eligible to receive DRPA-funded mediation services at little or no cost. These services include time for conversation and collaboration, including merchant- customer, landlord-tenant, family, neighbor to neighbor, and debt disputes.</P>
+                    <Div className='telephone-sub'>
+                    <ResTitle>COMMUNITY MEDIATION/DISPUTE RESOLUTION</ResTitle>
+                    <P className='res-info'>Any individual, business, or organization residing, working, or operating in Los Angeles County is eligible to receive DRPA-funded mediation services at little or no cost. These services include time for conversation and collaboration, including merchant- customer, landlord-tenant, family, neighbor to neighbor, and debt disputes.</P>
                     <Ul>
                         {
                             props.communityData && props.communityData.map((resource, index) => {
@@ -49,20 +49,48 @@ const Resources = (props) => {
                             })
                         }
                     </Ul>
+                    </Div>
                 </Div>
-                {/* <Div>
-                    <SubTitle>CRISIS INTERVENTION</SubTitle>
-                    <Ul>
+                <Div className='div-telephone'>
+                    <Div className='telephone-sub'>
+                    <ResTitle>CRISIS INTERVENTION</ResTitle>
+                    <Ul className='ul-wrap'>
+                        {
+                            props.crisisInterventionData && props.crisisInterventionData.map((resource, index) => {
+                                return (
+                                <Li className='li-wrap' key={index}>{resource.name}<Span>{resource.number}</Span></Li>
+                                )
+                            })
+                        }
                     </Ul>
+                    </Div>
                 </Div>
-                <Div>
-                    <Div>
-
+                <Div className='small-wrap'>
+                    <Div className='small-div'>
+                        <ResTitle>24/7 CRISIS TALKLINES</ResTitle>
+                        <Ul className='ul-small'>
+                            {
+                                props.crisisTalkLinesData && props.crisisTalkLinesData.map((resource, index) => {
+                                    return (
+                                    <Li className='li-small' key={index}>{resource.name}<Span>{resource.number}</Span></Li>
+                                    )
+                                })
+                            }
+                        </Ul>
                     </Div>
-                    <Div>
-
+                    <Div className='small-div'>
+                        <ResTitle>REPORT ABUSE</ResTitle>
+                        <Ul className='ul-small'>
+                            {
+                                props.abuseData && props.abuseData.map((resource, index) => {
+                                    return (
+                                    <Li className='li-small' key={index}>{resource.name}<Span>{resource.number}</Span></Li>
+                                    )
+                                })
+                            }
+                        </Ul>
                     </Div>
-                </Div> */}
+                </Div>
             </Section>
         </Main>
     )
@@ -73,7 +101,8 @@ const mapStateToProps = (state) => {
       communityData: state.resource.communityResource,
       abuseData: state.resource.communityResource,
       crisisInterventionData: state.resource.crisisIntervention,
-      crisisTalkLinesData: state.resource.crisisTalkLines
+      crisisTalkLinesData: state.resource.crisisTalkLines,
+      mapData: state.resource.mapResources
     }
 }
  

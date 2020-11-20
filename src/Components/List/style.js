@@ -23,6 +23,9 @@ export const Div = styled.div`
     &.div-info {
         width: 69%;
     }
+    &.res {
+        padding: 15px 15px 15px 53px;
+    }
 `
 export const P = styled.p`
     font-size: 20px;
@@ -31,4 +34,8 @@ export const P = styled.p`
         border-right: 1px solid #000000;
         text-align: center;
     }
+    &.p-res {
+        margin: 2px 0px;
+    }
+
 `

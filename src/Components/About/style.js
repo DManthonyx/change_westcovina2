@@ -81,5 +81,5 @@ export const P = styled.p`
     padding-top: 17px;
 `
 export const Img = styled.img`
-
+    width: 400px;
 `

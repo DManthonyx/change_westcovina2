@@ -90,3 +90,22 @@ export const EventsData = () => {
         };
     };
 };
+
+export const MapResourcesData = () => {
+    return (dispatch, getState, { getFirebase, getFirestore }) => {
+        try {
+            const data = [];
+            const firestore = getFirestore();
+            firestore.collection('localResources').get()
+            .then(function(querySnapshot) {
+                querySnapshot.forEach(function(doc) {
+                    data.push(doc.data())
+                })
+            }).then(() => {
+                dispatch({type: 'GET_MAP_RESOURCE_DATA', data})
+            });
+        } catch(err) {
+            console.log(err);
+        };
+    };
+};

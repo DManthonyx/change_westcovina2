@@ -30,7 +30,7 @@ const Mapbox = (props) => {
                 setViewport(viewport)
             }}
         >
-            {props.resources.map((resource, index) => {
+            {props.resources && props.resources.map((resource, index) => {
                 return (
                     <Marker
                     key={index}

@@ -23,6 +23,9 @@ export const Section = styled.section`
         align-items: center;
         margin-bottom: 0px;
     }
+    &:nth-child(4) {
+        flex-direction: column;
+    }
 `
 
 export const SubSection = styled.aside`
@@ -107,3 +110,47 @@ export const Btn = styled.button`
     margin: 22px 0px;
 `
 
+export const MeetingWrap = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
+
+export const MeetingDiv = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+`
+
+export const MeetingNum = styled.div`
+    display: flex;
+    width: 30%;
+`
+
+export const H3 = styled.h3`
+
+`
+
+export const Num = styled.p`
+    font-size: 8em;
+    text-shadow: 6px 3px 11px #115AAD;
+    color: #115AAD;
+    padding-right: 2px;
+    &.num {
+        padding-right: 10px;
+    }
+
+`
+
+export const NumP = styled.p`
+    align-self: center;
+    border-left: 1px solid;
+    padding-left: 11px;
+    font-weight: 100;
+    height: 64px;
+`
+
+export const DivLine = styled.div`
+
+`

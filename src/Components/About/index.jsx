@@ -23,7 +23,7 @@ const About = () => {
                 <Title>Who We Are</Title>
                 <Wrapper>
                     <Div className='div-logo'>
-                        <Img src='https://i.imgur.com/zSYDTxD.png'  title='Change West Covina'/>
+                        <Img src='https://i.imgur.com/7cpYYcK.png'  title='Change West Covina'/>
                     </Div>
                     <Div className='div-goals'>
                         <H2>OUR GOALS</H2>

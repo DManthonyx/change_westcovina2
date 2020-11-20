@@ -25,6 +25,11 @@ const resourceReducer = (state = {}, action) => {
                 events: action.data,
                 ...state
             };
+        case 'GET_MAP_RESOURCE_DATA': 
+            return {
+                mapResources: action.data,
+                ...state
+            };
         default:
             return state;
     }

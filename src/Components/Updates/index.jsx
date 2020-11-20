@@ -19,10 +19,16 @@ import {
     Span,
     SubSpan,
     Selfie,
-    Btn
+    Btn,
+    MeetingWrap,
+    MeetingDiv,
+    MeetingNum,
+    H3,
+    Num,
+    NumP,
+    DivLine
 } from './style'
 const Updates = (props) => {
-    console.log(props && props.events, 'update')
     return (
         <Main>
             <Title>Updates</Title>
@@ -31,7 +37,7 @@ const Updates = (props) => {
                     <Calendar />
                 </Div>
                 <Div>
-                    <List events={props && props.events}/>
+                    <List data={props && props.events} type={'events'}/>
                 </Div>
             </Section>
             <Section>
@@ -82,6 +88,46 @@ const Updates = (props) => {
             </Section>
             <Section>
                 <SubTitle>CITY COUNCIL MEETING</SubTitle>
+                <MeetingWrap>
+                    <H3>How To Phone-In to City Council Meetings</H3>
+                    <MeetingDiv>
+                        <MeetingNum>
+                            <Num>1</Num>
+                            <NumP>
+                                Email<br />
+                                city_clerk@westcovina.org<br />
+                                by 3pm day of meeting
+                            </NumP>
+                        </MeetingNum>
+                        <MeetingNum>
+                            <Num className='num'>2</Num>
+                            <NumP>
+                                Ask to make a phone-in<br />
+                                comment
+                            </NumP>
+                        </MeetingNum>
+                        <MeetingNum>
+                            <Num className='num'>3</Num>
+                            <NumP>
+                                Dail the number at 7pm<br />
+                                and be ready with your<br />
+                                comment
+                            </NumP>
+                        </MeetingNum>
+                        <DivLine></DivLine>
+                    </MeetingDiv>
+                    {/* <MeetingDiv>
+                        <H3>Upcoming Meetings</H3>
+                        <UpcomingWrap>
+                            <UpcomingDiv>
+
+                            </UpcomingDiv>
+                            <UpcomingDiv>
+
+                            </UpcomingDiv>
+                        </UpcomingWrap>
+                    </MeetingDiv> */}
+                </MeetingWrap>
             </Section>
         </Main>
     )

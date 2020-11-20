@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import ScrollToTop from '../ScrollToTop'
 
 import { CommunityData } from '../../Store/Actions/resourceActions'
+import { MapResourcesData } from '../../Store/Actions/resourceActions'
 import { EventsData } from '../../Store/Actions/resourceActions'
 import { AbuseData } from '../../Store/Actions/resourceActions'
 import { CrisisInterventionData } from '../../Store/Actions/resourceActions'
@@ -36,10 +37,11 @@ const My404 = () => {
 };
    
 
-const App = ({location, communityData, abuseData, crisisInterventionData, crisisTalkLinesData, getAllUsers, getEvents}) => {
+const App = ({location, communityData, abuseData, crisisInterventionData, crisisTalkLinesData, getAllUsers, getEvents, mapData}) => {
 
     useEffect(() => {
         communityData()
+        mapData()
         abuseData()
         crisisInterventionData()
         crisisTalkLinesData()
@@ -88,6 +90,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         authState: () => dispatch(),
         communityData: () => dispatch(CommunityData()),
+        mapData: () => dispatch(MapResourcesData()),
         abuseData: () => dispatch(AbuseData()),
         crisisInterventionData: () => dispatch(CrisisInterventionData()),
         crisisTalkLinesData: () => dispatch(CrisisTalkLinesData()),
