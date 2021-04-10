@@ -16,7 +16,7 @@ export const Section = styled.section`
         background: url('https://i.imgur.com/pplFJUP.png');
         background-repeat: no-repeat;
         background-size: 100% 100%;
-        height: 506px; 
+        height: 506px;
         padding-top: 236px;
         flex-direction: column;
         align-items: center;
@@ -79,6 +79,10 @@ export const Button = styled.button`
     border: 0px;
     border-radius: 30px;
     margin-top: 20px;
+    cursor: pointer;
+    &:focus {
+        outline: none;
+    }
 `
 
 export const Div = styled.div`
@@ -156,6 +160,10 @@ export const SignUpBtn = styled.button`
         width: 76px;
         font-size: 11px;
     }
+    cursor: pointer;
+    &:focus {
+        outline: none;
+    }
 `
 
 export const SecWrapper = styled.div`
@@ -168,6 +176,7 @@ export const SecDiv = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 400px;
 `
 export const SecDiv2 = styled.div`
     display: flex;
@@ -193,6 +202,10 @@ export const InvolvedBtn = styled.button`
     margin: 12px 0px;
     border: 0px;
     border-radius: 16px;
+    cursor: pointer;
+    &:focus {
+        outline: none;
+    }
 `
 
 export const InvolvedP = styled.p`
@@ -210,6 +223,10 @@ export const Btn = styled.button`
     color: white;
     &.post-btn {
         margin-top: 50px;
+    }
+        cursor: pointer;
+    &:focus {
+        outline: none;
     }
 `
 
@@ -243,11 +260,19 @@ export const Img = styled.img`
 `
 
 export const PostImg = styled.img`
-
+    width: 100%;
+    height: 220px;
 `
 
 export const A = styled(Link)`
     color: black;
     text-decoration: none;
+    &.post-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 400px;
+        cursor: pointer;
+    }
 `
 

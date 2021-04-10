@@ -116,17 +116,6 @@ const Updates = (props) => {
                         </MeetingNum>
                         <DivLine></DivLine>
                     </MeetingDiv>
-                    {/* <MeetingDiv>
-                        <H3>Upcoming Meetings</H3>
-                        <UpcomingWrap>
-                            <UpcomingDiv>
-
-                            </UpcomingDiv>
-                            <UpcomingDiv>
-
-                            </UpcomingDiv>
-                        </UpcomingWrap>
-                    </MeetingDiv> */}
                 </MeetingWrap>
             </Section>
         </Main>
@@ -137,6 +126,5 @@ const mapStateToProps = (state) => {
       events: state.resource.events
     }
   }
-  
+
 export default withRouter(connect(mapStateToProps, null)(Updates))
-  

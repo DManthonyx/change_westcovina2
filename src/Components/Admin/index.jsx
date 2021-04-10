@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux'
 
-import { CreateArticle  } from '../../Store/Actions/articleAction'
+import { CreateArticle  } from '../../Store/Actions/articleActions'
 
 import {
     Main,
@@ -14,7 +14,7 @@ import {
 const Admin = (props) => {
 
     useEffect(() => {
-    
+
     },[])
 
     const [name, setName] = useState('')
@@ -22,7 +22,7 @@ const Admin = (props) => {
     const [title, setTitle] = useState('')
     const [article, setArticle] = useState('')
     const [image, setImage] = useState('')
-    
+
     const submit = (e) => {
         e.preventDefault()
         const payload = {
@@ -32,7 +32,7 @@ const Admin = (props) => {
             article: article,
             image: image,
         }
-        props.createArticle(payload)
+        // props.createArticle(payload)
     }
 
     return (
@@ -46,7 +46,7 @@ const Admin = (props) => {
                 <Btn>Submit</Btn>
             </Form>
         </Main>
-    )   
+    )
 }
 
 const mapStateToProps = (state) => {
@@ -58,7 +58,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         authState: () => dispatch(),
-        createArticle: (payload) => CreateArticle(payload)
+        createArticle: (payload) => dispatch(CreateArticle(payload))
     }
 }
 

@@ -11,6 +11,7 @@ import { AbuseData } from '../../Store/Actions/resourceActions'
 import { CrisisInterventionData } from '../../Store/Actions/resourceActions'
 import { CrisisTalkLinesData } from '../../Store/Actions/resourceActions'
 import { GetAllUsers  } from '../../Store/Actions/authActions'
+import { GetAllArticles  } from '../../Store/Actions/articleActions'
 
 import NavBar from '../NavBar';
 import Footer from '../Footer';
@@ -35,9 +36,9 @@ const My404 = () => {
       return  <Redirect to="/home" />
     }
 };
-   
 
-const App = ({location, communityData, abuseData, crisisInterventionData, crisisTalkLinesData, getAllUsers, getEvents, mapData}) => {
+
+const App = ({location, communityData, abuseData, crisisInterventionData, crisisTalkLinesData, getAllUsers, getEvents, mapData, getAllArticles}) => {
 
     useEffect(() => {
         communityData()
@@ -47,7 +48,8 @@ const App = ({location, communityData, abuseData, crisisInterventionData, crisis
         crisisTalkLinesData()
         getAllUsers()
         getEvents()
-    },[])
+        getAllArticles()
+    },[communityData, mapData, abuseData, crisisInterventionData, crisisTalkLinesData, getAllUsers, getEvents, getAllArticles])
 
     return (
         <PageWrapper>
@@ -58,7 +60,7 @@ const App = ({location, communityData, abuseData, crisisInterventionData, crisis
         <Section className="route-section">
         <ScrollToTop>
         <Switch>
-            <Route exact path='/' render={() => <Home /> }  /> 
+            <Route exact path='/' render={() => <Home /> }  />
             <Route exact path='/home' render={() => <Home /> }  />
             <Route exact path='/who we are' render={() => <About />}  />
             <Route exact path='/article' render={() => <Article />}  />
@@ -77,7 +79,7 @@ const App = ({location, communityData, abuseData, crisisInterventionData, crisis
         </TransitionGroup>
         </ContentWrapper>
         </PageWrapper>
-    )   
+    )
 }
 
 const mapStateToProps = (state) => {
@@ -95,37 +97,10 @@ const mapDispatchToProps = (dispatch) => {
         crisisInterventionData: () => dispatch(CrisisInterventionData()),
         crisisTalkLinesData: () => dispatch(CrisisTalkLinesData()),
         getAllUsers: () => dispatch(GetAllUsers()),
-        getEvents: () => dispatch(EventsData())
+        getEvents: () => dispatch(EventsData()),
+        getAllArticles: () => dispatch(GetAllArticles())
     }
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App))
 
-
-{/* <PageWrapper>
-<NavBar />
-<ContentWrapper>
-<TransitionGroup className="transition-group">
-<CSSTransition key={location.key} timeout={{ enter: 300, exit: 300 }} classNames="fade">
-<Section className="route-section">
-<ScrollToTop>
-<Switch>
-    <Route exact path='/' render={() => <Home /> }  /> 
-    <Route exact path='/home' render={() => <Home /> }  />
-    <Route exact path='/who we are' render={() => <About />}  />
-    <Route exact path='/article' render={() => <Article />}  />
-    <Route exact path='/resources' render={() => <Resources />}  />
-    <Route exact path='/updates' render={() => <Updates />}  />
-    <Route exact path='/get connected' render={() => <Media />}  />
-    <Route exact path='/signup' render={() => <SignUp />}  />
-    <Route exact path='/login' render={() => <LogIn />}  />
-    <Route exact path='/admin' render={() => <Admin />}  />
-    <Route component={ My404 } />
-</Switch>
-</ScrollToTop>
-<Footer />
-</Section>
-</CSSTransition>
-</TransitionGroup>
-</ContentWrapper>
-</PageWrapper> */}

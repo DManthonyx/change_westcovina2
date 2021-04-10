@@ -19,3 +19,24 @@ export const CreateArticle = (payload) => {
         })
     };
 };
+
+export const GetAllArticles = () => {
+    return (dispatch, getState, { getFirebase, getFirestore }) => {
+        try {
+            const data = [];
+            const firestore = getFirestore();
+            firestore.collection('articles').get()
+            .then(function(querySnapshot) {
+                querySnapshot.forEach(function(doc) {
+                    let result = doc.data()
+                    result['id'] = doc.id
+                    data.push(result)
+                })
+            }).then(() => {
+                dispatch({type: 'GET_ALL_ARTICLES', data})
+            });
+        } catch(err) {
+            console.log(err);
+        };
+    };
+};

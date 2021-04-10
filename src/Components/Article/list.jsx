@@ -17,10 +17,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-
-export default compose(
-    connect(mapStateToProps),
-    firestoreConnect([
-        { collection: 'messages'}
-    ])
-)(List)
+export default compose(connect(mapStateToProps),firestoreConnect([{ collection: 'messages'}]))(List)

@@ -9,7 +9,7 @@ import { connect } from 'react-redux'
 // import { SignOut } from '../../Store/Actions/authActions'
 // import { CheckAuthState } from '../../Store/Actions/authActions'
 
-import { 
+import {
     NavContainer,
     NavRow,
     Ul,
@@ -50,7 +50,7 @@ const NavBar = (props) => {
                 {
                   ROUTES.map((route, i) =>
                     <Link ishome={isHome} exact to={`/${route}`} key={i}>{route}</Link>
-                  ) 
+                  )
                 }
             </Div>
           </NavRowMid>
@@ -85,7 +85,6 @@ const NavBar = (props) => {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state, 'this is state nav')
   return {
     //isLogged: !state.firebase.auth.isEmpty
   }

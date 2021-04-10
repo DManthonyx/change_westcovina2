@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { CreateArticle } from '../../Store/Actions/articleAction'
+import { CreateArticle } from '../../Store/Actions/articleActions'
 import { Controller, useForm } from 'react-hook-form'
 
 import {
@@ -16,7 +16,7 @@ const Form = (props) => {
     }
 
     return (
-        <> 
+        <>
         <form onSubmit={handleSubmit(submit)}>
             <TextField
                 autoComplete='title'

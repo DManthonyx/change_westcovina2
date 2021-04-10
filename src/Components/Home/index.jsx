@@ -36,6 +36,7 @@ import {
 } from './style'
 
 const Home = (props) => {
+    const { articles } = props;
     const [email, setEmail] = useState('')
     const submit = (e) => {
         e.preventDefault()
@@ -124,31 +125,35 @@ const Home = (props) => {
             <Section>
                 <H2>RECENT POSTS</H2>
                 <SecWrapper className='posts-wrapper'>
-                    <SecDiv className='post-div'>
-                        <PostImg src="https://i.imgur.com/cjulNMW.png" />
-                        <PostP>West Covina District 1<br /> Candidate Forum</PostP>
-                    </SecDiv>
-                    <SecDiv className='post-div'>
-                    <PostImg src="https://i.imgur.com/cjulNMW.png" />
-                        <PostP>What You Need To Know About<br />  Census 2020</PostP>
-                    </SecDiv>
-                    <SecDiv className='post-div'>
-                    <PostImg src="https://i.imgur.com/cjulNMW.png" />
-                        <PostP>How Can We Invest in Our<br />  Community?</PostP>
-                    </SecDiv>
+                    {
+                        props.articles && articles.map((article, i) => {
+                            return (
+                                <A exact to='/article' className='post-div'>
+                                    <PostImg src={article.article_img} />
+                                    <PostP>{article.title}</PostP>
+                                    <PostP>{article.author}</PostP>
+                                </A>
+                            )
+                        })
+                    }
                 </SecWrapper>
-                <Btn className='post-btn'><A exact to='/updates'>READ MORE</A></Btn>
+                <Btn className='post-btn'><A exact to='/article'>READ MORE</A></Btn>
             </Section>
         </Main>
     )
 }
 
+const mapStateToProps = (state) => {
+    return {
+        articles: state.article.articles
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
         createUser: (creds) => dispatch(CreateUser(creds)),
-
     }
 }
 
 
-export default withRouter(connect(null, mapDispatchToProps)(Home))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Home))
