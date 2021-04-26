@@ -127,6 +127,9 @@ export const Input = styled.input`
     line-height: 22px;
     text-align: center;
     letter-spacing: 1px;
+    :focus {
+        outline: none;
+    }
     @media (max-width: 1367px) {
         width: 432px;
     }

@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
-import { withRouter } from 'react-router-dom'
-import { connect } from 'react-redux'
+import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-import { CreateUser  } from '../../Store/Actions/authActions'
+import { CreateUser  } from '../../Store/Actions/authActions';
+import { UpdateCurrentArticle  } from '../../Store/Actions/articleActions';
 
 import {
     Main,
@@ -36,7 +37,7 @@ import {
 } from './style'
 
 const Home = (props) => {
-    const { articles } = props;
+    const { articles, updateCurrent } = props;
     const [email, setEmail] = useState('')
     const submit = (e) => {
         e.preventDefault()
@@ -55,6 +56,7 @@ const Home = (props) => {
             window.scroll({ top: 750, left: 0, behavior: 'smooth'})
         }
     }
+
     return (
         <Main>
             <Section>
@@ -128,7 +130,7 @@ const Home = (props) => {
                     {
                         props.articles && articles.map((article, i) => {
                             return (
-                                <A exact to='/article' className='post-div'>
+                                <A exact to='/article' className='post-div' key={i} onClick={() => updateCurrent(article)}>
                                     <PostImg src={article.article_img} />
                                     <PostP>{article.title}</PostP>
                                     <PostP>{article.author}</PostP>
@@ -152,6 +154,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         createUser: (creds) => dispatch(CreateUser(creds)),
+        updateCurrent: (article) => dispatch(UpdateCurrentArticle(article))
     }
 }
 

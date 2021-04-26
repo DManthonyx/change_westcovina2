@@ -1,8 +1,10 @@
-import React from 'react'
-import { withRouter } from 'react-router-dom'
-import Calendar from '../Calender'
-import List from '../List'
+import React from 'react';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+
+import Calendar from '../Calender';
+import List from '../List';
+import { UpdateCurrentArticle  } from '../../Store/Actions/articleActions';
 
 import {
     Main,
@@ -29,6 +31,7 @@ import {
     DivLine
 } from './style'
 const Updates = (props) => {
+    const { articles, updateCurrent } = props;
     return (
         <Main>
             <Title>Updates</Title>
@@ -44,45 +47,23 @@ const Updates = (props) => {
             <SubSection>
                 <SubTitle>IN OUR WORDS</SubTitle>
                 <ArticleWrap>
-                    <ArticleDiv>
-                        <Img src='https://i.imgur.com/cjulNMW.png' />
-                        <P>West Covina District 1 Candidate Forum</P>
-                        <Span>
-                            <Selfie src='https://i.imgur.com/oCQ7njG.jpg' />
-                            <SubSpan>
-                                Name of Arthur <br /> September 22, 2020
-                            </SubSpan>
-                        </Span>
-                        <P>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in risus vel risus interdum pellentesque. Vestibulum a neque in odio facilisis gravida. Morbi condimentum neque sit amet mauris tincidunt, scelerisque commodo magna efficitur. Proin ut tellus urna. Sed at condimentum neque, ut vehicula libero. Suspendisse in nisl quis nulla ultrices efficitur. Nulla sit amet cursus nisl, vitae euismod nibh. Aliquam eu mattis nisi. Aliquam varius diam in urna elementum aliquam...
-                        </P>
-                        <Btn>Read More</Btn>
-                    </ArticleDiv>
-                    <ArticleDiv>
-                        <Img src='https://i.imgur.com/cjulNMW.png' />
-                        <P>West Covina District 1 Candidate Forum</P>
-                        <Span>
-                            <Selfie src='https://i.imgur.com/oCQ7njG.jpg' />
-                            <SubSpan>
-                                Name of Arthur <br /> September 22, 2020
-                            </SubSpan>
-                        </Span>
-                        <P>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in risus vel risus interdum pellentesque. Vestibulum a neque in odio facilisis gravida. Morbi condimentum neque sit amet mauris tincidunt, scelerisque commodo magna efficitur. Proin ut tellus urna. Sed at condimentum neque, ut vehicula libero. Suspendisse in nisl quis nulla ultrices efficitur. Nulla sit amet cursus nisl, vitae euismod nibh. Aliquam eu mattis nisi. Aliquam varius diam in urna elementum aliquam...
-                        </P>
-                        <Btn>Read More</Btn>
-                    </ArticleDiv>
-                    <ArticleDiv>
-                        <Img src='https://i.imgur.com/cjulNMW.png' />
-                        <P>West Covina District 1 Candidate Forum</P>
-                        <Span>
-                            <Selfie src='https://i.imgur.com/oCQ7njG.jpg' />
-                            <SubSpan>
-                                Name of Arthur <br /> September 22, 2020
-                            </SubSpan>
-                        </Span>
-                        <P>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in risus vel risus interdum pellentesque. Vestibulum a neque in odio facilisis gravida. Morbi condimentum neque sit amet mauris tincidunt, scelerisque commodo magna efficitur. Proin ut tellus urna. Sed at condimentum neque, ut vehicula libero. Suspendisse in nisl quis nulla ultrices efficitur. Nulla sit amet cursus nisl, vitae euismod nibh. Aliquam eu mattis nisi. Aliquam varius diam in urna elementum aliquam...
-                        </P>
-                        <Btn>Read More</Btn>
-                    </ArticleDiv>
+                    {articles && articles.map((article, i) => {
+                        return (
+                            <ArticleDiv>
+                                <Img src={article.article_img} />
+                                <P>{article.title}</P>
+                                <Span>
+                                    <Selfie src={article.user_img} />
+                                    <SubSpan>
+                                        {article.author} <br /> {article.date}
+                                    </SubSpan>
+                                </Span>
+                                <P>{article.article.slice(0, 200)}...
+                                </P>
+                                <Btn to='/article' onClick={() => updateCurrent(article)}>Read More</Btn>
+                            </ArticleDiv>
+                        )
+                    })}
                 </ArticleWrap>
             </SubSection>
             </Section>
@@ -123,8 +104,15 @@ const Updates = (props) => {
 }
 const mapStateToProps = (state) => {
     return {
-      events: state.resource.events
+      events: state.resource.events,
+      articles: state.article.articles
     }
-  }
+}
 
-export default withRouter(connect(mapStateToProps, null)(Updates))
+const mapDispatchToProps = (dispatch) => {
+    return {
+        updateCurrent: (article) => dispatch(UpdateCurrentArticle(article))
+    }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Updates))

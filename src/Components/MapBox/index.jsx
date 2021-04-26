@@ -19,7 +19,7 @@ const Mapbox = (props) => {
     })
 
     const [selectedResource, setSelectedResource] = useState(null);
-
+    console.log(process.env.REACT_APP_MAPBOX_TOKEN, 'env')
     return (
         <Div>
             <ReactMapGL

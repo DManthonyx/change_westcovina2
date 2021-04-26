@@ -84,9 +84,9 @@ export const P = styled.p`
 `
 
 export const Img = styled.img`
-
-
-`  
+    width: 100%;
+    height: 160px;
+`
 
 export const Selfie = styled.img`
     width: 28px;
@@ -103,11 +103,16 @@ export const SubSpan = styled.span`
 
 `
 
-export const Btn = styled.button`
+export const Btn = styled(NavLink)`
     border: 0px;
     background: none;
     color: #115AAD;
     margin: 22px 0px;
+    cursor: pointer;
+    text-decoration: none;
+    :focus {
+        outline: none;
+    }
 `
 
 export const MeetingWrap = styled.div`

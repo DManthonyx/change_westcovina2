@@ -14,37 +14,37 @@ import {
 } from './style';
 
 const Article = (props) => {
-    console.log(props, 'from article')
-    const { articles } = props;
+
+    const { articles, current } = props;
 
     return (
         <Div className='wrapper'>
             <H1>In Our Words</H1>
             <Div className='article-div'>
-                <Img src={props.articles && articles[0].article_img} className='article-img' />
-                <H2>{props.articles && articles[0].title}</H2>
+                <Img src={current && current.article_img} className='article-img' />
+                <H2>{current && current.title}</H2>
                 <Div className='info-div'>
                     <Div className='info-left'>
-                        <Img src={props.articles && articles[0].user_img} className='author-img' />
+                        <Img src={current && current.user_img} className='author-img' />
                         <Span>
-                            <P>{props.articles && articles[0].author}</P>
-                            <P>{props.articles && articles[0].date}</P>
+                            <P>{current && current.author}</P>
+                            <P>{current && current.date}</P>
                         </Span>
                     </Div>
                     <Div className='info-right'>
-                        <A href={props.articles && articles[0].facebook} target='_blank'>
+                        <A href={current && current.facebook} target='_blank'>
                             <Img src='https://i.imgur.com/32wQeQq.png' className='social-icon' />
                         </A>
-                        <A href={props.articles && articles[0].instagram} target='_blank'>
+                        <A href={current && current.instagram} target='_blank'>
                             <Img src='https://i.imgur.com/xFImnke.png' className='social-icon' />
                         </A>
-                        <A href={props.articles && articles[0].twitter} target='_blank'>
+                        <A href={current && current.twitter} target='_blank'>
                             <Img src='https://i.imgur.com/486JE5L.png' className='social-icon' />
                         </A>
                     </Div>
                 </Div>
                 <P className='article'>
-                {props.articles && articles[0].article}
+                    {current && current.article}
                 </P>
             </Div>
         </Div>
@@ -53,7 +53,8 @@ const Article = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        articles: state.article.articles
+        articles: state.article.articles,
+        current: state.article.current
     }
 }
 

@@ -84,7 +84,8 @@ const App = ({location, communityData, abuseData, crisisInterventionData, crisis
 
 const mapStateToProps = (state) => {
     return {
-        authError: state.auth.authError
+        authError: state.auth.authError,
+        state: state
     }
 }
 

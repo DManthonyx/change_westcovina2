@@ -29,15 +29,16 @@ import {
 
 
 const NavBar = (props) => {
-  const [ isOpen, setIsOpen ] = useState(false)
-  const [ isHidden, setIsHidden ] = useState(false)
-  const [ isHome, setIsHome ] = useState('false')
-  useEffect(() => {
-    let location = props.location.pathname
-    location === '/home' ? setIsHome('true') : setIsHome('false')
-  })
+  const [ isOpen, setIsOpen ] = useState(false);
+  const [ isHidden, setIsHidden ] = useState(false);
+  const [ isHome, setIsHome ] = useState('false');
 
-  window.onresize = () =>  (window.innerWidth > 900 && isOpen) && setIsOpen(false)
+  useEffect(() => {
+    let location = props.location.pathname;
+    location === '/home' ? setIsHome('true') : setIsHome('false')
+  });
+
+  window.onresize = () =>  (window.innerWidth > 900 && isOpen) && setIsOpen(false);
 
   return (
       <NavContainer color={"white"} visible={isHidden}>
@@ -90,4 +91,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default withRouter(connect(mapStateToProps, null)(NavBar))
+export default withRouter(connect(mapStateToProps, null)(NavBar));

@@ -9,7 +9,13 @@ const articleReducer = (state = initState, action) => {
         case 'GET_ALL_ARTICLES':
             return {
                 ...state,
-                articles: action.data
+                articles: action.data,
+                current: action.data[0]
+            };
+        case 'UPDATE_CURRENT_ARTICLE':
+            return {
+                ...state,
+                current: action.data
             };
         default:
             return state;

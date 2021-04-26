@@ -15,7 +15,7 @@ export const CreateArticle = (payload) => {
             firebase.storage().ref(filePath).put(payload.image)
             console.log('the end')
         }).catch(err => {
-            console.log(err, 'from article action')
+            console.log({err}, 'from article action')
         })
     };
 };
@@ -33,10 +33,21 @@ export const GetAllArticles = () => {
                     data.push(result)
                 })
             }).then(() => {
-                dispatch({type: 'GET_ALL_ARTICLES', data})
+                dispatch({type: 'GET_ALL_ARTICLES', data});
             });
         } catch(err) {
-            console.log(err);
+            console.log({err});
         };
     };
 };
+
+export const UpdateCurrentArticle = (article) => {
+    return (dispatch, getState) => {
+        try {
+            const data = article;
+            dispatch({type: 'UPDATE_CURRENT_ARTICLE', data});
+        } catch(err) {
+            console.log({err})
+        }
+    }
+}

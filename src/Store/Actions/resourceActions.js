@@ -77,7 +77,7 @@ export const EventsData = () => {
         try {
             const data = [];
             const firestore = getFirestore();
-            const event = firestore.collection('events').orderBy('timestamp','asc').get()
+            const event = firestore.collection('events').orderBy('timestamp','desc').get()
             .then(function(querySnapshot) {
                 querySnapshot.forEach(function(doc) {
                     data.push(doc.data())
