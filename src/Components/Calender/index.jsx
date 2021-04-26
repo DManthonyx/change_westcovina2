@@ -14,45 +14,45 @@ import {
   Main,
   Div,
   P
-} from './style'
+} from './style';
 
 const Calender = (props) => {
 
-  const events = props.events
+  const { events } = props;
   const day = new Date();
-  const [month, setMonth] = useState(day.getMonth())
-  const [year, setYear] = useState(day.getFullYear())
-  const [eventPicked, setEventPicked] = useState({})
+  const [month, setMonth] = useState(day.getMonth());
+  const [year, setYear] = useState(day.getFullYear());
+  const [eventPicked, setEventPicked] = useState({});
   let monthAndYear = ''
   let currentDay = day.getDay();
   const months = ["Janruary", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-  const daysInMonth = (month, year) =>  { 
+  const daysInMonth = (month, year) =>  {
     return new Date(year, month + 1, 0).getDate();
-  }
+  };
 
   const weekDaysShort = moment.weekdaysShort();
 
   const next = () => {
     setMonth((month + 1) % 12)
     setYear((month === 11) ? year + 1 : year)
-  }
-  
+  };
+
   const previous = () => {
     setMonth((month === 0) ? 11 : month - 1)
     setYear((month === 0) ? year - 1 : year)
-  }
+  };
 
   const calender = (month, year) => {
-    let firstDay = (new Date(year, month)).getDay()
-    let blanks = []
-    let numOffSet = 32
+    let firstDay = (new Date(year, month)).getDay();
+    let blanks = [];
+    let numOffSet = 32;
     for (let i = 0; i < firstDay; i++) {
-      blanks.push(<Td key={numOffSet * 10}>{''}</Td>)
-      numOffSet++
+      blanks.push(<Td key={numOffSet * 10}>{''}</Td>);
+      numOffSet++;
     };
     let days = [];
-    let num = 0
+    let num = 0;
     if(events && events.length) {
       for (let d = 1; d <= daysInMonth(year, month); d++) {
         for(let i = 0; i < events.length; i++) {
@@ -61,48 +61,48 @@ const Calender = (props) => {
           }
         }
         if(days && days[num]) {
-          
+
         } else {
           days.push(<Td key={d}>{d}</Td>);
         }
-        num++
+        num++;
       }
     }
-    let totalSlots = [...blanks, ...days]
-    let rows = []
-    let cells = []
+    let totalSlots = [...blanks, ...days];
+    let rows = [];
+    let cells = [];
     totalSlots.forEach((day, i) => {
       if (i % 7 !== 0) {
         cells.push(day);
       } else {
         rows.push(cells);
-        cells = [];  
-        cells.push(day); 
+        cells = [];
+        cells.push(day);
       }
       if (i === totalSlots.length - 1) {
         rows.push(cells);
       }
     });
     for(let i = 0; i < rows.length; i++) {
-      let numOffSet2 = 100
+      let numOffSet2 = 100;
       while(rows[i].length >= 1 && rows[i].length < 7) {
         rows[i].push(<Td key={numOffSet2}>{''}</Td>)
-        numOffSet2++
+        numOffSet2++;
       }
       if(rows[i].length === 0) {
-        rows.splice(i,1)
+        rows.splice(i,1);
       }
     }
-    return rows
-  }
+    return rows;
+  };
 
   const showPickedEvent = (e) => {
-    const data = e.target.getAttribute('data')
+    const data = e.target.getAttribute('data');
     if(events && data) {
-      const day = Number(data.slice(0,1))
-      const month = Number(data.slice(2,4))
-      const year = Number(data.slice(5))
-      const result = events.filter(ele =>  ele.day === day && ele.month === month && ele.year === year)
+      const day = Number(data.slice(0,1));
+      const month = Number(data.slice(2,4));
+      const year = Number(data.slice(5));
+      const result = events.filter(ele =>  ele.day === day && ele.month === month && ele.year === year);
       setEventPicked({
         address: `${result[0].address}, ${result[0].city} ${result[0].zipcode}`,
         contact: result[0].contact,
@@ -112,8 +112,8 @@ const Calender = (props) => {
         time: result[0].time,
         type: result[0].type
       })
-    }
-  }
+    };
+  };
 
   const firstEvent = () => {
     if(events) {
@@ -125,15 +125,15 @@ const Calender = (props) => {
         day: `${months[events[0].month]} ${events[0].day}, ${events[0].year}`,
         time: events[0].time,
         type: events[0].type
-      })
+      });
     }
-  }
+  };
 
-  console.log(eventPicked, 'picked')
+  // console.log(eventPicked, 'picked')
 
   useEffect(() => {
-    firstEvent()
-  },[events])
+    firstEvent();
+  },[events]);
 
   return (
     <Main>
@@ -174,13 +174,13 @@ const Calender = (props) => {
       </Div>
     </Main>
   );
-}
+};
 
 const mapStateToProps = (state) => {
   return {
     events: state.resource.events
   }
-}
+};
 
-export default withRouter(connect(mapStateToProps, null)(Calender))
+export default withRouter(connect(mapStateToProps, null)(Calender));
 

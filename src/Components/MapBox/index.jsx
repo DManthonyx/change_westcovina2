@@ -7,7 +7,7 @@ import {
     Button,
     Img,
     Pin
-} from './style'
+} from './style';
 
 const Mapbox = (props) => {
     const [viewport, setViewport] = useState({
@@ -16,10 +16,9 @@ const Mapbox = (props) => {
         width: '45vw',
         height: 'calc(80vh - 80px)',
         zoom: 12
-    })
+    });
 
     const [selectedResource, setSelectedResource] = useState(null);
-
     return (
         <Div>
             <ReactMapGL
@@ -62,7 +61,7 @@ const Mapbox = (props) => {
             ) : null}
         </ReactMapGL>
         </Div>
-    )
+    );
 };
 
-export default Mapbox
+export default Mapbox;

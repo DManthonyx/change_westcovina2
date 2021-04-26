@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react'
-import { withRouter } from 'react-router-dom'
-import Hamburger from '../Hamburger'
-import { ROUTES } from '../../Const'
+import React, { useState, useEffect } from 'react';
+import { withRouter } from 'react-router-dom';
+import Hamburger from './Hamburger';
+import { ROUTES } from '../../Const';
+import { convertRouteToUrl } from '../../Utilities';
 
 
 
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 // import { SignOut } from '../../Store/Actions/authActions'
 // import { CheckAuthState } from '../../Store/Actions/authActions'
 
@@ -25,22 +26,27 @@ import {
     SocialIcon,
     Title,
     Div
-   } from './style'
+   } from './style';
 
 
 const NavBar = (props) => {
-  const [ isOpen, setIsOpen ] = useState(false)
-  const [ isHidden, setIsHidden ] = useState(false)
-  const [ isHome, setIsHome ] = useState('false')
-  useEffect(() => {
-    let location = props.location.pathname
-    location === '/home' ? setIsHome('true') : setIsHome('false')
-  })
+  const [ isOpen, setIsOpen ] = useState(false);
+  const [ isHidden, setIsHidden ] = useState(false);
+  const [ isHome, setIsHome ] = useState('false');
 
-  window.onresize = () =>  (window.innerWidth > 900 && isOpen) && setIsOpen(false)
+  useEffect(() => {
+    let { pathname } = props.location;
+    if(pathname === '/') {
+      setIsHome('true')
+    } else {
+      setIsHome('false')
+    }
+  },[props.location]);
+
+  window.onresize = () =>  (window.innerWidth > 900 && isOpen) && setIsOpen(false);
 
   return (
-      <NavContainer color={"white"} visible={isHidden}>
+      <NavContainer visible={isHidden}>
       <NavRow>
           <NavRowLeft>
             <Logo src="https://i.imgur.com/7cpYYcK.png"  title="Change West Covina logo"/>
@@ -49,19 +55,19 @@ const NavBar = (props) => {
             <Div>
                 {
                   ROUTES.map((route, i) =>
-                    <Link ishome={isHome} exact to={`/${route}`} key={i}>{route}</Link>
+                    <Link ishome={isHome} to={route === 'home' ? '/' : `/${convertRouteToUrl(route)}`} key={i}>{route}</Link>
                   )
                 }
             </Div>
           </NavRowMid>
           <NavRowRight>
-            <SocialLink exact to='/'>
+            <SocialLink to='/'>
               <SocialIcon src='https://i.imgur.com/32wQeQq.png' />
             </SocialLink>
-            <SocialLink exact to='/'>
+            <SocialLink to='/'>
               <SocialIcon src='https://i.imgur.com/xFImnke.png'/>
             </SocialLink>
-            <SocialLink exact to='/'>
+            <SocialLink to='/'>
               <SocialIcon src='https://i.imgur.com/486JE5L.png'/>
             </SocialLink>
           </NavRowRight>
@@ -69,25 +75,23 @@ const NavBar = (props) => {
       </NavRow>
       <Overlay className={isOpen ? "show" : "hide"}>
         <Ul>
-          <Div>
             {
               ROUTES.map((route, i) =>
                 <Li onClick={() => setIsOpen(!isOpen)} key={i}>
-                  <HamLink exact to={`/${route}`}>{route}</HamLink>
+                  <HamLink to={`/${route}`}>{route}</HamLink>
                 </Li>
               )
             }
-          </Div>
         </Ul>
       </Overlay>
     </NavContainer>
-  )
-}
+  );
+};
 
 const mapStateToProps = (state) => {
   return {
     //isLogged: !state.firebase.auth.isEmpty
-  }
-}
+  };
+};
 
-export default withRouter(connect(mapStateToProps, null)(NavBar))
+export default withRouter(connect(mapStateToProps, null)(NavBar));

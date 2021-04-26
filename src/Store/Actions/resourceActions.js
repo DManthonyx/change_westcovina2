@@ -6,8 +6,8 @@ export const CommunityData = () => {
             firestore.collection('communityResource').get()
             .then(function(querySnapshot) {
                 querySnapshot.forEach(function(doc) {
-                    data.push(doc.data())
-                })
+                    data.push(doc.data());
+                });
             }).then(() => {
                 dispatch({type: 'GET_COMMUNITY_RESOURCE', data})
             });
@@ -16,6 +16,7 @@ export const CommunityData = () => {
         };
     };
 };
+
 export const AbuseData = () => {
     return (dispatch, getState, { getFirebase, getFirestore }) => {
         try {
@@ -24,8 +25,8 @@ export const AbuseData = () => {
             firestore.collection('abuse').get()
             .then(function(querySnapshot) {
                 querySnapshot.forEach(function(doc) {
-                    data.push(doc.data())
-                })
+                    data.push(doc.data());
+                });
             }).then(() => {
                 dispatch({type: 'GET_ABUSE_RESOURCE', data})
             });
@@ -34,6 +35,7 @@ export const AbuseData = () => {
         };
     };
 };
+
 export const CrisisInterventionData = () => {
     return (dispatch, getState, { getFirebase, getFirestore }) => {
         try {
@@ -42,8 +44,8 @@ export const CrisisInterventionData = () => {
             firestore.collection('crisisIntervention').get()
             .then(function(querySnapshot) {
                 querySnapshot.forEach(function(doc) {
-                    data.push(doc.data())
-                })
+                    data.push(doc.data());
+                });
             }).then(() => {
                 dispatch({type: 'GET_CRISIS_INTERVENTION_RESOURCE', data})
             });
@@ -61,8 +63,8 @@ export const CrisisTalkLinesData = () => {
             firestore.collection('crisisTalkLines').get()
             .then(function(querySnapshot) {
                 querySnapshot.forEach(function(doc) {
-                    data.push(doc.data())
-                })
+                    data.push(doc.data());
+                });
             }).then(() => {
                 dispatch({type: 'GET_CRISIS_TALK_LINES_RESOURCE', data})
             });
@@ -77,11 +79,11 @@ export const EventsData = () => {
         try {
             const data = [];
             const firestore = getFirestore();
-            const event = firestore.collection('events').orderBy('timestamp','asc').get()
+            const event = firestore.collection('events').orderBy('timestamp','desc').get()
             .then(function(querySnapshot) {
                 querySnapshot.forEach(function(doc) {
-                    data.push(doc.data())
-                })
+                    data.push(doc.data());
+                });
             }).then(() => {
                 dispatch({type: 'GET_EVENTS_DATA', data})
             });
@@ -99,8 +101,8 @@ export const MapResourcesData = () => {
             firestore.collection('localResources').get()
             .then(function(querySnapshot) {
                 querySnapshot.forEach(function(doc) {
-                    data.push(doc.data())
-                })
+                    data.push(doc.data());
+                });
             }).then(() => {
                 dispatch({type: 'GET_MAP_RESOURCE_DATA', data})
             });

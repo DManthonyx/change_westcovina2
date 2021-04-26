@@ -1,7 +1,7 @@
 const initState = {
     isLogged: false,
     authError: null
-}
+};
 
 const authReducer = (state = initState, action) => {
     switch(action.type) {
@@ -18,13 +18,12 @@ const authReducer = (state = initState, action) => {
                 authError: null
             }
         case 'CREATE_USER_SUCCESS':
-            console.log(action.user, 'created user')
             return {
                 ...state
             }
         case 'GET_ALL_USERS':
             return {
-                ...state, 
+                ...state,
                 users: action.users
             }
         case 'LOGIN_SUCCESS':
@@ -43,14 +42,13 @@ const authReducer = (state = initState, action) => {
                 authError: 'email incorrect'
             }
         case 'SIGNUP_ERROR':
-            console.log('signup error', action.err)
             return {
                 ...state,
                 authError: 'signup failed'
             }
         default:
             return state;
-    }
-}
+    };
+};
 
-export default authReducer
+export default authReducer;

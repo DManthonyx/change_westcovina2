@@ -1,17 +1,17 @@
-import React, {useEffect, useState} from 'react'
-import { withRouter } from 'react-router-dom'
+import React, {useEffect, useState} from 'react';
+import { withRouter } from 'react-router-dom';
 
 import {
     Ul,
     Li,
     Div,
     P
-} from './style'
+} from './style';
 
 const List = (props) => {
 
-    const resource = 'resource'
-    const event = 'event'
+    const resource = 'resource';
+    const event = 'event';
 
     return (
         <Ul>
@@ -47,7 +47,7 @@ const List = (props) => {
                 })
             }
         </Ul>
-    )
-}
+    );
+};
 
-export default withRouter(List)
+export default withRouter(List);

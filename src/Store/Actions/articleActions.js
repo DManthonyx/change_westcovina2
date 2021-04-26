@@ -1,22 +1,28 @@
+
 export const CreateArticle = (payload) => {
-    console.log(payload)
     return (dispatch, getState, { getFirebase, getFirestore }) => {
-        console.log('1')
-        const firebase = getFirebase()
-        const firestore = getFirestore()
+        const firebase = getFirebase();
+        const firestore = getFirestore();
+        const name = `${new Date()}-${payload.image.name}`
         firestore.collection('articles').add({
             name: payload.name,
             date: payload.date,
             title: payload.title,
-            article: payload.article
-        }).then((messageRef) => {
-            console.log('2')
-            let filePath = `articles/${messageRef.id}/${payload.image.name}`
-            firebase.storage().ref(filePath).put(payload.image)
-            console.log('the end')
+            article: payload.article,
+            date: new Date()
+        }).then( async (messageRef) => {
+            console.log(messageRef, 'message Ref');
+            const filePath = `articles/${messageRef.id}/${payload.image.name}`;
+            const ref = firebase.storage().ref();
+            const fileRef = ref.child(filePath);
+
+            await fileRef.put(payload.image);
+
+            return;
         }).catch(err => {
-            console.log(err, 'from article action')
-        })
+            console.log({err}, 'from article action');
+            return err;
+        });
     };
 };
 
@@ -28,15 +34,27 @@ export const GetAllArticles = () => {
             firestore.collection('articles').get()
             .then(function(querySnapshot) {
                 querySnapshot.forEach(function(doc) {
-                    let result = doc.data()
-                    result['id'] = doc.id
-                    data.push(result)
-                })
+                    let result = doc.data();
+                    result['id'] = doc.id;
+                    data.push(result);
+                });
             }).then(() => {
-                dispatch({type: 'GET_ALL_ARTICLES', data})
+                console.log(data, ',<<<< data')
+                dispatch({type: 'GET_ALL_ARTICLES', data});
             });
         } catch(err) {
-            console.log(err);
+            console.log({err});
         };
+    };
+};
+
+export const UpdateCurrentArticle = (article) => {
+    return (dispatch, getState) => {
+        try {
+            const data = article;
+            dispatch({type: 'UPDATE_CURRENT_ARTICLE', data});
+        } catch(err) {
+            console.log({err});
+        }
     };
 };

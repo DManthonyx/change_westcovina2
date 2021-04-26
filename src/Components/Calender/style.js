@@ -45,6 +45,9 @@ export const Button = styled.button`
     height: 35px;
     border: 3px solid white;
     border-radius: 25px;
+    &:focus {
+        outline: none;
+    }
     &.prev {
         background: url('https://i.imgur.com/j4CTk2y.png');
         background-repeat: no-repeat;
