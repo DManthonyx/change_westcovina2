@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
-import { CreateArticle  } from '../../Store/Actions/articleActions'
+import { CreateArticle  } from '../../Store/Actions/articleActions';
 
 import {
     Main,
     Form,
     Input,
     Btn
-} from './style'
+} from './style';
 
 const Admin = (props) => {
 
     useEffect(() => {
 
-    },[])
+    },[]);
 
     const [name, setName] = useState('')
     const [date, setDate] = useState('')
@@ -47,19 +47,19 @@ const Admin = (props) => {
             </Form>
         </Main>
     )
-}
+};
 
 const mapStateToProps = (state) => {
     return {
         authError: state.auth.authError
     }
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {
         authState: () => dispatch(),
         createArticle: (payload) => dispatch(CreateArticle(payload))
     }
-}
+};
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Admin))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Admin));

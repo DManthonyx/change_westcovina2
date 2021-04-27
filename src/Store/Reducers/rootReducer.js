@@ -1,9 +1,10 @@
-import authReducer from './authReducer'
-import articleReducer from './articleReducer'
-import resourceReducer from './resourceReducer'
-import { combineReducers } from 'redux'
-import { firestoreReducer } from 'redux-firestore'
-import { firebaseReducer } from 'react-redux-firebase'
+import { combineReducers } from 'redux';
+import { firestoreReducer } from 'redux-firestore';
+import { firebaseReducer } from 'react-redux-firebase';
+
+import authReducer from './authReducer';
+import articleReducer from './articleReducer';
+import resourceReducer from './resourceReducer';
 
 const rootReducer = combineReducers({
     auth: authReducer,
@@ -13,4 +14,4 @@ const rootReducer = combineReducers({
     firebase: firebaseReducer
 });
 
-export default rootReducer
+export default rootReducer;

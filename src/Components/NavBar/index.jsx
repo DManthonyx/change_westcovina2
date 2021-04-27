@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import { withRouter } from 'react-router-dom'
-import Hamburger from '../Hamburger'
-import { ROUTES } from '../../Const'
+import React, { useState, useEffect } from 'react';
+import { withRouter } from 'react-router-dom';
+import Hamburger from '../Hamburger';
+import { ROUTES } from '../../Const';
 
 
 
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 // import { SignOut } from '../../Store/Actions/authActions'
 // import { CheckAuthState } from '../../Store/Actions/authActions'
 
@@ -25,7 +25,7 @@ import {
     SocialIcon,
     Title,
     Div
-   } from './style'
+   } from './style';
 
 
 const NavBar = (props) => {
@@ -34,9 +34,9 @@ const NavBar = (props) => {
   const [ isHome, setIsHome ] = useState('false');
 
   useEffect(() => {
-    let location = props.location.pathname;
-    location === '/home' ? setIsHome('true') : setIsHome('false')
-  });
+    let { pathname } = props.location;
+    pathname === '/home' ? setIsHome('true') : setIsHome('false');
+  },[]);
 
   window.onresize = () =>  (window.innerWidth > 900 && isOpen) && setIsOpen(false);
 
@@ -82,13 +82,13 @@ const NavBar = (props) => {
         </Ul>
       </Overlay>
     </NavContainer>
-  )
-}
+  );
+};
 
 const mapStateToProps = (state) => {
   return {
     //isLogged: !state.firebase.auth.isEmpty
-  }
-}
+  };
+};
 
 export default withRouter(connect(mapStateToProps, null)(NavBar));

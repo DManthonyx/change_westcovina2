@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { NavLink } from 'react-router-dom'
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const Main = styled.main`
     width: 100%;
@@ -8,7 +8,7 @@ export const Main = styled.main`
     flex-direction: column;
     align-items: center;
     padding-top: 166px;
-`
+`;
 
 export const Section = styled.section`
     display: flex;
@@ -26,12 +26,12 @@ export const Section = styled.section`
     &:nth-child(4) {
         flex-direction: column;
     }
-`
+`;
 
 export const SubSection = styled.aside`
     width: 90%;
     margin-bottom: 67px;
-`
+`;
 
 export const Title = styled.h1`
     font-family: Manrope;
@@ -39,7 +39,7 @@ export const Title = styled.h1`
     font-weight: normal;
     font-size: 48px;
     line-height: 66px;
-`
+`;
 
 export const Div = styled.div`
     width: 48%;
@@ -48,7 +48,7 @@ export const Div = styled.div`
         flex-direction: column;
         align-items: center;
     }
-`
+`;
 
 export const H2 = styled.h2`
     font-family: Risque;
@@ -58,20 +58,20 @@ export const H2 = styled.h2`
     line-height: 154.9%;
     transform: rotate(-9.06deg);
     margin-top: 63px;
-`
+`;
 
 export const SubTitle = styled.h2`
     margin-bottom: 50px;
-`
+`;
 
 export const ArticleWrap = styled.div`
     display: flex;
     justify-content: space-between;;
-`
+`;
 
 export const ArticleDiv = styled.div`
     width: 22%;
-`
+`;
 
 export const P = styled.p`
     &:nth-child(2) {
@@ -86,22 +86,22 @@ export const P = styled.p`
 export const Img = styled.img`
     width: 100%;
     height: 160px;
-`
+`;
 
 export const Selfie = styled.img`
     width: 28px;
     border-radius: 50%;
     margin-right: 10px;
-`
+`;
 
 export const Span = styled.span`
     display: flex;
     margin-bottom: 10px;
-`
+`;
 
 export const SubSpan = styled.span`
 
-`
+`;
 
 export const Btn = styled(NavLink)`
     border: 0px;
@@ -113,29 +113,29 @@ export const Btn = styled(NavLink)`
     :focus {
         outline: none;
     }
-`
+`;
 
 export const MeetingWrap = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-`
+`;
 
 export const MeetingDiv = styled.div`
     width: 100%;
     display: flex;
     justify-content: flex-end;
     margin-top: 40px;
-`
+`;
 
 export const MeetingNum = styled.div`
     display: flex;
     width: 30%;
-`
+`;
 
 export const H3 = styled.h3`
 
-`
+`;
 
 export const Num = styled.p`
     font-size: 8em;
@@ -145,8 +145,7 @@ export const Num = styled.p`
     &.num {
         padding-right: 10px;
     }
-
-`
+`;
 
 export const NumP = styled.p`
     align-self: center;
@@ -154,8 +153,8 @@ export const NumP = styled.p`
     padding-left: 11px;
     font-weight: 100;
     height: 64px;
-`
+`;
 
 export const DivLine = styled.div`
 
-`
+`;

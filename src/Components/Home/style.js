@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Main = styled.main`
     width: 100%;
@@ -7,7 +7,7 @@ export const Main = styled.main`
     display: flex;
     flex-direction: column;
     align-items: center;
-`
+`;
 
 export const Section = styled.section`
     display: flex;
@@ -46,17 +46,17 @@ export const Section = styled.section`
         align-items: center;
         margin: 80px 0px;
     }
-`
+`;
 export const Span = styled.span`
     font-weight: bold;
-`
+`;
 
 export const H1 = styled.h1`
     font-size: 48px;
     line-height: 66px;
     font-weight: 100;
     text-align: center;
-`
+`;
 
 export const H2 = styled.h2`
     margin-bottom: 80px;
@@ -68,7 +68,7 @@ export const H2 = styled.h2`
 export const H3 = styled.h3`
     padding-bottom: 10px;
     width: 355px;
-`
+`;
 
 
 export const Button = styled.button`
@@ -83,7 +83,7 @@ export const Button = styled.button`
     &:focus {
         outline: none;
     }
-`
+`;
 
 export const Div = styled.div`
     width: 50%;
@@ -103,19 +103,19 @@ export const Div = styled.div`
     @media (max-width: 850px) {
         width: 100%;
     }
-`
+`;
 
 export const BlurDiv = styled.div`
     width: 50%;
     height: 183px;
     background: rgba(196, 196, 196, 0.01);
     backdrop-filter: blur(10px);
-`
+`;
 
 export const EmailP = styled.p`
     width: 355px;
     line-height: 24px;
-`
+`;
 
 export const Input = styled.input`
     width: 520px;
@@ -140,11 +140,11 @@ export const Input = styled.input`
         width: 343px;
         font-size: 14px;
     }
-`
+`;
 
 export const Form = styled.form`
 
-`
+`;
 
 export const SignUpBtn = styled.button`
     width: 144px;
@@ -167,36 +167,36 @@ export const SignUpBtn = styled.button`
     &:focus {
         outline: none;
     }
-`
+`;
 
 export const SecWrapper = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-around;
-`
+`;
 
 export const SecDiv = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 400px;
-`
+`;
 export const SecDiv2 = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-`
+`;
 
 export const InvolvedImg = styled.img`
     &.third {
         width: 66px;
         margin-top: 6px;
     }
-`
+`;
 
 export const InvolvedH2 = styled.h2`
     margin: 12px 0px;
-`
+`;
 
 export const InvolvedBtn = styled.button`
     width: 118px;
@@ -209,12 +209,12 @@ export const InvolvedBtn = styled.button`
     &:focus {
         outline: none;
     }
-`
+`;
 
 export const InvolvedP = styled.p`
     width: 260px;
     text-align: center;
-`
+`;
 
 export const Btn = styled.button`
     width: 118px;
@@ -231,13 +231,13 @@ export const Btn = styled.button`
     &:focus {
         outline: none;
     }
-`
+`;
 
 export const PostP = styled.p`
     width: 100%;
     line-height: 27px;
     font-weight: bold;
-`
+`;
 
 export const ResourceDiv = styled.div`
     width: 50%;
@@ -247,25 +247,25 @@ export const ResourceDiv = styled.div`
         justify-content: center;
         align-items: center;
     }
-`
+`;
 
 export const ResourceDivInner = styled.div`
 
-`
+`;
 
 export const P = styled.p`
     width: 409px;
     line-height: 27px;
-`
+`;
 
 export const Img = styled.img`
     margin-top: 76px;
-`
+`;
 
 export const PostImg = styled.img`
     width: 100%;
     height: 220px;
-`
+`;
 
 export const A = styled(Link)`
     color: black;
@@ -277,5 +277,5 @@ export const A = styled(Link)`
         width: 400px;
         cursor: pointer;
     }
-`
+`;
 

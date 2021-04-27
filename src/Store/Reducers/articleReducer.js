@@ -1,6 +1,6 @@
 const initState = {
 
-}
+};
 
 const articleReducer = (state = initState, action) => {
     switch(action.type) {
@@ -19,7 +19,7 @@ const articleReducer = (state = initState, action) => {
             };
         default:
             return state;
-    }
-}
+    };
+};
 
-export default articleReducer
+export default articleReducer;

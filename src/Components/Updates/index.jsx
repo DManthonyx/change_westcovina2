@@ -29,7 +29,7 @@ import {
     Num,
     NumP,
     DivLine
-} from './style'
+} from './style';
 const Updates = (props) => {
     const { articles, updateCurrent } = props;
     return (
@@ -100,19 +100,20 @@ const Updates = (props) => {
                 </MeetingWrap>
             </Section>
         </Main>
-    )
-}
+    );
+};
+
 const mapStateToProps = (state) => {
     return {
       events: state.resource.events,
       articles: state.article.articles
-    }
-}
+    };
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {
         updateCurrent: (article) => dispatch(UpdateCurrentArticle(article))
-    }
-}
+    };
+};
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Updates))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Updates));

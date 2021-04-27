@@ -18,13 +18,13 @@ export const Section = styled.section`
         height: 500px;
         align-items: center;
     }
-`
+`;
 
 export const Wrapper = styled.div`
     display: flex;
     width: 100%;
     margin-top: 60px;
-`
+`;
 
 export const Div = styled.div`
     width: 50%;
@@ -53,7 +53,7 @@ export const Title = styled.h1`
     font-weight: normal;
     font-size: 48px;
     line-height: 66px;
-`
+`;
 
 export const H2 = styled.h2`
     font-family: Manrope;
@@ -61,10 +61,10 @@ export const H2 = styled.h2`
     font-weight: bold;
     font-size: 32px;
     line-height: 44px;
-`
+`;
 
 export const Ul = styled.ul`
-`
+`;
 
 export const Li = styled.li`
     font-family: Manrope;
@@ -73,13 +73,13 @@ export const Li = styled.li`
     font-size: 16px;
     line-height: 154.9%;
     margin-bottom: 5px;
-`
+`;
 
 export const P = styled.p`
     line-height: 1.5;
     font-size: 16px;
     padding-top: 17px;
-`
+`;
 export const Img = styled.img`
     width: 400px;
-`
+`;

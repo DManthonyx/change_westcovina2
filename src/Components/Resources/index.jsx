@@ -1,9 +1,9 @@
-import React from 'react'
-import { withRouter } from 'react-router-dom'
-import MapBox from '../MapBox'
-import List from '../List'
+import React from 'react';
+import { withRouter } from 'react-router-dom';
+import MapBox from '../MapBox';
+import List from '../List';
 
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
 import {
     Main,
@@ -16,8 +16,8 @@ import {
     Ul,
     Li,
     Span
-} from './style'
-import Mapbox from '../MapBox'
+} from './style';
+import Mapbox from '../MapBox';
 
 const Resources = (props) => {
     return (
@@ -93,8 +93,8 @@ const Resources = (props) => {
                 </Div>
             </Section>
         </Main>
-    )
-}
+    );
+};
 
 const mapStateToProps = (state) => {
     return {
@@ -103,7 +103,7 @@ const mapStateToProps = (state) => {
       crisisInterventionData: state.resource.crisisIntervention,
       crisisTalkLinesData: state.resource.crisisTalkLines,
       mapData: state.resource.mapResources
-    }
-}
- 
-export default withRouter(connect(mapStateToProps, null)(Resources))
+    };
+};
+
+export default withRouter(connect(mapStateToProps, null)(Resources));

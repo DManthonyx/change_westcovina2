@@ -49,19 +49,19 @@ const Article = (props) => {
             </Div>
         </Div>
     )
-}
+};
 
 const mapStateToProps = (state) => {
     return {
         articles: state.article.articles,
         current: state.article.current
     }
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {
 
     }
-}
+};
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Article))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Article));

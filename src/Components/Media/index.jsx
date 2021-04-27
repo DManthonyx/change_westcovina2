@@ -1,5 +1,5 @@
-import React from 'react'
-import { withRouter } from 'react-router-dom'
+import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 import {
     Main,
@@ -11,7 +11,7 @@ import {
     H2,
     P,
     Img
-} from './style'
+} from './style';
 
 const Media = () => {
     return (
@@ -50,7 +50,7 @@ const Media = () => {
                 </Wrapper>
             </Section>
         </Main>
-    )
-}
+    );
+};
 
-export default withRouter(Media)
+export default withRouter(Media);

@@ -34,15 +34,14 @@ import {
     ResourceDiv,
     ResourceDivInner,
     A
-} from './style'
+} from './style';
 
 const Home = (props) => {
     const { articles, updateCurrent } = props;
-    const [email, setEmail] = useState('')
+    const [email, setEmail] = useState('');
     const submit = (e) => {
-        e.preventDefault()
-        const emailCorrect = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/
-        console.log(email)
+        e.preventDefault();
+        const emailCorrect = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/;
         if(email.search(emailCorrect) === -1) {
         } else {
             props.createUser({email})
@@ -52,8 +51,7 @@ const Home = (props) => {
     const scrollToEmail = () => {
         const width = window.innerWidth;
         if(width > 1148) {
-            console.log(true)
-            window.scroll({ top: 750, left: 0, behavior: 'smooth'})
+            window.scroll({ top: 750, left: 0, behavior: 'smooth'});
         }
     }
 
@@ -142,21 +140,21 @@ const Home = (props) => {
                 <Btn className='post-btn'><A exact to='/article'>READ MORE</A></Btn>
             </Section>
         </Main>
-    )
-}
+    );
+};
 
 const mapStateToProps = (state) => {
     return {
         articles: state.article.articles
-    }
-}
+    };
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {
         createUser: (creds) => dispatch(CreateUser(creds)),
         updateCurrent: (article) => dispatch(UpdateCurrentArticle(article))
-    }
-}
+    };
+};
 
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Home))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Home));

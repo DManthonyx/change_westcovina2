@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Ul = styled.ul`
     height: 500px;
@@ -16,8 +16,7 @@ export const Ul = styled.ul`
         background: white;
         border-radius: 10px;
     }
-
-`
+`;
 export const Li = styled.li`
     list-style: none;
     display: flex;
@@ -27,7 +26,7 @@ export const Li = styled.li`
     border-radius: 10px;
     border-left: 8px solid #93E8BE;
     margin: 0px 10px 40px 0px;
-`
+`;
 export const Div = styled.div`
     &.div-date {
         width: 25%;
@@ -39,7 +38,7 @@ export const Div = styled.div`
     &.res {
         padding: 15px 15px 15px 53px;
     }
-`
+`;
 export const P = styled.p`
     font-size: 20px;
     width: 100%;
@@ -50,5 +49,4 @@ export const P = styled.p`
     &.p-res {
         margin: 2px 0px;
     }
-
-`
+`;

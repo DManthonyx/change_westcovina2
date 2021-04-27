@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Div = styled.div`
   &.wrapper {
@@ -31,10 +31,10 @@ export const Div = styled.div`
     justify-content: center;
     align-items: center;
   }
-`
+`;
 export const H1 = styled.h1`
 
-`
+`;
 export const H2 = styled.h2`
   margin: 30px 0px;
 `
@@ -44,7 +44,7 @@ export const P = styled.p`
   line-height: 1.7;
   font-size: 20px;
   margin: 0px;
-`
+`;
 export const Span = styled.span`
   padding-left: 10px;
   display: flex;
@@ -54,7 +54,7 @@ export const Span = styled.span`
     line-height: 1;
     padding: 0px;
   }
-`
+`;
 export const Img = styled.img`
   &.article-img {
     width: 700px;
@@ -65,7 +65,7 @@ export const Img = styled.img`
     height: 70px;
     border-radius: 40px;
   }
-`
+`;
 export const A = styled.a`
   padding-left: 10px;
-`
+`;

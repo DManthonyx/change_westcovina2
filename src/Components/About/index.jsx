@@ -1,5 +1,5 @@
 import React from 'react';
-import Footer from '../Footer'
+import Footer from '../Footer';
 
 import {
     Main,
@@ -12,7 +12,7 @@ import {
     Li,
     Div,
     Wrapper,
-} from './style'
+} from './style';
 
 
 const About = () => {
@@ -51,4 +51,4 @@ const About = () => {
     )
 }
 
-export default About
+export default About;

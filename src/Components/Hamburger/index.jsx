@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 import {
   HamburgerContainer,
   HamburgerBar,
-} from './style'
+} from './style';
 
 const Hamburger  = ({isOpen, setIsOpen}) => {
 
@@ -13,7 +13,7 @@ const Hamburger  = ({isOpen, setIsOpen}) => {
       <HamburgerBar></HamburgerBar>
       <HamburgerBar></HamburgerBar>
     </HamburgerContainer>
-  )
-}
+  );
+};
 
-export default Hamburger
+export default Hamburger;

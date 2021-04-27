@@ -10,7 +10,7 @@ export const HamburgerContainer = styled.div`
   @media (max-width: 950px) {
     display: block;
   }
-`
+`;
 export const HamburgerBar = styled.div`
   position: absolute;
   width: 25px;
@@ -45,4 +45,4 @@ export const HamburgerBar = styled.div`
     transform: rotate(-135deg);
     transition: all .50s ease-in-out;
   }
-`
+`;

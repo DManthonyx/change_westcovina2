@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Main = styled.main`
     width: 100%;
@@ -6,7 +6,7 @@ export const Main = styled.main`
     flex-direction: column;
     align-items: center;
     padding-top: 166px;
-`
+`;
 
 export const Section = styled.section`
     width: 90%;
@@ -20,7 +20,7 @@ export const Section = styled.section`
         padding-top: 50px;
         padding-bottom: 70px;
     }
-`
+`;
 
 export const Title = styled.h1`
     font-family: Manrope;
@@ -29,19 +29,19 @@ export const Title = styled.h1`
     font-size: 48px;
     line-height: 66px;
     margin-bottom: 60px;
-`
+`;
 
 export const SubTitle = styled.h2`
     font-weight: bold;
     font-size: 28px;
     margin-bottom: 60px;
     width: 90%;
-`
+`;
 
 export const ResTitle = styled.h2`
     font-size: 22px;
     margin-bottom: 30px;
-`
+`;
 
 export const Div = styled.div`
     margin-bottom: 17px;
@@ -64,7 +64,7 @@ export const Div = styled.div`
         color: white;
         padding: 27px;
         border-radius: 16px;
-    
+
     }
     &.telephone-sub {
         width: 100%;
@@ -73,7 +73,7 @@ export const Div = styled.div`
     &.small-wrap {
         display: flex;
         justify-content: space-between;
-        width: 90%;    
+        width: 90%;
     }
     &.small-div {
         background: #313030;
@@ -82,7 +82,7 @@ export const Div = styled.div`
         width: 44%;
         padding: 21px;
     }
-`
+`;
 
 export const P = styled.p`
     &.res-info {
@@ -90,7 +90,7 @@ export const P = styled.p`
         font-size: 16px;
         line-height: 1.5;
     }
-`
+`;
 
 export const Ul = styled.ul`
     &.ul-wrap {
@@ -118,8 +118,8 @@ export const Li = styled.li`
     &.li-small {
         width: 100%;
     }
-`
+`;
 
 export const Span = styled.span`
 
-`
+`;
