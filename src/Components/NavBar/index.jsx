@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
-import Hamburger from '../Hamburger';
+import Hamburger from './Hamburger';
 import { ROUTES } from '../../Const';
 
 
@@ -36,10 +36,9 @@ const NavBar = (props) => {
   useEffect(() => {
     let { pathname } = props.location;
     pathname === '/home' ? setIsHome('true') : setIsHome('false');
-  },[]);
+  },[props.location]);
 
   window.onresize = () =>  (window.innerWidth > 900 && isOpen) && setIsOpen(false);
-
   return (
       <NavContainer color={"white"} visible={isHidden}>
       <NavRow>

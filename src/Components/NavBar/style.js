@@ -18,25 +18,6 @@ export const NavContainer = styled.div`
   width: 100%;
 `;
 
-// export const NavRowContainer = styled.div`
-//   width: 100%;
-// `
-
-export const NavRow = styled.div`
-  display: flex;
-  @media (max-width: 950px) {
-    a {
-      display:none;
-    }
-  }
-`;
-
-export const NavRowLeft = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 25%;
-`;
-
 export const NavRowMid = styled.div`
   display: flex;
   justify-content: center;
@@ -49,11 +30,25 @@ export const NavRowRight = styled.div`
   justify-content: flex-end;
 `;
 
+export const NavRow = styled.div`
+  display: flex;
+  @media (max-width: 1000px) {
+    ${NavRowMid}, ${NavRowRight}  {
+      display:none;
+    }
+  }
+`;
+
+export const NavRowLeft = styled.div`
+  display: flex;
+  justify-content: end;
+  margin-left: 10px;
+  width: 25%;
+`;
+
 export const Logo = styled.img`
   width: 88px;
   height: 84px;
-  position: relative;
-  right: 60px;
 `
 
 export const Title = styled.h1`

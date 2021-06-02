@@ -49,7 +49,7 @@ const Updates = (props) => {
                 <ArticleWrap>
                     {articles && articles.map((article, i) => {
                         return (
-                            <ArticleDiv>
+                            <ArticleDiv key={i}>
                                 <Img src={article.article_img} />
                                 <P>{article.title}</P>
                                 <Span>

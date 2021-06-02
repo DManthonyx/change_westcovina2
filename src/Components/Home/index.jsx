@@ -8,32 +8,17 @@ import { UpdateCurrentArticle  } from '../../Store/Actions/articleActions';
 import {
     Main,
     Section,
-    SecWrapper,
-    SecDiv,
-    SecDiv2,
-    InvolvedImg,
-    InvolvedH2,
-    InvolvedP,
-    InvolvedBtn,
+    Div,
     H1,
     H2,
     H3,
-    Button,
     Btn,
-    SignUpBtn,
-    PostImg,
-    PostP,
-    Div,
-    EmailP,
     P,
     Img,
     Form,
     Input,
     Span,
-    BlurDiv,
-    ResourceDiv,
-    ResourceDivInner,
-    A
+    A,
 } from './style';
 
 const Home = (props) => {
@@ -50,93 +35,93 @@ const Home = (props) => {
 
     const scrollToEmail = () => {
         const width = window.innerWidth;
-        if(width > 1148) {
-            window.scroll({ top: 750, left: 0, behavior: 'smooth'});
-        }
+        window.scroll({ top: 750, left: 0, behavior: 'smooth'});
+        // if(width > 1148) {
+        // }
     }
 
     return (
         <Main>
             <Section>
-                <BlurDiv>
+                <Div className='blur-div'>
                     <H1>We Must Be the <Span>Change</Span> We Want to<br />See in <Span>West Covina</Span></H1>
-                </BlurDiv>
-                <Button onClick={() => scrollToEmail()}>JOIN US</Button>
+                </Div>
+                <Btn className='scroll' onClick={() => scrollToEmail()}>JOIN US</Btn>
             </Section>
             <Section>
-                <Div>
+                <Div className='email-list'>
                     <H3>JOIN OUR EMAIL LIST</H3>
-                    <EmailP>Stay up to date with issues affecting our community of <br /> West Covina, and learn about how we can make a <br /> positive difference together.</EmailP>
+                    <P className='email'>Stay up to date with issues affecting our community of <br /> West Covina, and learn about how we can make a <br /> positive difference together.</P>
                 </Div>
-                <Div>
+                <Div className='email-form'>
                     <Form onSubmit={submit}>
                         <Input type="text" name="email" placeholder="Enter email address" value={email} onChange={e => setEmail(e.target.value)}/>
-                        <SignUpBtn>SIGN UP</SignUpBtn>
+                        <Btn className='signup'>SIGN UP</Btn>
                     </Form>
                 </Div>
             </Section>
             <Section>
-                <H2>GET INVOLVED</H2>
-                <SecWrapper>
-                    <SecDiv>
-                        <SecDiv2>
-                            <InvolvedImg src="https://i.imgur.com/BwfJCky.png" />
-                            <InvolvedH2>Events</InvolvedH2>
-                        </SecDiv2>
-                        <SecDiv2>
-                            <InvolvedP>Join us in making an impact in West Covina through various volunteer and direct action events</InvolvedP>
-                            <InvolvedBtn><A exact to='/updates'>SEE EVENTS</A></InvolvedBtn>
-                        </SecDiv2>
-                    </SecDiv>
-                    <SecDiv>
-                        <SecDiv2>
-                            <InvolvedImg src="https://i.imgur.com/d0NMi5n.png" />
-                            <InvolvedH2>CITY COUNCIL MEETINGS</InvolvedH2>
-                        </SecDiv2>
-                        <SecDiv2>
-                            <InvolvedP>Read our Peoples’ Agenda and participate in local government by making your voice heard</InvolvedP>
-                            <InvolvedBtn><A exact to='/updates'>LEARN MORE</A></InvolvedBtn>
-                        </SecDiv2>
-                    </SecDiv>
-                    <SecDiv>
-                        <SecDiv2>
-                            <InvolvedImg className='third' src="https://i.imgur.com/LbrkAFU.png" />
-                            <InvolvedH2>SLACK CONVERSATION</InvolvedH2>
-                        </SecDiv2>
-                        <SecDiv2>
-                            <InvolvedP>Get and stay connected with Change West Covina by joining the conversation on Slack</InvolvedP>
-                            <InvolvedBtn><A exact to='/'>SLACK INFO</A></InvolvedBtn>
-                        </SecDiv2>
-                    </SecDiv>
-                </SecWrapper>
+                <H2 className='involved-title'>GET INVOLVED</H2>
+                <Div className='sec-wrapper'>
+                    <Div className='sec-div'>
+                        <Div className='involved'>
+                            <Img className='involved' src="https://i.imgur.com/BwfJCky.png" />
+                            <H2 className='involved'>EVENTS</H2>
+                        </Div>
+                        <Div className='involved'>
+                            <P className='involved'>Join us in making an impact in West Covina through various volunteer and direct action events</P>
+                            <Btn className='involved'><A exact to='/updates'>SEE EVENTS</A></Btn>
+                        </Div>
+                    </Div>
+                    <Div className='sec-div'>
+                        <Div className='involved'>
+                            <Img className='involved' src="https://i.imgur.com/d0NMi5n.png" />
+                            <H2 className='involved'>CITY COUNCIL MEETINGS</H2>
+                        </Div>
+                        <Div className='involved'>
+                            <P className='involved'>Read our Peoples’ Agenda and participate in local government by making your voice heard</P>
+                            <Btn className='involved'><A exact to='/updates'>LEARN MORE</A></Btn>
+                        </Div>
+                    </Div>
+                    <Div className='sec-div'>
+                        <Div className='involved'>
+                            <Img className='involved third' src="https://i.imgur.com/LbrkAFU.png" />
+                            <H2 className='involved'>SLACK CONVERSATION</H2>
+                        </Div>
+                        <Div className='involved'>
+                            <P className='involved'>Get and stay connected with Change West Covina by joining the conversation on Slack</P>
+                            <Btn className='involved'><A exact to='/'>SLACK INFO</A></Btn>
+                        </Div>
+                    </Div>
+                </Div>
             </Section>
             <Section>
-                <ResourceDiv>
-                    <ResourceDivInner>
+                <Div className='resources'>
+                    <Div className='resources-inner'>
                         <H2 className='sec4-h2'>FIND WHAT YOU NEED</H2>
-                        <P>Check out our extensive list of resources to  locate local businesses, organizations, and services to help you live your life to the fullest. </P>
-                        <Btn><A exact to='/resources'>RESOURCES</A></Btn>
-                    </ResourceDivInner>
-                </ResourceDiv>
-                <ResourceDiv>
-                    <Img src="https://i.imgur.com/5pYWRym.png" title="West Covina Map" />
-                </ResourceDiv>
+                        <P className='sec4-p'>Check out our extensive list of resources to  locate local businesses, organizations, and services to help you live your life to the fullest. </P>
+                        <Btn className='resources'><A exact to='/resources'>RESOURCES</A></Btn>
+                    </Div>
+                </Div>
+                <Div className='resources-map'>
+                    <Img className='map' src="https://i.imgur.com/5pYWRym.png" title="West Covina Map" />
+                </Div>
             </Section>
             <Section>
                 <H2>RECENT POSTS</H2>
-                <SecWrapper className='posts-wrapper'>
+                <Div className='posts-wrapper'>
                     {
                         props.articles && articles.map((article, i) => {
                             return (
                                 <A exact to='/article' className='post-div' key={i} onClick={() => updateCurrent(article)}>
-                                    <PostImg src={article.article_img} />
-                                    <PostP>{article.title}</PostP>
-                                    <PostP>{article.author}</PostP>
+                                    <Img className='post' src={article.article_img} />
+                                    <P className='post'>{article.title}</P>
+                                    <P className='post'>{article.author}</P>
                                 </A>
                             )
                         })
                     }
-                </SecWrapper>
+                </Div>
                 <Btn className='post-btn'><A exact to='/article'>READ MORE</A></Btn>
             </Section>
         </Main>

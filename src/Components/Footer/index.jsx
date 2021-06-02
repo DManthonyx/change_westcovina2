@@ -86,7 +86,7 @@ const Footer = (props) => {
                         <Btn>SIGN UP</Btn>
                     </Form>
                 </SocialWrapper>
-            </Sec>
+            </Sec> 
         </Footerr>
         </div>
     );

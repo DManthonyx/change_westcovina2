@@ -66,7 +66,7 @@ const App = ({location, communityData, abuseData, crisisInterventionData, crisis
             <Route exact path='/article' render={() => <Article />}  />
             <Route exact path='/resources' render={() => <Resources />}  />
             <Route exact path='/updates' render={() => <Updates />}  />
-            {/* <Route exact path='/get connected' render={() => <Media />}  /> */}
+            <Route exact path='/get connected' render={() => <Media />}  />
             <Route exact path='/signup' render={() => <SignUp />}  />
             <Route exact path='/login' render={() => <LogIn />}  />
             <Route exact path='/admin' render={() => <Admin />}  />

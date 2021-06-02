@@ -6,20 +6,43 @@ export const Footerr = styled.footer`
     background: #313030;
     width: 100%;
     display: flex;
+    @media (max-width: 960px) {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
 `;
 
 export const Sec = styled.section`
     display: flex;
     width: 40%;
+    @media (max-width: 1356px) {
+        width: 50%;
+    }
     &:nth-child(1) {
         justify-content: space-evenly;
+        @media (max-width: 1356px) {
+            width: 67%;
+        }
+        @media (max-width: 707px) {
+            width: 99%;
+        }
     }
     &:nth-child(2) {
         width: 20%;
         justify-content: center;
+        @media (max-width: 1356px) {
+            display: none;
+        }
     }
     &:nth-child(3) {
         flex-direction: column;
+        margin: 0px 0px 25px 0px;
+        @media (max-width: 1356px) {
+            width: 67%;
+        }
+        @media (max-width: 707px) {
+            width: 99%;
+        }
     }
 `;
 
@@ -61,6 +84,9 @@ export const SocialDiv = styled.div`
         justify-content: flex-end;
         padding-right: 29px;
     }
+    @media (max-width: 960px) {
+        display: none;
+    }
 `;
 
 export const SocialImg = styled.img`
@@ -86,11 +112,14 @@ export const Form = styled.form`
 `;
 
 export const Input = styled.input`
-    width: 410px;
+    width: 73%;
     height: 39px;
     border: 0px;
     border-radius: 28px 0px 0px 28px;
     padding-left: 20px;
+    &:focus {
+        outline: none;
+    }
 `;
 
 export const Btn = styled.button`
@@ -100,4 +129,11 @@ export const Btn = styled.button`
     background: #93E8BE;
     border-radius: 0px 28px 28px 0px;
     border: 0px;
+    cursor: pointer;
+    &:focus {
+        outline: none;
+    }
+    @media (max-width: 500px) {
+        width: 65px;
+    }
 `;
