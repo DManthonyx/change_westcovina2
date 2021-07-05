@@ -35,12 +35,16 @@ const NavBar = (props) => {
 
   useEffect(() => {
     let { pathname } = props.location;
-    pathname === '/home' ? setIsHome('true') : setIsHome('false');
+    if(pathname === '/home' || pathname === '/') {
+      setIsHome('true')
+    } else {
+      setIsHome('false')
+    }
   },[props.location]);
 
   window.onresize = () =>  (window.innerWidth > 900 && isOpen) && setIsOpen(false);
   return (
-      <NavContainer color={"white"} visible={isHidden}>
+      <NavContainer visible={isHidden}>
       <NavRow>
           <NavRowLeft>
             <Logo src="https://i.imgur.com/7cpYYcK.png"  title="Change West Covina logo"/>
@@ -69,7 +73,6 @@ const NavBar = (props) => {
       </NavRow>
       <Overlay className={isOpen ? "show" : "hide"}>
         <Ul>
-          <Div>
             {
               ROUTES.map((route, i) =>
                 <Li onClick={() => setIsOpen(!isOpen)} key={i}>
@@ -77,7 +80,6 @@ const NavBar = (props) => {
                 </Li>
               )
             }
-          </Div>
         </Ul>
       </Overlay>
     </NavContainer>

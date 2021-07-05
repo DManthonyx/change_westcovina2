@@ -125,9 +125,7 @@ export const Div = styled.div`
         }
         @media (max-width: 500px) {
             width: 95%;
-            img {
-                width: 100%;
-            }
+            img {}
         }
     } 
     &.posts-wrapper {

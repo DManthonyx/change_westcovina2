@@ -4,6 +4,7 @@ export const HamburgerContainer = styled.div`
   width: 40px;
   height: 25px;
   position: relative;
+  left: -17px;
   display: none;
   margin-left: auto;
   cursor: pointer;

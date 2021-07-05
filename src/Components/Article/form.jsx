@@ -16,7 +16,6 @@ const Form = (props) => {
     }
 
     return (
-        <>
         <form onSubmit={handleSubmit(submit)}>
             <TextField
                 autoComplete='title'
@@ -50,7 +49,6 @@ const Form = (props) => {
             />
            <button>send</button>
        </form>
-    </>
     )
 }
 

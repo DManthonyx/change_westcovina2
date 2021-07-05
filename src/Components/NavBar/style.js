@@ -11,7 +11,6 @@ const transitionHomePage =  keyframes`
 `;
 
 export const NavContainer = styled.div`
-  background-color: rgba(0,0,0,0);
   position: absolute;
   padding-top: 34px;
   z-index: 1;
@@ -49,6 +48,10 @@ export const NavRowLeft = styled.div`
 export const Logo = styled.img`
   width: 88px;
   height: 84px;
+  @media (max-width: 700px) {
+    width: 78px;
+    height: 64px;
+  }
 `
 
 export const Title = styled.h1`
@@ -97,8 +100,7 @@ export const Overlay = styled.div`
   height: 100%;
   width: 100%;
   position: fixed;
-  background-color: rgba(0,0,0, 0.7);
-  left: -120rem;
+  left: 9rem;
   transition: left .75s ease-in-out;
   display: flex;
   flex-direction: column;
@@ -113,6 +115,7 @@ export const Overlay = styled.div`
 
 export const Ul = styled.ul`
   padding-right: 10px;
+  background: #ee8c3af2
 `;
 
 export const Li = styled.li`

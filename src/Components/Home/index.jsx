@@ -34,6 +34,7 @@ const Home = (props) => {
     }
 
     const scrollToEmail = () => {
+        console.log('hit')
         const width = window.innerWidth;
         window.scroll({ top: 750, left: 0, behavior: 'smooth'});
         // if(width > 1148) {
