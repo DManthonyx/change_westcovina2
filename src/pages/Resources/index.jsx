@@ -1,9 +1,11 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import MapBox from '../../Components/MapBox';
-import List from '../../Components/List';
-
 import { connect } from 'react-redux';
+
+// components
+import List from '../../components/List';
+import MapBox from '../../components/MapBox';
+
 
 import {
     Main,
@@ -17,7 +19,6 @@ import {
     Li,
     Span
 } from './style';
-import Mapbox from '../../Components/MapBox';
 
 const Resources = (props) => {
     return (
@@ -27,7 +28,7 @@ const Resources = (props) => {
                 <SubTitle>CITY RESOURCES</SubTitle>
                 <Div className='div-resource'>
                     <Div className='div-mapbox'>
-                        <Mapbox resources={props && props.mapData}/>
+                        {/* <Mapbox resources={props && props.mapData} /> */}
                     </Div>
                     <Div className='div-list'>
                         <List data={props && props.mapData} type={'resource'}/>

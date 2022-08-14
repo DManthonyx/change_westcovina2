@@ -23,8 +23,6 @@ const Calender = (props) => {
   const [month, setMonth] = useState(day.getMonth());
   const [year, setYear] = useState(day.getFullYear());
   const [eventPicked, setEventPicked] = useState({});
-  let monthAndYear = ''
-  let currentDay = day.getDay();
   const months = ["Janruary", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
   const daysInMonth = (month, year) =>  {
@@ -128,8 +126,6 @@ const Calender = (props) => {
       });
     }
   };
-
-  // console.log(eventPicked, 'picked')
 
   useEffect(() => {
     firstEvent();

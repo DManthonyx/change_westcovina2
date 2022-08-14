@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { CreateUser  } from '../../Store/Actions/authActions';
+import { CreateUser  } from '../../store/actions/authActions';
 
 
 import {
-    Footerr,
+    Wrapper,
     Sec,
     Div,
     Ul,
@@ -33,7 +33,7 @@ const Footer = (props) => {
     }
     return (
         <div style={{display: "block"}}>
-        <Footerr>
+        <Wrapper>
             <Sec>
                 <Div>
                     <Ul>
@@ -87,7 +87,7 @@ const Footer = (props) => {
                     </Form>
                 </SocialWrapper>
             </Sec> 
-        </Footerr>
+        </Wrapper>
         </div>
     );
 };

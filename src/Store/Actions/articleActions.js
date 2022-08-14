@@ -3,10 +3,8 @@ export const CreateArticle = (payload) => {
     return (dispatch, getState, { getFirebase, getFirestore }) => {
         const firebase = getFirebase();
         const firestore = getFirestore();
-        const name = `${new Date()}-${payload.image.name}`
         firestore.collection('articles').add({
             name: payload.name,
-            date: payload.date,
             title: payload.title,
             article: payload.article,
             date: new Date()
@@ -20,7 +18,6 @@ export const CreateArticle = (payload) => {
 
             return;
         }).catch(err => {
-            console.log({err}, 'from article action');
             return err;
         });
     };

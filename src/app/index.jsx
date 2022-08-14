@@ -1,22 +1,27 @@
 import React, { useEffect } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import { connect } from 'react-redux';
-import ScrollToTop from '../components/ScrollToTop';
 
-import { InitApp } from '../store/Actions/initActions';
+// redux
+import { connect } from 'react-redux';
+import { InitApp } from '../store/actions/initActions';
 
 // Pages
-import Header from '../pages/Header';
-import Footer from '../components/Footer';
 import Home from '../pages/Home';
 import About from '../pages/About';
 import Updates from '../pages/Updates';
 import Resources from '../pages/Resources';
 import GetConnected from '../pages/GetConnected';
-import Article from '../pages/Article';
+import Articles from '../pages/Articles';
 import My404 from '../pages/My404';
 
+// Components
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import ScrollToTop from '../components/ScrollToTop';
+
+
+// styles
 import {
     PageWrapper,
     ContentWrapper,
@@ -24,41 +29,40 @@ import {
 } from './style';
 
 const App = ({location,  initApp}) => {
-    console.log(initApp, 'hit <<<')
+
     useEffect(() => {
         initApp()
     },[initApp]);
 
     return (
-        <PageWrapper>
+        <PageWrapper className='page-wrapper'>
         <Header />
-        <ContentWrapper>
+        <ContentWrapper className='content-wrapper'>
         <TransitionGroup className="transition-group">
         <CSSTransition key={location.key} timeout={{ enter: 300, exit: 300 }} classNames="fade">
         <Section className="route-section">
         <ScrollToTop>
         <Switch>
-            <Route path='/' render={() => <Home /> }  />
+            <Route path='/home' render={() => <Home /> }  />
             <Route path='/who-we-are' render={() => <About />}  />
             <Route path='/updates' render={() => <Updates />}  />
             <Route path='/resources' render={() => <Resources />}  />
             <Route path='/get-connected' render={() => <GetConnected />}  />
-            <Route path='/article' render={() => <Article />}  />
+            <Route path='/articles' render={() => <Articles />}  />
             <Route component={ My404 } />
         </Switch>
         </ScrollToTop>
-        <Footer />
         </Section>
         </CSSTransition>
         </TransitionGroup>
         </ContentWrapper>
+        <Footer />
         </PageWrapper>
     )
 };
 
 const mapStateToProps = (state) => {
     return {
-        authError: state.auth.authError,
         state: state
     }
 };

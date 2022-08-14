@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { CreateUser  } from '../../Store/Actions/authActions';
-import { UpdateCurrentArticle  } from '../../Store/Actions/articleActions';
+import { CreateUser  } from '../../store/actions/authActions';
+import { UpdateCurrentArticle  } from '../../store/actions/articleActions';
 
 import {
     Main,
@@ -34,11 +34,7 @@ const Home = (props) => {
     }
 
     const scrollToEmail = () => {
-        console.log('hit')
-        const width = window.innerWidth;
         window.scroll({ top: 750, left: 0, behavior: 'smooth'});
-        // if(width > 1148) {
-        // }
     }
 
     return (

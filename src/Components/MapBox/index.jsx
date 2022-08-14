@@ -1,11 +1,9 @@
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 
 import {
     Div,
-    Button,
-    Img,
     Pin
 } from './style';
 

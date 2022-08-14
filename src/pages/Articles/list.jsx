@@ -11,7 +11,6 @@ const List = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state.firestore.data)
     return {
        messages: state.firestore.data
     }

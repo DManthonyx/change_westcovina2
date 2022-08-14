@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from './app';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
-import rootReducer from './Store/Reducers/rootReducer';
+import rootReducer from './store/reducers/rootReducer';
 import { Provider } from 'react-redux';
 import { reduxFirestore, getFirestore } from 'redux-firestore';
 import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
 import thunk from 'redux-thunk';
-import fbConfig from './Components/Firebase/fbConfig';
+import fbConfig from './components/Firebase/fbConfig';
 //import ScrollToTop from '../src/Components/ScrollToTop'
 
 const store = createStore(rootReducer,
@@ -16,7 +16,7 @@ const store = createStore(rootReducer,
     applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
     reduxFirestore(fbConfig),
     reactReduxFirebase(fbConfig),
-  ));
+));
 
 
 

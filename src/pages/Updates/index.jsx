@@ -2,9 +2,9 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import Calendar from '../../Components/Calender';
-import List from '../../Components/List';
-import { UpdateCurrentArticle  } from '../../Store/Actions/articleActions';
+import Calendar from '../../components/Calender';
+import List from '../../components/List';
+import { UpdateCurrentArticle  } from '../../store/actions/articleActions';
 
 import {
     Main,
@@ -12,16 +12,8 @@ import {
     SubSection,
     Title,
     Div,
-    H2,
     SubTitle,
     ArticleWrap,
-    ArticleDiv,
-    Img,
-    P,
-    Span,
-    SubSpan,
-    Selfie,
-    Btn,
     MeetingWrap,
     MeetingDiv,
     MeetingNum,
@@ -32,7 +24,7 @@ import {
 } from './style';
 
 const Updates = (props) => {
-    const { articles, updateCurrent } = props;
+
     return (
         <Main>
             <Title>Updates</Title>

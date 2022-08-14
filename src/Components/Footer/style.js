@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-export const Footerr = styled.footer`
+// cannot be namer Footer because its being used in a Footer component 
+export const Wrapper = styled.footer`
     padding: 50px 0px;
     background: #313030;
     width: 100%;

@@ -1,25 +1,28 @@
-const initState = {
-
-};
+const initState = {};
 
 const articleReducer = (state = initState, action) => {
+    let result = state;
     switch(action.type) {
         case 'CREATE_MESSAGE':
-            return state;
+            result = state;
+            break;
         case 'GET_ALL_ARTICLES':
-            return {
+            result = {
                 ...state,
                 articles: action.data,
                 current: action.data[0]
             };
+            break;
         case 'UPDATE_CURRENT_ARTICLE':
-            return {
+            result = {
                 ...state,
                 current: action.data
             };
+            break;
         default:
-            return state;
+            result = state;
     };
+    return result;
 };
 
 export default articleReducer;

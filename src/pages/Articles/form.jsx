@@ -1,20 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
-import { CreateArticle } from '../../Store/Actions/articleActions'
-import { Controller, useForm } from 'react-hook-form'
+import { CreateArticle } from '../../store/actions/articleActions'
 
 
 
 const Form = (props) => {
-
-    const { register, handleSubmit, errors, watch } = useForm();
 
     const submit = (data) => {
         props.createArticle(data)
     }
 
     return (
-        <form onSubmit={handleSubmit(submit)}>
+        <form onSubmit={submit}>
          
        </form>
     )

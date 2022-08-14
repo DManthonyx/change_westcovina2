@@ -1,4 +1,4 @@
-export const ROUTES = ['home', 'who we are', 'article', 'updates', 'resources'];
+export const ROUTES = ['home', 'who we are', 'articles', 'updates', 'resources'];
 
 export const colors = {
     main: '#cb7217',

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 import {
@@ -8,10 +8,10 @@ import {
     P
 } from './style';
 
-const List = (props) => {
+const event = 'event';
 
-    const resource = 'resource';
-    const event = 'event';
+const List = (props) => {
+    
 
     return (
         <Ul>
