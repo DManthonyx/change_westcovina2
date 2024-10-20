@@ -74,17 +74,18 @@ export const CrisisTalkLinesData = () => {
     };
 };
 
-export const EventsData = () => {
+export const getEventsData = () => {
     return (dispatch, getState, { getFirebase, getFirestore }) => {
         try {
             const data = [];
             const firestore = getFirestore();
-            const event = firestore.collection('events').orderBy('timestamp','desc').get()
+            firestore.collection('events').orderBy('timestamp','desc').get()
             .then(function(querySnapshot) {
                 querySnapshot.forEach(function(doc) {
                     data.push(doc.data());
                 });
             }).then(() => {
+                console.log({data})
                 dispatch({type: 'GET_EVENTS_DATA', data})
             });
         } catch(err) {

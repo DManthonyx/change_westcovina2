@@ -3,8 +3,8 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 // components
-import Hamburger from '../Hamburger';
-import NavBar from '../NavBar';
+import Hamburger from '../hamburger';
+import NavBar from '../nav-bar';
 
 // helpers
 import { ROUTES } from '../../helpers/const';

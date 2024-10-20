@@ -3,8 +3,8 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 // components
-import List from '../../components/List';
-import { Mapbox } from '../../components/MapBox'
+import List from '../../components/list';
+import { Mapbox } from '../../components/map-box'
 
 import {
     Main,

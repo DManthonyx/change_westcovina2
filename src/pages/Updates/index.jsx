@@ -2,8 +2,8 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import Calendar from '../../components/Calender';
-import List from '../../components/List';
+import Calendar from '../../components/calender';
+import List from '../../components/list';
 import { UpdateCurrentArticle  } from '../../store/actions/articleActions';
 
 import {
@@ -20,7 +20,14 @@ import {
     H3,
     Num,
     NumP,
-    DivLine
+    DivLine,
+    ArticleDiv,
+    Img,
+    P,
+    Span,
+    Selfie,
+    SubSpan,
+    Btn,
 } from './style';
 
 const Updates = (props) => {
@@ -40,7 +47,7 @@ const Updates = (props) => {
             <SubSection>
                 <SubTitle>IN OUR WORDS</SubTitle>
                 <ArticleWrap>
-                    {/* {articles && articles.map((article, i) => {
+                    {props.articles && props.articles.map((article, i) => {
                         return (
                             <ArticleDiv key={i}>
                                 <Img src={article.article_img} />
@@ -53,10 +60,10 @@ const Updates = (props) => {
                                 </Span>
                                 <P>{article.article.slice(0, 200)}...
                                 </P>
-                                <Btn to='/article' onClick={() => updateCurrent(article)}>Read More</Btn>
+                                <Btn to='/article' onClick={() => props.updateCurrent(article)}>Read More</Btn>
                             </ArticleDiv>
                         )
-                    })} */}
+                    })}
                 </ArticleWrap>
             </SubSection>
             </Section>

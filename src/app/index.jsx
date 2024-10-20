@@ -5,7 +5,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 // redux
 import { connect } from 'react-redux';
 import { InitApp } from '../store/actions/initActions';
-
+import { getEventsData } from '../store/actions/resourceActions'
 // Pages
 import Home from '../pages/home';
 import About from '../pages/about';
@@ -16,9 +16,9 @@ import Articles from '../pages/articles';
 import My404 from '../pages/my404';
 
 // Components
-import Header from '../components/Header/index';
-import Footer from '../components/Footer/index';
-import ScrollToTop from '../components/ScrollToTop';
+import Header from '../components/header/index';
+import Footer from '../components/footer/index';
+import ScrollToTop from '../helpers/utilities/scroll-to-top';
 
 
 // styles
@@ -28,10 +28,12 @@ import {
     Main
 } from './style';
 
-const App = ({location,  initApp}) => {
+const App = ({location,  initApp, getEventsData}) => {
 
     useEffect(() => {
-        initApp()
+        // initApp()
+        console.log('<------')
+        getEventsData()
     },[initApp]);
 
     return (
@@ -70,6 +72,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         initApp: () => dispatch(InitApp()),
+        getEventsData: () => dispatch(getEventsData())
     }
 };
 
