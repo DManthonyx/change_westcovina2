@@ -5,7 +5,7 @@ export const InitApp = () => {
             const firestore = getFirestore();
             firestore.collection('communityResource').get()
             .then(function(querySnapshot) {
-      
+                console.log({querySnapshot})
             }).then(() => {
                 dispatch({type: 'INIT_APP', state})
             });

@@ -7,7 +7,7 @@ import {
     Pin
 } from './style';
 
-const Mapbox = (props) => {
+export const Mapbox = (props) => {
     const [viewport, setViewport] = useState({
         latitude: 34.057450,
         longitude: -117.908000,
@@ -61,5 +61,3 @@ const Mapbox = (props) => {
         </Div>
     );
 };
-
-export default Mapbox;

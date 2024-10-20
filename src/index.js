@@ -3,13 +3,12 @@ import ReactDOM from 'react-dom';
 import App from './app';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
-import rootReducer from './store/reducers/rootReducer';
+import rootReducer from './store/Reducers/rootReducer';
 import { Provider } from 'react-redux';
 import { reduxFirestore, getFirestore } from 'redux-firestore';
 import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
 import thunk from 'redux-thunk';
 import fbConfig from './components/Firebase/fbConfig';
-//import ScrollToTop from '../src/Components/ScrollToTop'
 
 const store = createStore(rootReducer,
   compose(

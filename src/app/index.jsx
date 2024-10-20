@@ -7,17 +7,17 @@ import { connect } from 'react-redux';
 import { InitApp } from '../store/actions/initActions';
 
 // Pages
-import Home from '../pages/Home';
-import About from '../pages/About';
-import Updates from '../pages/Updates';
-import Resources from '../pages/Resources';
-import GetConnected from '../pages/GetConnected';
-import Articles from '../pages/Articles';
-import My404 from '../pages/My404';
+import Home from '../pages/home';
+import About from '../pages/about';
+import Updates from '../pages/updates';
+import Resources from '../pages/resources';
+import GetConnected from '../pages/get-connected';
+import Articles from '../pages/articles';
+import My404 from '../pages/my404';
 
 // Components
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from '../components/Header/index';
+import Footer from '../components/Footer/index';
 import ScrollToTop from '../components/ScrollToTop';
 
 
@@ -25,7 +25,7 @@ import ScrollToTop from '../components/ScrollToTop';
 import {
     PageWrapper,
     ContentWrapper,
-    Section
+    Main
 } from './style';
 
 const App = ({location,  initApp}) => {
@@ -40,7 +40,7 @@ const App = ({location,  initApp}) => {
         <ContentWrapper className='content-wrapper'>
         <TransitionGroup className="transition-group">
         <CSSTransition key={location.key} timeout={{ enter: 300, exit: 300 }} classNames="fade">
-        <Section className="route-section">
+        <Main>
         <ScrollToTop>
         <Switch>
             <Route path='/home' render={() => <Home /> }  />
@@ -52,7 +52,7 @@ const App = ({location,  initApp}) => {
             <Route component={ My404 } />
         </Switch>
         </ScrollToTop>
-        </Section>
+        </Main>
         </CSSTransition>
         </TransitionGroup>
         </ContentWrapper>

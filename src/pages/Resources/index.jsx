@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 
 // components
 import List from '../../components/List';
-import MapBox from '../../components/MapBox';
-
+import { Mapbox } from '../../components/MapBox'
 
 import {
     Main,
@@ -28,7 +27,7 @@ const Resources = (props) => {
                 <SubTitle>CITY RESOURCES</SubTitle>
                 <Div className='div-resource'>
                     <Div className='div-mapbox'>
-                        {/* <Mapbox resources={props && props.mapData} /> */}
+                        <Mapbox resources={props && props.mapData} />
                     </Div>
                     <Div className='div-list'>
                         <List data={props && props.mapData} type={'resource'}/>

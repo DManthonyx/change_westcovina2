@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Section = styled.section`
+export const Main = styled.main`
 `
 
 export const PageWrapper = styled.div`
@@ -27,14 +27,5 @@ export const ContentWrapper = styled.div`
 
   div.transition-group {
     position: relative;
-  }
-
-  section.route-section {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    // @media (max-width: 499px) {
-    //    width: auto;
-    // }
   }
 `;
